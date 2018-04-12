@@ -1,5 +1,8 @@
 #!/bin/bash
 
+rm data/cache/*
+rm data/aphylla_devkit/annotations_cache/*
+
 set -x
 set -e
 
@@ -36,6 +39,15 @@ case ${DATASET} in
     TEST_IMDB="coco_2014_minival"
     STEPSIZE="[350000]"
     ITERS=490000
+    ANCHORS="[4,8,16,32]"
+    RATIOS="[0.5,1,2]"
+    ;;
+  aphylla)
+    TRAIN_IMDB="aphylla_trainval"
+    TEST_IMDB="aphylla_test"
+#   STEPSIZE="[5000]"
+    STEPSIZE="[50000]"
+    ITERS=70000
     ANCHORS="[4,8,16,32]"
     RATIOS="[0.5,1,2]"
     ;;

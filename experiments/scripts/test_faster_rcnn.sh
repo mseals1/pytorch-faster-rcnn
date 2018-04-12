@@ -18,7 +18,7 @@ case ${DATASET} in
   pascal_voc)
     TRAIN_IMDB="voc_2007_trainval"
     TEST_IMDB="voc_2007_test"
-    ITERS=70000
+    ITERS=60000
     ANCHORS="[8,16,32]"
     RATIOS="[0.5,1,2]"
     ;;
@@ -33,6 +33,13 @@ case ${DATASET} in
     TRAIN_IMDB="coco_2014_train+coco_2014_valminusminival"
     TEST_IMDB="coco_2014_minival"
     ITERS=490000
+    ANCHORS="[4,8,16,32]"
+    RATIOS="[0.5,1,2]"
+    ;;
+  aphylla)
+    TRAIN_IMDB="aphylla_trainval"
+    TEST_IMDB="aphylla_test"
+    ITERS=70000
     ANCHORS="[4,8,16,32]"
     RATIOS="[0.5,1,2]"
     ;;

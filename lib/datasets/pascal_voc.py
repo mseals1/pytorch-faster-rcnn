@@ -71,7 +71,7 @@ class pascal_voc(imdb):
     image_path = os.path.join(self._data_path, 'JPEGImages',
                               index + self._image_ext)
     assert os.path.exists(image_path), \
-      'Path does not exist: {}'.format(image_path)
+        'Path does not exist: {}'.format(image_path)
     return image_path
 
   def _load_image_set_index(self):
@@ -83,9 +83,9 @@ class pascal_voc(imdb):
     image_set_file = os.path.join(self._data_path, 'ImageSets', 'Main',
                                   self._image_set + '.txt')
     assert os.path.exists(image_set_file), \
-      'Path does not exist: {}'.format(image_set_file)
+        'Path does not exist: {}'.format(image_set_file)
     with open(image_set_file) as f:
-      image_index = [x.strip() for x in f.readlines()]
+        image_index = [x.strip() for x in f.readlines()]
     return image_index
 
   def _get_default_path(self):
