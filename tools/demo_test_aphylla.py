@@ -136,7 +136,7 @@ if __name__ == '__main__':
         net = vgg16()
     else:
         raise NotImplementedError
-    net.create_architecture(22, tag='default', anchor_scales=[8, 16, 32])
+    net.create_architecture(22, tag='default', anchor_scales=[4, 8, 16, 32])
 
     net.load_state_dict(torch.load(saved_model))
 
