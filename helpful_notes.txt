@@ -1,0 +1,58 @@
+Getting nvcc installed:
+	- https://askubuntu.com/questions/799184/how-can-i-install-cuda-on-ubuntu-16-04
+	- Install CUDA 8.0: sudo sh cuda_8.0.61_375.26_linux.run --override (only cuda toolkit)
+	- update the ~/.bashrc with
+	    - export PATH=$PATH:/usr/local/cuda-8.0/bin
+	    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64
+
+Getting pytorch-faster-rcnn running on AWS:
+    - source activate pytorch_p36
+    - follow instructions on https://github.com/ruotianluo/pytorch-faster-rcnn
+    
+    - 
+
+
+    
+Jupyter password:  'sha1:973298cbd0c3:c07d05a81c939b50275cdd5bab0b5bd8feeda6fd'
+
+ssh -i ~/.ssh/mykeypair_free.pem ubuntu@(*IP address*)
+
+scp -i ~/.ssh/mykeypair_free.pem ubuntu@35.166.132.94:~/pytorch-faster-rcnn/tools/demo_test.py /home/mseals1/Documents/
+
+ls Annotations/ -m | sed s/\\s/\\n/g | sed s/.xml//g | sed s/,/\ 1/g > ImageSets/train.txt
+
+Follow the following guides to train on custom dataset
+    - https://github.com/rbgirshick/py-faster-rcnn/issues/243
+    - https://github.com/deboc/py-faster-rcnn/tree/master/help
+    
+    
+mseals1@imaging172-l:~/Documents/pytorch-faster-rcnn$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   .gitignore
+	deleted:    README.md
+	deleted:    data/.gitignore
+	deleted:    data/demo/000456.jpg
+	deleted:    data/demo/000542.jpg
+	deleted:    data/demo/001150.jpg
+	deleted:    data/demo/001763.jpg
+	deleted:    data/demo/004545.jpg
+	deleted:    data/imgs/gt.png
+	deleted:    data/imgs/pred.png
+	deleted:    data/scripts/fetch_faster_rcnn_models.sh
+	modified:   experiments/scripts/test_faster_rcnn.sh
+	modified:   experiments/scripts/train_faster_rcnn.sh
+	modified:   lib/datasets/factory.py
+	modified:   lib/datasets/imdb.py
+	modified:   lib/datasets/pascal_voc.py
+	modified:   lib/layer_utils/roi_pooling/_ext/roi_pooling/__init__.py
+	modified:   lib/model/test.py
+	modified:   lib/model/train_val.py
+	modified:   tools/demo.py
+	new file:   tools/demo_test.py
+	new file:   tools/demo_test_aphylla.py
+	modified:   tools/trainval_net.py
+
