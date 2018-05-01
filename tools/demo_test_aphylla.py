@@ -29,18 +29,31 @@ import cv2
 import argparse
 from matplotlib import cm
 from nets.vgg16 import vgg16
+from natsort import natsorted
 
 import torch
 
-CLASSES = ('__background__', 'dragonfly',
+# VOC only
+CLASSES = ('__background__',
            'aeroplane', 'bicycle', 'bird', 'boat',
            'bottle', 'bus', 'car', 'cat', 'chair',
            'cow', 'diningtable', 'dog', 'horse',
            'motorbike', 'person', 'pottedplant',
            'sheep', 'sofa', 'train', 'tvmonitor')
 
+# VOC + Aphylla
+# CLASSES = ('__background__', 'dragonfly',
+#            'aeroplane', 'bicycle', 'bird', 'boat',
+#            'bottle', 'bus', 'car', 'cat', 'chair',
+#            'cow', 'diningtable', 'dog', 'horse',
+#            'motorbike', 'person', 'pottedplant',
+#            'sheep', 'sofa', 'train', 'tvmonitor')
+
+# Aphylla only
+# CLASSES = ('__background__', 'dragonfly')
+
 NETS = {'vgg16': ('vgg16_faster_rcnn_iter_%d.pth',)}
-DATASETS = {'aphylla': ('aphylla_trainval',)}
+DATASETS = {'aphylla': ('aphylla_trainval',), 'pascal_voc': ('voc_2007_trainval',)}
 
 COLORS = [cm.tab10(i) for i in np.linspace(0., 1., 10)]
 
@@ -60,7 +73,7 @@ def demo(net, image_name):
     print('Detection took {:.3f}s for {:d} object proposals'.format(timer.total_time(), boxes.shape[0]))
 
     # Visualize detections for each class
-    thresh = 0.8  # CONF_THRESH
+    thresh = 0  # CONF_THRESH
     NMS_THRESH = 0.3
 
     im = im[:, :, (2, 1, 0)]
@@ -69,6 +82,7 @@ def demo(net, image_name):
     cntr = -1
 
     for cls_ind, cls in enumerate(CLASSES[1:]):
+        ss = []
         cls_ind += 1  # because we skipped background
         cls_boxes = boxes[:, 4*cls_ind:4*(cls_ind + 1)]
         cls_scores = scores[:, cls_ind]
@@ -96,6 +110,11 @@ def demo(net, image_name):
                     '{:s} {:.3f}'.format(cls, score),
                     bbox=dict(facecolor='blue', alpha=0.5),
                     fontsize=14, color='white')
+            ss.append(score)
+
+        ss = np.array(ss)
+        if cls == 'person' or cls == 'dog' or cls == 'horse':
+            print("{:s} confidence: {:.3f}".format(cls, np.amax(ss)))
 
         ax.set_title('All detections with threshold >= {:.1f}'.format(thresh), fontsize=14)
 
@@ -136,7 +155,9 @@ if __name__ == '__main__':
         net = vgg16()
     else:
         raise NotImplementedError
-    net.create_architecture(22, tag='default', anchor_scales=[4, 8, 16, 32])
+
+    # class number needs to be modified, 21 for VOC only, 22 for VOC + Aphylla, 2 for Aphylla only
+    net.create_architecture(21, tag='default', anchor_scales=[8, 16, 32])
 
     net.load_state_dict(torch.load(saved_model))
 
@@ -147,6 +168,8 @@ if __name__ == '__main__':
 
     im_names = [i for i in os.listdir('data/demo/')  # Pull in all jpgs
                 if i.lower().endswith(".jpg")]
+
+    im_names = natsorted(im_names)
 
     for im_name in im_names:
         print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')

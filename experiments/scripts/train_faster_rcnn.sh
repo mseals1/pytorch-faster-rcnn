@@ -2,6 +2,7 @@
 
 rm data/cache/*
 rm data/aphylla_devkit/annotations_cache/*
+rm data/VOCdevkit2007/annotations_cache/*
 
 set -x
 set -e
