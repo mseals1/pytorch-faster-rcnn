@@ -230,8 +230,8 @@ class aphylla(imdb):
                 filename, annopath, imagesetfile, cls, cachedir, ovthresh=0.5)
             aps += [ap]
             print(('AP for {} = {:.4f}'.format(cls, ap)))
-            # print("recall = ", rec)
-            # print("precision = ", prec)
+            print("recall = ", rec)
+            print("precision = ", prec)
             with open(os.path.join(output_dir, cls + '_pr.pkl'), 'wb') as f:
                 pickle.dump({'rec': rec, 'prec': prec, 'ap': ap}, f)
         print(('Mean AP = {:.4f}'.format(np.mean(aps))))

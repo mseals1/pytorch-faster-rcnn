@@ -44,7 +44,8 @@ case ${DATASET} in
     TRAIN_IMDB="aphylla_trainval"
     TEST_IMDB="aphylla_test"
     ITERS=70000
-    ANCHORS="[4,8,16,32]"
+    # ANCHORS="[4,8,16,32]"
+    ANCHORS="[8,16,32]"
     RATIOS="[0.5,1,2]"
     ;;
   *)

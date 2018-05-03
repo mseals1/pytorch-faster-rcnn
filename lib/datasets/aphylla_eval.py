@@ -199,9 +199,10 @@ def aphylla_eval(detpath,
                 fp[d] = 1.
 
             ovs[image_ids[d]].append(ovmax)
-
+    print('\n\n')
     for k, v in ovs.items():
-        print(k, sorted(v, reverse=True)[0])
+        print("im_name =", k)
+        print("max IoU =", sorted(v, reverse=True)[0], '\n')
 
     # compute precision recall
     fp = np.cumsum(fp)
