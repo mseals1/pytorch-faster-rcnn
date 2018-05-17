@@ -111,7 +111,7 @@ class pascal_voc(imdb):
             return roidb
 
         gt_roidb = [self._load_pascal_annotation(index)
-                    for index in self.image_index]
+                                for index in self.image_index]
         with open(cache_file, 'wb') as fid:
             pickle.dump(gt_roidb, fid, pickle.HIGHEST_PROTOCOL)
         print('wrote gt roidb to {}'.format(cache_file))
@@ -142,9 +142,7 @@ class pascal_voc(imdb):
         Load image and bounding boxes info from XML file in the PASCAL VOC
         format.
         """
-        filename = os.path.join(self._data_path, 'Annotations', index.split("_")[0] + '.xml')
-        print(filename)
-        exit()
+        filename = os.path.join(self._data_path, 'Annotations', index + '.xml')
         tree = ET.parse(filename)
         objs = tree.findall('object')
         if not self.config['use_diff']:
@@ -242,17 +240,11 @@ class pascal_voc(imdb):
             if cls == '__background__':
                 continue
             filename = self._get_voc_results_file_template().format(cls)
-            # rec, prec, ap = voc_eval(
-            #     filename, annopath, imagesetfile, cls, cachedir, ovthresh=0.5,
-            #     use_07_metric=False, use_diff=self.config['use_diff'])
             rec, prec, ap = voc_eval(
                 filename, annopath, imagesetfile, cls, cachedir, ovthresh=0.5,
                 use_07_metric=use_07_metric, use_diff=self.config['use_diff'])
             aps += [ap]
             print(('AP for {} = {:.4f}'.format(cls, ap)))
-            # if ap > 0:
-            #    print("recall = ", rec)
-            #    print("precision = ", prec, '\n')
             with open(os.path.join(output_dir, cls + '_pr.pkl'), 'wb') as f:
                 pickle.dump({'rec': rec, 'prec': prec, 'ap': ap}, f)
         print(('Mean AP = {:.4f}'.format(np.mean(aps))))

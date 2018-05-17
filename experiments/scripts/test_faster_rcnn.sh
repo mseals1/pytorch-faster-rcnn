@@ -3,6 +3,7 @@
 rm data/cache/*
 rm data/aphylla_devkit/annotations_cache/*
 rm data/VOCdevkit2007/annotations_cache/*
+rm data/VOCdevkit2007/VOC2007/ImageSets/Main/*.pkl
 
 set -x
 set -e

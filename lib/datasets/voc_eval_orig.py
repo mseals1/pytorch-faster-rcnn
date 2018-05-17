@@ -11,7 +11,6 @@ import xml.etree.ElementTree as ET
 import os
 import pickle
 import numpy as np
-from collections import defaultdict
 
 
 def parse_rec(filename):
@@ -114,7 +113,7 @@ def voc_eval(detpath,
         # load annotations
         recs = {}
         for i, imagename in enumerate(imagenames):
-            recs[imagename] = parse_rec(annopath.format(imagename.split("_")[0]))
+            recs[imagename] = parse_rec(annopath.format(imagename))
             if i % 100 == 0:
                 print('Reading annotation for {:d}/{:d}'.format(
                     i + 1, len(imagenames)))
@@ -159,7 +158,6 @@ def voc_eval(detpath,
     nd = len(image_ids)
     tp = np.zeros(nd)
     fp = np.zeros(nd)
-    ovs = defaultdict(list)
 
     if BB.shape[0] > 0:
         # sort by confidence
@@ -204,20 +202,6 @@ def voc_eval(detpath,
                         fp[d] = 1.
             else:
                 fp[d] = 1.
-
-            ovs[image_ids[d]].append(ovmax)
-    # print('\n\n')
-    for k, v in ovs.items():
-        val = sorted(v, reverse=True)[0]
-        if val >= 0:
-            print('\n', classname)
-            print('im_name =', k)
-            print('max IoU =', val)
-            print('confidence =', np.amax(confidence))
-            cstp = np.cumsum(tp)
-            csfp = np.cumsum(fp)
-            print('recall =', cstp / float(npos))
-            print('precision =', cstp / np.maximum(cstp + csfp, np.finfo(np.float64).eps), '\n')
 
     # compute precision recall
     fp = np.cumsum(fp)

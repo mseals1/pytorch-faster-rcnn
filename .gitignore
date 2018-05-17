@@ -106,3 +106,4 @@ venv.bak/
 
 output/
 data/
+degradation_scripts/test_deg_voc/
