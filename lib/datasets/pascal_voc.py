@@ -143,8 +143,6 @@ class pascal_voc(imdb):
         format.
         """
         filename = os.path.join(self._data_path, 'Annotations', index.split("_")[0] + '.xml')
-        print(filename)
-        exit()
         tree = ET.parse(filename)
         objs = tree.findall('object')
         if not self.config['use_diff']:

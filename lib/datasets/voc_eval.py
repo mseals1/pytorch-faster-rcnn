@@ -13,6 +13,8 @@ import pickle
 import numpy as np
 from collections import defaultdict
 
+np.set_printoptions(threshold=np.inf, linewidth=np.inf)
+
 
 def parse_rec(filename):
     """ Parse a PASCAL VOC xml file """
@@ -206,6 +208,7 @@ def voc_eval(detpath,
                 fp[d] = 1.
 
             ovs[image_ids[d]].append(ovmax)
+
     # print('\n\n')
     for k, v in ovs.items():
         val = sorted(v, reverse=True)[0]
@@ -213,11 +216,11 @@ def voc_eval(detpath,
             print('\n', classname)
             print('im_name =', k)
             print('max IoU =', val)
-            print('confidence =', np.amax(confidence))
-            cstp = np.cumsum(tp)
-            csfp = np.cumsum(fp)
-            print('recall =', cstp / float(npos))
-            print('precision =', cstp / np.maximum(cstp + csfp, np.finfo(np.float64).eps), '\n')
+            # print('confidence =', np.amax(confidence))
+            # cstp = np.cumsum(tp)
+            # csfp = np.cumsum(fp)
+            # print('recall =', cstp / float(npos))
+            # print('precision =', cstp / np.maximum(cstp + csfp, np.finfo(np.float64).eps), '\n')
 
     # compute precision recall
     fp = np.cumsum(fp)
