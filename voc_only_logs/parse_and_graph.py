@@ -9,10 +9,10 @@ def parse(inputfn):
     clsns = []
     imns = []
     ious = []
-    confs = []
-    recs = []
-    precs = []
-    aps = {}
+    # recs = []
+    # precs = []
+    avgps = {}
+    meanap = 0
 
     classes = [' aeroplane', ' bicycle', ' bird', ' boat',
                ' bottle', ' bus', ' car', ' cat', ' chair',
@@ -23,6 +23,14 @@ def parse(inputfn):
     with open(inputfn, 'r') as f:
         lines = f.readlines()
         for i, l in enumerate(lines):
+            if 'Mean AP = ' in l:
+                meanap = l.split(" ")[-1][:-1]
+
+            if 'AP for ' in l:
+                c = l.split(" ")[2]
+                ap = l.split(" ")[-1][:-1]
+                avgps[c] = ap
+
             if any(l[:-1] == cls for cls in classes):
                 # print(lines[i:i+7])
 
@@ -31,35 +39,39 @@ def parse(inputfn):
                     imns.append(lines[i + 1].split(" ")[2][:-1])
                 if 'max IoU = ' in lines[i + 2]:
                     ious.append(float(lines[i + 2].split(" ")[3][:-1]))
-                if 'confidence = ' in lines[i + 3]:
-                    confs.append(float(lines[i + 3].split(" ")[2][:-1]))
-                if 'recall = ' in lines[i + 4]:
-                    arr1 = lines[i + 4][11:-2]
-                    arr = []
-                    for a in arr1.split():
-                        arr.append(float(a))
-                    recs.append(arr)
-                else:
-                    recs.append([])
-                if 'precision = ' in lines[i + 5]:
-                    arr2 = lines[i + 5][13:-4]
-                    arr = []
-                    for a in arr2.split():
-                        arr.append(float(a))
-                    precs.append(arr)
-                else:
-                    precs.append([])
+                # if 'confidence = ' in lines[i + 3]:
+                #     confs.append(float(lines[i + 3].split(" ")[2][:-1]))
+                # if 'recall = ' in lines[i + 4]:
+                #     arr1 = lines[i + 4][11:-2]
+                #     arr = []
+                #     for a in arr1.split():
+                #         arr.append(float(a))
+                #     recs.append(arr)
+                # else:
+                #     recs.append([])
+                # if 'precision = ' in lines[i + 5]:
+                #     arr2 = lines[i + 5][13:-4]
+                #     arr = []
+                #     for a in arr2.split():
+                #         arr.append(float(a))
+                #     precs.append(arr)
+                # else:
+                #     precs.append([])
 
-    return clsns, imns, ious, confs, recs, precs
+    return clsns, imns, ious, avgps, meanap
 
 
-def csvwriter(clsns, imns, ious, confs, recs, precs):
-    with open(r'/home/mseals1/Documents/aphylla/logs/voc_only/log.csv', 'w') as f:
+def csvwriter(inputdir, clsns, imns, ious, ap, meanap):
+    csvfn = inputdir[:-4] + '.csv'
+
+    with open(csvfn, 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(['image', 'class', 'maxIoU', 'confidence', 'recall', 'precision'])
+        writer.writerow(['image', 'parameter', 'class', 'maxIoU', 'AP', 'mAP'])
 
         for i in range(len(clsns)):
-            writer.writerow([imns[i], clsns[i], ious[i], confs[i], recs[i], precs[i]])
+            writer.writerow([imns[i], imns[i].split("_")[-1], clsns[i], ious[i], ap[clsns[i]], meanap])
+
+    return csvfn
 
 
 parser = argparse.ArgumentParser(description='Translates CSV into XML')
@@ -68,30 +80,20 @@ args = parser.parse_args()
 
 inp_fn = args.inp_file
 
-classnames, imnames, maxious, confidences, recalls, precisions = parse(inp_fn)
+classnames, imnames, maxious, aps, meap = parse(inp_fn)
 
-# print(classnames, '\n', imnames, '\n', maxious, '\n', confidences, '\n', recalls, '\n', precisions)
+# print(classnames, '\n', imnames, '\n', maxious, '\n', aps, '\n', meap)
 
-csvwriter(classnames, imnames, maxious, confidences, recalls, precisions)
+fn = csvwriter(inp_fn, classnames, imnames, maxious, aps, meap)
 
-exit()
+# exit()
 
-# plt.figure(figsize=(2, 3), dpi=500)
-
-# print(len(iters))
-plt.subplot(2, 3, 1)
-plt.plot(iters, losses)
-plt.title('losses')
-plt.subplot(2, 3, 2)
-plt.plot(iters, rpn_cls)
-plt.title('rpn_loss_cls')
-plt.subplot(2, 3, 3)
-plt.plot(iters, rpn_box)
-plt.title('rpn_loss_box')
-plt.subplot(2, 3, 4)
-plt.plot(iters, loss_cls)
-plt.title('loss_cls')
-plt.subplot(2, 3, 5)
-plt.plot(iters, loss_box)
-plt.title('loss_box')
-plt.show()
+# df = pd.read_csv(fn)
+#
+# df_ap = df.drop_duplicates(subset='AP')
+# df_ap = df_ap.drop(labels=['image', 'maxIoU', 'mAP'], axis=1)
+#
+# df_iou = df.drop(labels=['AP', 'mAP'], axis=1)
+# boxplot = df_iou.boxplot(by=['class'])
+#
+# plt.show()

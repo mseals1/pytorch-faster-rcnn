@@ -1,0 +1,7610 @@
++ echo Logging output to experiments/logs/test_vgg16_voc_2007_trainval_.txt.2018-05-21_22-58-58
+Logging output to experiments/logs/test_vgg16_voc_2007_trainval_.txt.2018-05-21_22-58-58
++ set +x
++ [[ ! -z '' ]]
++ CUDA_VISIBLE_DEVICES=0
++ time python ./tools/test_net.py --imdb voc_2007_test --model output/vgg16/voc_2007_trainval/default/vgg16_faster_rcnn_iter_70000.pth --cfg experiments/cfgs/vgg16.yml --net vgg16 --set ANCHOR_SCALES '[8,16,32]' ANCHOR_RATIOS '[0.5,1,2]'
+/home/ubuntu/anaconda3/envs/pytorch_p36/lib/python3.6/site-packages/matplotlib/colors.py:680: MatplotlibDeprecationWarning: The is_string_like function was deprecated in version 2.1.
+  not cbook.is_string_like(colors[0]):
+Called with args:
+Namespace(cfg_file='experiments/cfgs/vgg16.yml', comp_mode=False, imdb_name='voc_2007_test', max_per_image=100, model='output/vgg16/voc_2007_trainval/default/vgg16_faster_rcnn_iter_70000.pth', net='vgg16', set_cfgs=['ANCHOR_SCALES', '[8,16,32]', 'ANCHOR_RATIOS', '[0.5,1,2]'], tag='')
+Using config:
+{'ANCHOR_RATIOS': [0.5, 1, 2],
+ 'ANCHOR_SCALES': [8, 16, 32],
+ 'DATA_DIR': '/home/ubuntu/pytorch-faster-rcnn/data',
+ 'EXP_DIR': 'vgg16',
+ 'MATLAB': 'matlab',
+ 'MOBILENET': {'DEPTH_MULTIPLIER': 1.0,
+               'FIXED_LAYERS': 5,
+               'REGU_DEPTH': False,
+               'WEIGHT_DECAY': 4e-05},
+ 'PIXEL_MEANS': array([[[ 102.9801,  115.9465,  122.7717]]]),
+ 'POOLING_MODE': 'crop',
+ 'POOLING_SIZE': 7,
+ 'RESNET': {'FIXED_BLOCKS': 1, 'MAX_POOL': False},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/ubuntu/pytorch-faster-rcnn',
+ 'RPN_CHANNELS': 512,
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'MODE': 'nms',
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'gt',
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'RPN_TOP_N': 5000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': False,
+           'BATCH_SIZE': 256,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': True,
+           'BBOX_REG': True,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'BIAS_DECAY': False,
+           'DISPLAY': 20,
+           'DOUBLE_BIAS': True,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'GAMMA': 0.1,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'LEARNING_RATE': 0.001,
+           'MAX_SIZE': 1000,
+           'MOMENTUM': 0.9,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_ITERS': 5000,
+           'SNAPSHOT_KEPT': 3,
+           'SNAPSHOT_PREFIX': 'vgg16_faster_rcnn',
+           'STEPSIZE': [30000],
+           'SUMMARY_INTERVAL': 180,
+           'TRUNCATED': False,
+           'USE_ALL_GT': True,
+           'USE_FLIPPED': True,
+           'USE_GT': False,
+           'WEIGHT_DECAY': 0.0001},
+ 'USE_GPU_NMS': True}
+Loading model check point from output/vgg16/voc_2007_trainval/default/vgg16_faster_rcnn_iter_70000.pth
+Loaded.
+/home/ubuntu/pytorch-faster-rcnn/tools/../lib/nets/network.py:245: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  rpn_cls_prob_reshape = F.softmax(rpn_cls_score_reshape)
+/home/ubuntu/pytorch-faster-rcnn/tools/../lib/nets/network.py:280: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  cls_prob = F.softmax(cls_score)
+im_detect: 1/1024 0.960s 0.003s
+im_detect: 2/1024 0.625s 0.003s
+im_detect: 3/1024 0.512s 0.003s
+im_detect: 4/1024 0.459s 0.003s
+im_detect: 5/1024 0.424s 0.003s
+im_detect: 6/1024 0.402s 0.003s
+im_detect: 7/1024 0.387s 0.003s
+im_detect: 8/1024 0.375s 0.003s
+im_detect: 9/1024 0.366s 0.003s
+im_detect: 10/1024 0.359s 0.003s
+im_detect: 11/1024 0.352s 0.003s
+im_detect: 12/1024 0.347s 0.003s
+im_detect: 13/1024 0.343s 0.003s
+im_detect: 14/1024 0.339s 0.003s
+im_detect: 15/1024 0.337s 0.003s
+im_detect: 16/1024 0.333s 0.003s
+im_detect: 17/1024 0.333s 0.003s
+im_detect: 18/1024 0.330s 0.003s
+im_detect: 19/1024 0.328s 0.003s
+im_detect: 20/1024 0.326s 0.003s
+im_detect: 21/1024 0.324s 0.003s
+im_detect: 22/1024 0.322s 0.003s
+im_detect: 23/1024 0.321s 0.003s
+im_detect: 24/1024 0.319s 0.003s
+im_detect: 25/1024 0.318s 0.003s
+im_detect: 26/1024 0.317s 0.003s
+im_detect: 27/1024 0.316s 0.003s
+im_detect: 28/1024 0.315s 0.003s
+im_detect: 29/1024 0.314s 0.003s
+im_detect: 30/1024 0.313s 0.003s
+im_detect: 31/1024 0.312s 0.003s
+im_detect: 32/1024 0.312s 0.003s
+im_detect: 33/1024 0.311s 0.003s
+im_detect: 34/1024 0.311s 0.003s
+im_detect: 35/1024 0.311s 0.003s
+im_detect: 36/1024 0.310s 0.003s
+im_detect: 37/1024 0.310s 0.003s
+im_detect: 38/1024 0.310s 0.003s
+im_detect: 39/1024 0.310s 0.003s
+im_detect: 40/1024 0.309s 0.003s
+im_detect: 41/1024 0.309s 0.003s
+im_detect: 42/1024 0.309s 0.003s
+im_detect: 43/1024 0.307s 0.003s
+im_detect: 44/1024 0.307s 0.003s
+im_detect: 45/1024 0.306s 0.003s
+im_detect: 46/1024 0.306s 0.003s
+im_detect: 47/1024 0.305s 0.003s
+im_detect: 48/1024 0.305s 0.003s
+im_detect: 49/1024 0.304s 0.003s
+im_detect: 50/1024 0.304s 0.003s
+im_detect: 51/1024 0.304s 0.003s
+im_detect: 52/1024 0.304s 0.003s
+im_detect: 53/1024 0.303s 0.003s
+im_detect: 54/1024 0.303s 0.003s
+im_detect: 55/1024 0.303s 0.003s
+im_detect: 56/1024 0.303s 0.003s
+im_detect: 57/1024 0.303s 0.003s
+im_detect: 58/1024 0.303s 0.003s
+im_detect: 59/1024 0.303s 0.003s
+im_detect: 60/1024 0.302s 0.003s
+im_detect: 61/1024 0.302s 0.003s
+im_detect: 62/1024 0.302s 0.003s
+im_detect: 63/1024 0.302s 0.003s
+im_detect: 64/1024 0.302s 0.003s
+im_detect: 65/1024 0.301s 0.003s
+im_detect: 66/1024 0.301s 0.003s
+im_detect: 67/1024 0.301s 0.003s
+im_detect: 68/1024 0.301s 0.003s
+im_detect: 69/1024 0.301s 0.003s
+im_detect: 70/1024 0.300s 0.003s
+im_detect: 71/1024 0.300s 0.003s
+im_detect: 72/1024 0.300s 0.003s
+im_detect: 73/1024 0.300s 0.003s
+im_detect: 74/1024 0.300s 0.003s
+im_detect: 75/1024 0.300s 0.003s
+im_detect: 76/1024 0.300s 0.003s
+im_detect: 77/1024 0.300s 0.003s
+im_detect: 78/1024 0.300s 0.003s
+im_detect: 79/1024 0.300s 0.003s
+im_detect: 80/1024 0.300s 0.003s
+im_detect: 81/1024 0.299s 0.003s
+im_detect: 82/1024 0.299s 0.003s
+im_detect: 83/1024 0.299s 0.003s
+im_detect: 84/1024 0.299s 0.003s
+im_detect: 85/1024 0.298s 0.003s
+im_detect: 86/1024 0.298s 0.003s
+im_detect: 87/1024 0.298s 0.003s
+im_detect: 88/1024 0.298s 0.003s
+im_detect: 89/1024 0.297s 0.003s
+im_detect: 90/1024 0.297s 0.003s
+im_detect: 91/1024 0.297s 0.003s
+im_detect: 92/1024 0.297s 0.003s
+im_detect: 93/1024 0.297s 0.003s
+im_detect: 94/1024 0.297s 0.003s
+im_detect: 95/1024 0.297s 0.003s
+im_detect: 96/1024 0.297s 0.003s
+im_detect: 97/1024 0.297s 0.003s
+im_detect: 98/1024 0.297s 0.003s
+im_detect: 99/1024 0.297s 0.003s
+im_detect: 100/1024 0.297s 0.003s
+im_detect: 101/1024 0.297s 0.003s
+im_detect: 102/1024 0.297s 0.003s
+im_detect: 103/1024 0.297s 0.003s
+im_detect: 104/1024 0.297s 0.003s
+im_detect: 105/1024 0.297s 0.003s
+im_detect: 106/1024 0.296s 0.003s
+im_detect: 107/1024 0.296s 0.003s
+im_detect: 108/1024 0.296s 0.003s
+im_detect: 109/1024 0.296s 0.003s
+im_detect: 110/1024 0.296s 0.003s
+im_detect: 111/1024 0.296s 0.003s
+im_detect: 112/1024 0.296s 0.003s
+im_detect: 113/1024 0.296s 0.003s
+im_detect: 114/1024 0.296s 0.003s
+im_detect: 115/1024 0.296s 0.003s
+im_detect: 116/1024 0.296s 0.003s
+im_detect: 117/1024 0.296s 0.003s
+im_detect: 118/1024 0.296s 0.003s
+im_detect: 119/1024 0.296s 0.003s
+im_detect: 120/1024 0.296s 0.003s
+im_detect: 121/1024 0.296s 0.003s
+im_detect: 122/1024 0.296s 0.003s
+im_detect: 123/1024 0.296s 0.003s
+im_detect: 124/1024 0.296s 0.003s
+im_detect: 125/1024 0.296s 0.003s
+im_detect: 126/1024 0.296s 0.003s
+im_detect: 127/1024 0.295s 0.003s
+im_detect: 128/1024 0.295s 0.003s
+im_detect: 129/1024 0.295s 0.003s
+im_detect: 130/1024 0.295s 0.003s
+im_detect: 131/1024 0.295s 0.003s
+im_detect: 132/1024 0.295s 0.003s
+im_detect: 133/1024 0.295s 0.003s
+im_detect: 134/1024 0.295s 0.003s
+im_detect: 135/1024 0.295s 0.003s
+im_detect: 136/1024 0.295s 0.003s
+im_detect: 137/1024 0.295s 0.003s
+im_detect: 138/1024 0.295s 0.003s
+im_detect: 139/1024 0.295s 0.003s
+im_detect: 140/1024 0.295s 0.003s
+im_detect: 141/1024 0.295s 0.003s
+im_detect: 142/1024 0.295s 0.003s
+im_detect: 143/1024 0.295s 0.003s
+im_detect: 144/1024 0.294s 0.003s
+im_detect: 145/1024 0.295s 0.003s
+im_detect: 146/1024 0.295s 0.003s
+im_detect: 147/1024 0.295s 0.003s
+im_detect: 148/1024 0.295s 0.003s
+im_detect: 149/1024 0.295s 0.003s
+im_detect: 150/1024 0.295s 0.003s
+im_detect: 151/1024 0.295s 0.003s
+im_detect: 152/1024 0.295s 0.003s
+im_detect: 153/1024 0.295s 0.003s
+im_detect: 154/1024 0.295s 0.003s
+im_detect: 155/1024 0.295s 0.003s
+im_detect: 156/1024 0.295s 0.003s
+im_detect: 157/1024 0.295s 0.003s
+im_detect: 158/1024 0.295s 0.003s
+im_detect: 159/1024 0.295s 0.003s
+im_detect: 160/1024 0.295s 0.003s
+im_detect: 161/1024 0.295s 0.003s
+im_detect: 162/1024 0.295s 0.003s
+im_detect: 163/1024 0.295s 0.003s
+im_detect: 164/1024 0.295s 0.003s
+im_detect: 165/1024 0.295s 0.003s
+im_detect: 166/1024 0.294s 0.003s
+im_detect: 167/1024 0.294s 0.003s
+im_detect: 168/1024 0.295s 0.003s
+im_detect: 169/1024 0.295s 0.003s
+im_detect: 170/1024 0.294s 0.003s
+im_detect: 171/1024 0.294s 0.003s
+im_detect: 172/1024 0.294s 0.003s
+im_detect: 173/1024 0.295s 0.003s
+im_detect: 174/1024 0.295s 0.003s
+im_detect: 175/1024 0.294s 0.003s
+im_detect: 176/1024 0.294s 0.003s
+im_detect: 177/1024 0.294s 0.003s
+im_detect: 178/1024 0.294s 0.003s
+im_detect: 179/1024 0.294s 0.003s
+im_detect: 180/1024 0.294s 0.003s
+im_detect: 181/1024 0.294s 0.003s
+im_detect: 182/1024 0.294s 0.003s
+im_detect: 183/1024 0.294s 0.003s
+im_detect: 184/1024 0.294s 0.003s
+im_detect: 185/1024 0.294s 0.003s
+im_detect: 186/1024 0.294s 0.003s
+im_detect: 187/1024 0.294s 0.003s
+im_detect: 188/1024 0.294s 0.003s
+im_detect: 189/1024 0.294s 0.003s
+im_detect: 190/1024 0.294s 0.003s
+im_detect: 191/1024 0.294s 0.003s
+im_detect: 192/1024 0.294s 0.003s
+im_detect: 193/1024 0.294s 0.003s
+im_detect: 194/1024 0.294s 0.003s
+im_detect: 195/1024 0.294s 0.003s
+im_detect: 196/1024 0.294s 0.003s
+im_detect: 197/1024 0.294s 0.003s
+im_detect: 198/1024 0.294s 0.003s
+im_detect: 199/1024 0.294s 0.003s
+im_detect: 200/1024 0.294s 0.003s
+im_detect: 201/1024 0.294s 0.003s
+im_detect: 202/1024 0.294s 0.003s
+im_detect: 203/1024 0.294s 0.003s
+im_detect: 204/1024 0.294s 0.003s
+im_detect: 205/1024 0.294s 0.003s
+im_detect: 206/1024 0.294s 0.003s
+im_detect: 207/1024 0.294s 0.003s
+im_detect: 208/1024 0.294s 0.003s
+im_detect: 209/1024 0.294s 0.003s
+im_detect: 210/1024 0.294s 0.003s
+im_detect: 211/1024 0.294s 0.003s
+im_detect: 212/1024 0.294s 0.003s
+im_detect: 213/1024 0.294s 0.003s
+im_detect: 214/1024 0.294s 0.003s
+im_detect: 215/1024 0.294s 0.003s
+im_detect: 216/1024 0.294s 0.003s
+im_detect: 217/1024 0.294s 0.003s
+im_detect: 218/1024 0.294s 0.003s
+im_detect: 219/1024 0.294s 0.003s
+im_detect: 220/1024 0.294s 0.003s
+im_detect: 221/1024 0.294s 0.003s
+im_detect: 222/1024 0.294s 0.003s
+im_detect: 223/1024 0.294s 0.003s
+im_detect: 224/1024 0.294s 0.003s
+im_detect: 225/1024 0.294s 0.003s
+im_detect: 226/1024 0.294s 0.003s
+im_detect: 227/1024 0.294s 0.003s
+im_detect: 228/1024 0.294s 0.003s
+im_detect: 229/1024 0.294s 0.003s
+im_detect: 230/1024 0.294s 0.003s
+im_detect: 231/1024 0.294s 0.003s
+im_detect: 232/1024 0.294s 0.003s
+im_detect: 233/1024 0.294s 0.003s
+im_detect: 234/1024 0.294s 0.003s
+im_detect: 235/1024 0.294s 0.003s
+im_detect: 236/1024 0.294s 0.003s
+im_detect: 237/1024 0.294s 0.003s
+im_detect: 238/1024 0.294s 0.003s
+im_detect: 239/1024 0.294s 0.003s
+im_detect: 240/1024 0.294s 0.003s
+im_detect: 241/1024 0.294s 0.003s
+im_detect: 242/1024 0.294s 0.003s
+im_detect: 243/1024 0.294s 0.003s
+im_detect: 244/1024 0.294s 0.003s
+im_detect: 245/1024 0.293s 0.003s
+im_detect: 246/1024 0.293s 0.003s
+im_detect: 247/1024 0.293s 0.003s
+im_detect: 248/1024 0.293s 0.003s
+im_detect: 249/1024 0.293s 0.003s
+im_detect: 250/1024 0.293s 0.003s
+im_detect: 251/1024 0.293s 0.003s
+im_detect: 252/1024 0.293s 0.003s
+im_detect: 253/1024 0.293s 0.003s
+im_detect: 254/1024 0.293s 0.003s
+im_detect: 255/1024 0.293s 0.003s
+im_detect: 256/1024 0.293s 0.003s
+im_detect: 257/1024 0.293s 0.003s
+im_detect: 258/1024 0.293s 0.003s
+im_detect: 259/1024 0.293s 0.003s
+im_detect: 260/1024 0.293s 0.003s
+im_detect: 261/1024 0.293s 0.003s
+im_detect: 262/1024 0.293s 0.003s
+im_detect: 263/1024 0.293s 0.003s
+im_detect: 264/1024 0.293s 0.003s
+im_detect: 265/1024 0.293s 0.003s
+im_detect: 266/1024 0.293s 0.003s
+im_detect: 267/1024 0.293s 0.003s
+im_detect: 268/1024 0.293s 0.003s
+im_detect: 269/1024 0.293s 0.003s
+im_detect: 270/1024 0.293s 0.003s
+im_detect: 271/1024 0.293s 0.003s
+im_detect: 272/1024 0.293s 0.003s
+im_detect: 273/1024 0.293s 0.003s
+im_detect: 274/1024 0.293s 0.003s
+im_detect: 275/1024 0.293s 0.003s
+im_detect: 276/1024 0.293s 0.003s
+im_detect: 277/1024 0.293s 0.003s
+im_detect: 278/1024 0.293s 0.003s
+im_detect: 279/1024 0.293s 0.003s
+im_detect: 280/1024 0.293s 0.003s
+im_detect: 281/1024 0.293s 0.003s
+im_detect: 282/1024 0.293s 0.003s
+im_detect: 283/1024 0.293s 0.003s
+im_detect: 284/1024 0.293s 0.003s
+im_detect: 285/1024 0.293s 0.003s
+im_detect: 286/1024 0.293s 0.003s
+im_detect: 287/1024 0.293s 0.003s
+im_detect: 288/1024 0.293s 0.003s
+im_detect: 289/1024 0.293s 0.003s
+im_detect: 290/1024 0.293s 0.003s
+im_detect: 291/1024 0.293s 0.003s
+im_detect: 292/1024 0.293s 0.003s
+im_detect: 293/1024 0.293s 0.003s
+im_detect: 294/1024 0.293s 0.003s
+im_detect: 295/1024 0.293s 0.003s
+im_detect: 296/1024 0.293s 0.003s
+im_detect: 297/1024 0.293s 0.003s
+im_detect: 298/1024 0.293s 0.003s
+im_detect: 299/1024 0.293s 0.003s
+im_detect: 300/1024 0.293s 0.003s
+im_detect: 301/1024 0.293s 0.003s
+im_detect: 302/1024 0.293s 0.003s
+im_detect: 303/1024 0.293s 0.003s
+im_detect: 304/1024 0.292s 0.003s
+im_detect: 305/1024 0.292s 0.003s
+im_detect: 306/1024 0.292s 0.003s
+im_detect: 307/1024 0.292s 0.003s
+im_detect: 308/1024 0.292s 0.003s
+im_detect: 309/1024 0.292s 0.003s
+im_detect: 310/1024 0.292s 0.003s
+im_detect: 311/1024 0.292s 0.003s
+im_detect: 312/1024 0.292s 0.003s
+im_detect: 313/1024 0.292s 0.003s
+im_detect: 314/1024 0.292s 0.003s
+im_detect: 315/1024 0.292s 0.003s
+im_detect: 316/1024 0.292s 0.003s
+im_detect: 317/1024 0.292s 0.003s
+im_detect: 318/1024 0.292s 0.003s
+im_detect: 319/1024 0.292s 0.003s
+im_detect: 320/1024 0.292s 0.003s
+im_detect: 321/1024 0.292s 0.003s
+im_detect: 322/1024 0.292s 0.003s
+im_detect: 323/1024 0.292s 0.003s
+im_detect: 324/1024 0.292s 0.003s
+im_detect: 325/1024 0.292s 0.003s
+im_detect: 326/1024 0.292s 0.003s
+im_detect: 327/1024 0.292s 0.003s
+im_detect: 328/1024 0.292s 0.003s
+im_detect: 329/1024 0.292s 0.003s
+im_detect: 330/1024 0.292s 0.003s
+im_detect: 331/1024 0.292s 0.003s
+im_detect: 332/1024 0.292s 0.003s
+im_detect: 333/1024 0.292s 0.003s
+im_detect: 334/1024 0.292s 0.003s
+im_detect: 335/1024 0.292s 0.003s
+im_detect: 336/1024 0.292s 0.003s
+im_detect: 337/1024 0.292s 0.003s
+im_detect: 338/1024 0.292s 0.003s
+im_detect: 339/1024 0.292s 0.003s
+im_detect: 340/1024 0.292s 0.003s
+im_detect: 341/1024 0.292s 0.003s
+im_detect: 342/1024 0.292s 0.003s
+im_detect: 343/1024 0.292s 0.003s
+im_detect: 344/1024 0.292s 0.003s
+im_detect: 345/1024 0.292s 0.003s
+im_detect: 346/1024 0.292s 0.003s
+im_detect: 347/1024 0.292s 0.003s
+im_detect: 348/1024 0.292s 0.003s
+im_detect: 349/1024 0.292s 0.003s
+im_detect: 350/1024 0.292s 0.003s
+im_detect: 351/1024 0.292s 0.003s
+im_detect: 352/1024 0.292s 0.003s
+im_detect: 353/1024 0.292s 0.003s
+im_detect: 354/1024 0.292s 0.003s
+im_detect: 355/1024 0.292s 0.003s
+im_detect: 356/1024 0.292s 0.003s
+im_detect: 357/1024 0.292s 0.003s
+im_detect: 358/1024 0.292s 0.003s
+im_detect: 359/1024 0.292s 0.003s
+im_detect: 360/1024 0.292s 0.003s
+im_detect: 361/1024 0.292s 0.003s
+im_detect: 362/1024 0.292s 0.003s
+im_detect: 363/1024 0.292s 0.003s
+im_detect: 364/1024 0.292s 0.003s
+im_detect: 365/1024 0.292s 0.003s
+im_detect: 366/1024 0.292s 0.003s
+im_detect: 367/1024 0.292s 0.003s
+im_detect: 368/1024 0.292s 0.003s
+im_detect: 369/1024 0.292s 0.003s
+im_detect: 370/1024 0.292s 0.003s
+im_detect: 371/1024 0.292s 0.003s
+im_detect: 372/1024 0.292s 0.003s
+im_detect: 373/1024 0.292s 0.003s
+im_detect: 374/1024 0.292s 0.003s
+im_detect: 375/1024 0.292s 0.003s
+im_detect: 376/1024 0.292s 0.003s
+im_detect: 377/1024 0.292s 0.003s
+im_detect: 378/1024 0.292s 0.003s
+im_detect: 379/1024 0.292s 0.003s
+im_detect: 380/1024 0.292s 0.003s
+im_detect: 381/1024 0.292s 0.003s
+im_detect: 382/1024 0.292s 0.003s
+im_detect: 383/1024 0.292s 0.003s
+im_detect: 384/1024 0.292s 0.003s
+im_detect: 385/1024 0.292s 0.003s
+im_detect: 386/1024 0.292s 0.003s
+im_detect: 387/1024 0.292s 0.003s
+im_detect: 388/1024 0.292s 0.003s
+im_detect: 389/1024 0.292s 0.003s
+im_detect: 390/1024 0.292s 0.003s
+im_detect: 391/1024 0.292s 0.003s
+im_detect: 392/1024 0.292s 0.003s
+im_detect: 393/1024 0.292s 0.003s
+im_detect: 394/1024 0.292s 0.003s
+im_detect: 395/1024 0.292s 0.003s
+im_detect: 396/1024 0.292s 0.003s
+im_detect: 397/1024 0.292s 0.003s
+im_detect: 398/1024 0.292s 0.003s
+im_detect: 399/1024 0.292s 0.003s
+im_detect: 400/1024 0.292s 0.003s
+im_detect: 401/1024 0.292s 0.003s
+im_detect: 402/1024 0.292s 0.003s
+im_detect: 403/1024 0.292s 0.003s
+im_detect: 404/1024 0.292s 0.003s
+im_detect: 405/1024 0.292s 0.003s
+im_detect: 406/1024 0.292s 0.003s
+im_detect: 407/1024 0.292s 0.003s
+im_detect: 408/1024 0.292s 0.003s
+im_detect: 409/1024 0.292s 0.003s
+im_detect: 410/1024 0.292s 0.003s
+im_detect: 411/1024 0.292s 0.003s
+im_detect: 412/1024 0.292s 0.003s
+im_detect: 413/1024 0.292s 0.003s
+im_detect: 414/1024 0.292s 0.003s
+im_detect: 415/1024 0.292s 0.003s
+im_detect: 416/1024 0.292s 0.003s
+im_detect: 417/1024 0.292s 0.003s
+im_detect: 418/1024 0.292s 0.003s
+im_detect: 419/1024 0.292s 0.003s
+im_detect: 420/1024 0.292s 0.003s
+im_detect: 421/1024 0.292s 0.003s
+im_detect: 422/1024 0.292s 0.003s
+im_detect: 423/1024 0.292s 0.003s
+im_detect: 424/1024 0.292s 0.003s
+im_detect: 425/1024 0.292s 0.003s
+im_detect: 426/1024 0.292s 0.003s
+im_detect: 427/1024 0.292s 0.003s
+im_detect: 428/1024 0.292s 0.003s
+im_detect: 429/1024 0.292s 0.003s
+im_detect: 430/1024 0.292s 0.003s
+im_detect: 431/1024 0.292s 0.003s
+im_detect: 432/1024 0.292s 0.003s
+im_detect: 433/1024 0.292s 0.003s
+im_detect: 434/1024 0.292s 0.003s
+im_detect: 435/1024 0.292s 0.003s
+im_detect: 436/1024 0.292s 0.003s
+im_detect: 437/1024 0.292s 0.003s
+im_detect: 438/1024 0.292s 0.003s
+im_detect: 439/1024 0.292s 0.003s
+im_detect: 440/1024 0.292s 0.003s
+im_detect: 441/1024 0.292s 0.003s
+im_detect: 442/1024 0.292s 0.003s
+im_detect: 443/1024 0.292s 0.003s
+im_detect: 444/1024 0.292s 0.003s
+im_detect: 445/1024 0.292s 0.003s
+im_detect: 446/1024 0.292s 0.003s
+im_detect: 447/1024 0.292s 0.003s
+im_detect: 448/1024 0.292s 0.003s
+im_detect: 449/1024 0.292s 0.003s
+im_detect: 450/1024 0.292s 0.003s
+im_detect: 451/1024 0.292s 0.003s
+im_detect: 452/1024 0.292s 0.003s
+im_detect: 453/1024 0.292s 0.003s
+im_detect: 454/1024 0.292s 0.003s
+im_detect: 455/1024 0.292s 0.003s
+im_detect: 456/1024 0.292s 0.003s
+im_detect: 457/1024 0.292s 0.003s
+im_detect: 458/1024 0.292s 0.003s
+im_detect: 459/1024 0.292s 0.003s
+im_detect: 460/1024 0.292s 0.003s
+im_detect: 461/1024 0.292s 0.003s
+im_detect: 462/1024 0.292s 0.003s
+im_detect: 463/1024 0.292s 0.003s
+im_detect: 464/1024 0.292s 0.003s
+im_detect: 465/1024 0.292s 0.003s
+im_detect: 466/1024 0.292s 0.003s
+im_detect: 467/1024 0.292s 0.003s
+im_detect: 468/1024 0.292s 0.003s
+im_detect: 469/1024 0.292s 0.003s
+im_detect: 470/1024 0.292s 0.003s
+im_detect: 471/1024 0.292s 0.003s
+im_detect: 472/1024 0.292s 0.003s
+im_detect: 473/1024 0.292s 0.003s
+im_detect: 474/1024 0.292s 0.003s
+im_detect: 475/1024 0.292s 0.003s
+im_detect: 476/1024 0.292s 0.003s
+im_detect: 477/1024 0.292s 0.003s
+im_detect: 478/1024 0.292s 0.003s
+im_detect: 479/1024 0.292s 0.003s
+im_detect: 480/1024 0.292s 0.003s
+im_detect: 481/1024 0.292s 0.003s
+im_detect: 482/1024 0.292s 0.003s
+im_detect: 483/1024 0.292s 0.003s
+im_detect: 484/1024 0.292s 0.003s
+im_detect: 485/1024 0.292s 0.003s
+im_detect: 486/1024 0.292s 0.003s
+im_detect: 487/1024 0.292s 0.003s
+im_detect: 488/1024 0.292s 0.003s
+im_detect: 489/1024 0.292s 0.003s
+im_detect: 490/1024 0.292s 0.003s
+im_detect: 491/1024 0.292s 0.003s
+im_detect: 492/1024 0.292s 0.003s
+im_detect: 493/1024 0.292s 0.003s
+im_detect: 494/1024 0.292s 0.003s
+im_detect: 495/1024 0.292s 0.003s
+im_detect: 496/1024 0.292s 0.003s
+im_detect: 497/1024 0.292s 0.003s
+im_detect: 498/1024 0.292s 0.003s
+im_detect: 499/1024 0.292s 0.003s
+im_detect: 500/1024 0.292s 0.003s
+im_detect: 501/1024 0.292s 0.003s
+im_detect: 502/1024 0.292s 0.003s
+im_detect: 503/1024 0.292s 0.003s
+im_detect: 504/1024 0.292s 0.003s
+im_detect: 505/1024 0.292s 0.003s
+im_detect: 506/1024 0.292s 0.003s
+im_detect: 507/1024 0.292s 0.003s
+im_detect: 508/1024 0.292s 0.003s
+im_detect: 509/1024 0.292s 0.003s
+im_detect: 510/1024 0.292s 0.003s
+im_detect: 511/1024 0.292s 0.003s
+im_detect: 512/1024 0.292s 0.003s
+im_detect: 513/1024 0.292s 0.003s
+im_detect: 514/1024 0.292s 0.003s
+im_detect: 515/1024 0.292s 0.003s
+im_detect: 516/1024 0.292s 0.003s
+im_detect: 517/1024 0.292s 0.003s
+im_detect: 518/1024 0.292s 0.003s
+im_detect: 519/1024 0.292s 0.003s
+im_detect: 520/1024 0.292s 0.003s
+im_detect: 521/1024 0.292s 0.003s
+im_detect: 522/1024 0.292s 0.003s
+im_detect: 523/1024 0.292s 0.003s
+im_detect: 524/1024 0.292s 0.003s
+im_detect: 525/1024 0.292s 0.003s
+im_detect: 526/1024 0.292s 0.003s
+im_detect: 527/1024 0.292s 0.003s
+im_detect: 528/1024 0.292s 0.003s
+im_detect: 529/1024 0.292s 0.003s
+im_detect: 530/1024 0.292s 0.003s
+im_detect: 531/1024 0.292s 0.003s
+im_detect: 532/1024 0.292s 0.003s
+im_detect: 533/1024 0.292s 0.003s
+im_detect: 534/1024 0.292s 0.003s
+im_detect: 535/1024 0.292s 0.003s
+im_detect: 536/1024 0.292s 0.003s
+im_detect: 537/1024 0.292s 0.003s
+im_detect: 538/1024 0.292s 0.003s
+im_detect: 539/1024 0.292s 0.003s
+im_detect: 540/1024 0.292s 0.003s
+im_detect: 541/1024 0.292s 0.003s
+im_detect: 542/1024 0.292s 0.003s
+im_detect: 543/1024 0.292s 0.003s
+im_detect: 544/1024 0.292s 0.003s
+im_detect: 545/1024 0.292s 0.003s
+im_detect: 546/1024 0.292s 0.003s
+im_detect: 547/1024 0.292s 0.003s
+im_detect: 548/1024 0.292s 0.003s
+im_detect: 549/1024 0.292s 0.003s
+im_detect: 550/1024 0.292s 0.003s
+im_detect: 551/1024 0.292s 0.003s
+im_detect: 552/1024 0.292s 0.003s
+im_detect: 553/1024 0.292s 0.003s
+im_detect: 554/1024 0.292s 0.003s
+im_detect: 555/1024 0.292s 0.003s
+im_detect: 556/1024 0.292s 0.003s
+im_detect: 557/1024 0.292s 0.003s
+im_detect: 558/1024 0.292s 0.003s
+im_detect: 559/1024 0.292s 0.003s
+im_detect: 560/1024 0.292s 0.003s
+im_detect: 561/1024 0.292s 0.003s
+im_detect: 562/1024 0.292s 0.003s
+im_detect: 563/1024 0.292s 0.003s
+im_detect: 564/1024 0.291s 0.003s
+im_detect: 565/1024 0.291s 0.003s
+im_detect: 566/1024 0.291s 0.003s
+im_detect: 567/1024 0.291s 0.003s
+im_detect: 568/1024 0.291s 0.003s
+im_detect: 569/1024 0.292s 0.003s
+im_detect: 570/1024 0.292s 0.003s
+im_detect: 571/1024 0.292s 0.003s
+im_detect: 572/1024 0.292s 0.003s
+im_detect: 573/1024 0.291s 0.003s
+im_detect: 574/1024 0.292s 0.003s
+im_detect: 575/1024 0.292s 0.003s
+im_detect: 576/1024 0.292s 0.003s
+im_detect: 577/1024 0.292s 0.003s
+im_detect: 578/1024 0.292s 0.003s
+im_detect: 579/1024 0.292s 0.003s
+im_detect: 580/1024 0.292s 0.003s
+im_detect: 581/1024 0.292s 0.003s
+im_detect: 582/1024 0.292s 0.003s
+im_detect: 583/1024 0.291s 0.003s
+im_detect: 584/1024 0.291s 0.003s
+im_detect: 585/1024 0.291s 0.003s
+im_detect: 586/1024 0.291s 0.003s
+im_detect: 587/1024 0.291s 0.003s
+im_detect: 588/1024 0.291s 0.003s
+im_detect: 589/1024 0.291s 0.003s
+im_detect: 590/1024 0.291s 0.003s
+im_detect: 591/1024 0.291s 0.003s
+im_detect: 592/1024 0.291s 0.003s
+im_detect: 593/1024 0.291s 0.003s
+im_detect: 594/1024 0.291s 0.003s
+im_detect: 595/1024 0.291s 0.003s
+im_detect: 596/1024 0.291s 0.003s
+im_detect: 597/1024 0.291s 0.003s
+im_detect: 598/1024 0.291s 0.003s
+im_detect: 599/1024 0.291s 0.003s
+im_detect: 600/1024 0.291s 0.003s
+im_detect: 601/1024 0.291s 0.003s
+im_detect: 602/1024 0.291s 0.003s
+im_detect: 603/1024 0.291s 0.003s
+im_detect: 604/1024 0.291s 0.003s
+im_detect: 605/1024 0.291s 0.003s
+im_detect: 606/1024 0.291s 0.003s
+im_detect: 607/1024 0.291s 0.003s
+im_detect: 608/1024 0.291s 0.003s
+im_detect: 609/1024 0.291s 0.003s
+im_detect: 610/1024 0.291s 0.003s
+im_detect: 611/1024 0.291s 0.003s
+im_detect: 612/1024 0.291s 0.003s
+im_detect: 613/1024 0.291s 0.003s
+im_detect: 614/1024 0.291s 0.003s
+im_detect: 615/1024 0.291s 0.003s
+im_detect: 616/1024 0.291s 0.003s
+im_detect: 617/1024 0.291s 0.003s
+im_detect: 618/1024 0.291s 0.003s
+im_detect: 619/1024 0.291s 0.003s
+im_detect: 620/1024 0.291s 0.003s
+im_detect: 621/1024 0.291s 0.003s
+im_detect: 622/1024 0.291s 0.003s
+im_detect: 623/1024 0.291s 0.003s
+im_detect: 624/1024 0.291s 0.003s
+im_detect: 625/1024 0.291s 0.003s
+im_detect: 626/1024 0.291s 0.003s
+im_detect: 627/1024 0.291s 0.003s
+im_detect: 628/1024 0.291s 0.003s
+im_detect: 629/1024 0.291s 0.003s
+im_detect: 630/1024 0.291s 0.003s
+im_detect: 631/1024 0.291s 0.003s
+im_detect: 632/1024 0.291s 0.003s
+im_detect: 633/1024 0.291s 0.003s
+im_detect: 634/1024 0.291s 0.003s
+im_detect: 635/1024 0.291s 0.003s
+im_detect: 636/1024 0.291s 0.003s
+im_detect: 637/1024 0.291s 0.003s
+im_detect: 638/1024 0.291s 0.003s
+im_detect: 639/1024 0.291s 0.003s
+im_detect: 640/1024 0.291s 0.003s
+im_detect: 641/1024 0.291s 0.003s
+im_detect: 642/1024 0.291s 0.003s
+im_detect: 643/1024 0.291s 0.003s
+im_detect: 644/1024 0.291s 0.003s
+im_detect: 645/1024 0.291s 0.003s
+im_detect: 646/1024 0.291s 0.003s
+im_detect: 647/1024 0.291s 0.003s
+im_detect: 648/1024 0.291s 0.003s
+im_detect: 649/1024 0.291s 0.003s
+im_detect: 650/1024 0.291s 0.003s
+im_detect: 651/1024 0.291s 0.003s
+im_detect: 652/1024 0.291s 0.003s
+im_detect: 653/1024 0.291s 0.003s
+im_detect: 654/1024 0.291s 0.003s
+im_detect: 655/1024 0.291s 0.003s
+im_detect: 656/1024 0.291s 0.003s
+im_detect: 657/1024 0.291s 0.003s
+im_detect: 658/1024 0.291s 0.003s
+im_detect: 659/1024 0.291s 0.003s
+im_detect: 660/1024 0.291s 0.003s
+im_detect: 661/1024 0.291s 0.003s
+im_detect: 662/1024 0.291s 0.003s
+im_detect: 663/1024 0.291s 0.003s
+im_detect: 664/1024 0.291s 0.003s
+im_detect: 665/1024 0.291s 0.003s
+im_detect: 666/1024 0.291s 0.003s
+im_detect: 667/1024 0.291s 0.003s
+im_detect: 668/1024 0.291s 0.003s
+im_detect: 669/1024 0.291s 0.003s
+im_detect: 670/1024 0.291s 0.003s
+im_detect: 671/1024 0.291s 0.003s
+im_detect: 672/1024 0.291s 0.003s
+im_detect: 673/1024 0.291s 0.003s
+im_detect: 674/1024 0.291s 0.003s
+im_detect: 675/1024 0.291s 0.003s
+im_detect: 676/1024 0.291s 0.003s
+im_detect: 677/1024 0.291s 0.003s
+im_detect: 678/1024 0.291s 0.003s
+im_detect: 679/1024 0.291s 0.003s
+im_detect: 680/1024 0.291s 0.003s
+im_detect: 681/1024 0.291s 0.003s
+im_detect: 682/1024 0.291s 0.003s
+im_detect: 683/1024 0.291s 0.003s
+im_detect: 684/1024 0.291s 0.003s
+im_detect: 685/1024 0.291s 0.003s
+im_detect: 686/1024 0.291s 0.003s
+im_detect: 687/1024 0.291s 0.003s
+im_detect: 688/1024 0.291s 0.003s
+im_detect: 689/1024 0.291s 0.003s
+im_detect: 690/1024 0.291s 0.003s
+im_detect: 691/1024 0.291s 0.003s
+im_detect: 692/1024 0.291s 0.003s
+im_detect: 693/1024 0.291s 0.003s
+im_detect: 694/1024 0.291s 0.003s
+im_detect: 695/1024 0.291s 0.003s
+im_detect: 696/1024 0.291s 0.003s
+im_detect: 697/1024 0.291s 0.003s
+im_detect: 698/1024 0.291s 0.003s
+im_detect: 699/1024 0.291s 0.003s
+im_detect: 700/1024 0.291s 0.003s
+im_detect: 701/1024 0.291s 0.003s
+im_detect: 702/1024 0.291s 0.003s
+im_detect: 703/1024 0.291s 0.003s
+im_detect: 704/1024 0.291s 0.003s
+im_detect: 705/1024 0.291s 0.003s
+im_detect: 706/1024 0.291s 0.003s
+im_detect: 707/1024 0.291s 0.003s
+im_detect: 708/1024 0.291s 0.003s
+im_detect: 709/1024 0.291s 0.003s
+im_detect: 710/1024 0.291s 0.003s
+im_detect: 711/1024 0.291s 0.003s
+im_detect: 712/1024 0.291s 0.003s
+im_detect: 713/1024 0.291s 0.003s
+im_detect: 714/1024 0.291s 0.003s
+im_detect: 715/1024 0.291s 0.003s
+im_detect: 716/1024 0.291s 0.003s
+im_detect: 717/1024 0.291s 0.003s
+im_detect: 718/1024 0.291s 0.003s
+im_detect: 719/1024 0.291s 0.003s
+im_detect: 720/1024 0.291s 0.003s
+im_detect: 721/1024 0.291s 0.003s
+im_detect: 722/1024 0.291s 0.003s
+im_detect: 723/1024 0.291s 0.003s
+im_detect: 724/1024 0.291s 0.003s
+im_detect: 725/1024 0.291s 0.003s
+im_detect: 726/1024 0.291s 0.003s
+im_detect: 727/1024 0.291s 0.003s
+im_detect: 728/1024 0.291s 0.003s
+im_detect: 729/1024 0.291s 0.003s
+im_detect: 730/1024 0.291s 0.003s
+im_detect: 731/1024 0.291s 0.003s
+im_detect: 732/1024 0.291s 0.003s
+im_detect: 733/1024 0.291s 0.003s
+im_detect: 734/1024 0.291s 0.003s
+im_detect: 735/1024 0.291s 0.003s
+im_detect: 736/1024 0.291s 0.003s
+im_detect: 737/1024 0.291s 0.003s
+im_detect: 738/1024 0.291s 0.003s
+im_detect: 739/1024 0.291s 0.003s
+im_detect: 740/1024 0.291s 0.003s
+im_detect: 741/1024 0.291s 0.003s
+im_detect: 742/1024 0.291s 0.003s
+im_detect: 743/1024 0.291s 0.003s
+im_detect: 744/1024 0.291s 0.003s
+im_detect: 745/1024 0.291s 0.003s
+im_detect: 746/1024 0.291s 0.003s
+im_detect: 747/1024 0.291s 0.003s
+im_detect: 748/1024 0.291s 0.003s
+im_detect: 749/1024 0.291s 0.003s
+im_detect: 750/1024 0.291s 0.003s
+im_detect: 751/1024 0.291s 0.003s
+im_detect: 752/1024 0.291s 0.003s
+im_detect: 753/1024 0.291s 0.003s
+im_detect: 754/1024 0.291s 0.003s
+im_detect: 755/1024 0.291s 0.003s
+im_detect: 756/1024 0.291s 0.003s
+im_detect: 757/1024 0.291s 0.003s
+im_detect: 758/1024 0.291s 0.003s
+im_detect: 759/1024 0.291s 0.003s
+im_detect: 760/1024 0.291s 0.003s
+im_detect: 761/1024 0.291s 0.003s
+im_detect: 762/1024 0.291s 0.003s
+im_detect: 763/1024 0.291s 0.003s
+im_detect: 764/1024 0.291s 0.003s
+im_detect: 765/1024 0.291s 0.003s
+im_detect: 766/1024 0.291s 0.003s
+im_detect: 767/1024 0.291s 0.003s
+im_detect: 768/1024 0.291s 0.003s
+im_detect: 769/1024 0.291s 0.003s
+im_detect: 770/1024 0.291s 0.003s
+im_detect: 771/1024 0.291s 0.003s
+im_detect: 772/1024 0.291s 0.003s
+im_detect: 773/1024 0.291s 0.003s
+im_detect: 774/1024 0.291s 0.003s
+im_detect: 775/1024 0.291s 0.003s
+im_detect: 776/1024 0.291s 0.003s
+im_detect: 777/1024 0.291s 0.003s
+im_detect: 778/1024 0.291s 0.003s
+im_detect: 779/1024 0.291s 0.003s
+im_detect: 780/1024 0.291s 0.003s
+im_detect: 781/1024 0.291s 0.003s
+im_detect: 782/1024 0.291s 0.003s
+im_detect: 783/1024 0.291s 0.003s
+im_detect: 784/1024 0.291s 0.003s
+im_detect: 785/1024 0.291s 0.003s
+im_detect: 786/1024 0.291s 0.003s
+im_detect: 787/1024 0.291s 0.003s
+im_detect: 788/1024 0.291s 0.003s
+im_detect: 789/1024 0.291s 0.003s
+im_detect: 790/1024 0.291s 0.003s
+im_detect: 791/1024 0.291s 0.003s
+im_detect: 792/1024 0.291s 0.003s
+im_detect: 793/1024 0.291s 0.003s
+im_detect: 794/1024 0.291s 0.003s
+im_detect: 795/1024 0.291s 0.003s
+im_detect: 796/1024 0.291s 0.003s
+im_detect: 797/1024 0.291s 0.003s
+im_detect: 798/1024 0.291s 0.003s
+im_detect: 799/1024 0.291s 0.003s
+im_detect: 800/1024 0.291s 0.003s
+im_detect: 801/1024 0.291s 0.003s
+im_detect: 802/1024 0.291s 0.003s
+im_detect: 803/1024 0.291s 0.003s
+im_detect: 804/1024 0.291s 0.003s
+im_detect: 805/1024 0.291s 0.003s
+im_detect: 806/1024 0.291s 0.003s
+im_detect: 807/1024 0.291s 0.003s
+im_detect: 808/1024 0.291s 0.003s
+im_detect: 809/1024 0.291s 0.003s
+im_detect: 810/1024 0.291s 0.003s
+im_detect: 811/1024 0.291s 0.003s
+im_detect: 812/1024 0.291s 0.003s
+im_detect: 813/1024 0.291s 0.003s
+im_detect: 814/1024 0.291s 0.003s
+im_detect: 815/1024 0.291s 0.003s
+im_detect: 816/1024 0.291s 0.003s
+im_detect: 817/1024 0.291s 0.003s
+im_detect: 818/1024 0.291s 0.003s
+im_detect: 819/1024 0.291s 0.003s
+im_detect: 820/1024 0.291s 0.003s
+im_detect: 821/1024 0.291s 0.003s
+im_detect: 822/1024 0.291s 0.003s
+im_detect: 823/1024 0.291s 0.003s
+im_detect: 824/1024 0.291s 0.003s
+im_detect: 825/1024 0.291s 0.003s
+im_detect: 826/1024 0.291s 0.003s
+im_detect: 827/1024 0.291s 0.003s
+im_detect: 828/1024 0.291s 0.003s
+im_detect: 829/1024 0.291s 0.003s
+im_detect: 830/1024 0.291s 0.003s
+im_detect: 831/1024 0.291s 0.003s
+im_detect: 832/1024 0.291s 0.003s
+im_detect: 833/1024 0.291s 0.003s
+im_detect: 834/1024 0.291s 0.003s
+im_detect: 835/1024 0.291s 0.003s
+im_detect: 836/1024 0.291s 0.003s
+im_detect: 837/1024 0.291s 0.003s
+im_detect: 838/1024 0.291s 0.003s
+im_detect: 839/1024 0.291s 0.003s
+im_detect: 840/1024 0.291s 0.003s
+im_detect: 841/1024 0.291s 0.003s
+im_detect: 842/1024 0.291s 0.003s
+im_detect: 843/1024 0.291s 0.003s
+im_detect: 844/1024 0.291s 0.003s
+im_detect: 845/1024 0.291s 0.003s
+im_detect: 846/1024 0.291s 0.003s
+im_detect: 847/1024 0.291s 0.003s
+im_detect: 848/1024 0.291s 0.003s
+im_detect: 849/1024 0.291s 0.003s
+im_detect: 850/1024 0.291s 0.003s
+im_detect: 851/1024 0.291s 0.003s
+im_detect: 852/1024 0.291s 0.003s
+im_detect: 853/1024 0.291s 0.003s
+im_detect: 854/1024 0.291s 0.003s
+im_detect: 855/1024 0.291s 0.003s
+im_detect: 856/1024 0.291s 0.003s
+im_detect: 857/1024 0.291s 0.003s
+im_detect: 858/1024 0.291s 0.003s
+im_detect: 859/1024 0.291s 0.003s
+im_detect: 860/1024 0.291s 0.003s
+im_detect: 861/1024 0.291s 0.003s
+im_detect: 862/1024 0.291s 0.003s
+im_detect: 863/1024 0.291s 0.003s
+im_detect: 864/1024 0.291s 0.003s
+im_detect: 865/1024 0.291s 0.003s
+im_detect: 866/1024 0.291s 0.003s
+im_detect: 867/1024 0.291s 0.003s
+im_detect: 868/1024 0.291s 0.003s
+im_detect: 869/1024 0.291s 0.003s
+im_detect: 870/1024 0.291s 0.003s
+im_detect: 871/1024 0.291s 0.003s
+im_detect: 872/1024 0.291s 0.003s
+im_detect: 873/1024 0.292s 0.003s
+im_detect: 874/1024 0.292s 0.003s
+im_detect: 875/1024 0.292s 0.003s
+im_detect: 876/1024 0.292s 0.003s
+im_detect: 877/1024 0.292s 0.003s
+im_detect: 878/1024 0.292s 0.003s
+im_detect: 879/1024 0.292s 0.003s
+im_detect: 880/1024 0.292s 0.003s
+im_detect: 881/1024 0.292s 0.003s
+im_detect: 882/1024 0.292s 0.003s
+im_detect: 883/1024 0.292s 0.003s
+im_detect: 884/1024 0.292s 0.003s
+im_detect: 885/1024 0.292s 0.003s
+im_detect: 886/1024 0.292s 0.003s
+im_detect: 887/1024 0.292s 0.003s
+im_detect: 888/1024 0.292s 0.003s
+im_detect: 889/1024 0.292s 0.003s
+im_detect: 890/1024 0.292s 0.003s
+im_detect: 891/1024 0.292s 0.003s
+im_detect: 892/1024 0.292s 0.003s
+im_detect: 893/1024 0.292s 0.003s
+im_detect: 894/1024 0.292s 0.003s
+im_detect: 895/1024 0.292s 0.003s
+im_detect: 896/1024 0.292s 0.003s
+im_detect: 897/1024 0.292s 0.003s
+im_detect: 898/1024 0.292s 0.003s
+im_detect: 899/1024 0.292s 0.003s
+im_detect: 900/1024 0.292s 0.003s
+im_detect: 901/1024 0.292s 0.003s
+im_detect: 902/1024 0.292s 0.003s
+im_detect: 903/1024 0.292s 0.003s
+im_detect: 904/1024 0.292s 0.003s
+im_detect: 905/1024 0.292s 0.003s
+im_detect: 906/1024 0.292s 0.003s
+im_detect: 907/1024 0.292s 0.003s
+im_detect: 908/1024 0.292s 0.003s
+im_detect: 909/1024 0.292s 0.003s
+im_detect: 910/1024 0.292s 0.003s
+im_detect: 911/1024 0.292s 0.003s
+im_detect: 912/1024 0.292s 0.003s
+im_detect: 913/1024 0.292s 0.003s
+im_detect: 914/1024 0.292s 0.003s
+im_detect: 915/1024 0.292s 0.003s
+im_detect: 916/1024 0.292s 0.003s
+im_detect: 917/1024 0.292s 0.003s
+im_detect: 918/1024 0.292s 0.003s
+im_detect: 919/1024 0.292s 0.003s
+im_detect: 920/1024 0.292s 0.003s
+im_detect: 921/1024 0.292s 0.003s
+im_detect: 922/1024 0.292s 0.003s
+im_detect: 923/1024 0.292s 0.003s
+im_detect: 924/1024 0.292s 0.003s
+im_detect: 925/1024 0.292s 0.003s
+im_detect: 926/1024 0.292s 0.003s
+im_detect: 927/1024 0.292s 0.003s
+im_detect: 928/1024 0.292s 0.003s
+im_detect: 929/1024 0.292s 0.003s
+im_detect: 930/1024 0.292s 0.003s
+im_detect: 931/1024 0.292s 0.003s
+im_detect: 932/1024 0.292s 0.003s
+im_detect: 933/1024 0.292s 0.003s
+im_detect: 934/1024 0.292s 0.003s
+im_detect: 935/1024 0.292s 0.003s
+im_detect: 936/1024 0.292s 0.003s
+im_detect: 937/1024 0.292s 0.003s
+im_detect: 938/1024 0.292s 0.003s
+im_detect: 939/1024 0.292s 0.003s
+im_detect: 940/1024 0.292s 0.003s
+im_detect: 941/1024 0.292s 0.003s
+im_detect: 942/1024 0.292s 0.003s
+im_detect: 943/1024 0.292s 0.003s
+im_detect: 944/1024 0.292s 0.003s
+im_detect: 945/1024 0.292s 0.003s
+im_detect: 946/1024 0.292s 0.003s
+im_detect: 947/1024 0.292s 0.003s
+im_detect: 948/1024 0.292s 0.003s
+im_detect: 949/1024 0.292s 0.003s
+im_detect: 950/1024 0.292s 0.003s
+im_detect: 951/1024 0.292s 0.003s
+im_detect: 952/1024 0.292s 0.003s
+im_detect: 953/1024 0.292s 0.003s
+im_detect: 954/1024 0.292s 0.003s
+im_detect: 955/1024 0.292s 0.003s
+im_detect: 956/1024 0.292s 0.003s
+im_detect: 957/1024 0.292s 0.003s
+im_detect: 958/1024 0.292s 0.003s
+im_detect: 959/1024 0.292s 0.003s
+im_detect: 960/1024 0.292s 0.003s
+im_detect: 961/1024 0.292s 0.003s
+im_detect: 962/1024 0.292s 0.003s
+im_detect: 963/1024 0.292s 0.003s
+im_detect: 964/1024 0.292s 0.003s
+im_detect: 965/1024 0.292s 0.003s
+im_detect: 966/1024 0.292s 0.003s
+im_detect: 967/1024 0.292s 0.003s
+im_detect: 968/1024 0.292s 0.003s
+im_detect: 969/1024 0.292s 0.003s
+im_detect: 970/1024 0.292s 0.003s
+im_detect: 971/1024 0.292s 0.003s
+im_detect: 972/1024 0.292s 0.003s
+im_detect: 973/1024 0.292s 0.003s
+im_detect: 974/1024 0.292s 0.003s
+im_detect: 975/1024 0.292s 0.003s
+im_detect: 976/1024 0.292s 0.003s
+im_detect: 977/1024 0.292s 0.003s
+im_detect: 978/1024 0.292s 0.003s
+im_detect: 979/1024 0.292s 0.003s
+im_detect: 980/1024 0.292s 0.003s
+im_detect: 981/1024 0.292s 0.003s
+im_detect: 982/1024 0.292s 0.003s
+im_detect: 983/1024 0.292s 0.003s
+im_detect: 984/1024 0.292s 0.003s
+im_detect: 985/1024 0.292s 0.003s
+im_detect: 986/1024 0.292s 0.003s
+im_detect: 987/1024 0.292s 0.003s
+im_detect: 988/1024 0.292s 0.003s
+im_detect: 989/1024 0.292s 0.003s
+im_detect: 990/1024 0.292s 0.003s
+im_detect: 991/1024 0.292s 0.003s
+im_detect: 992/1024 0.292s 0.003s
+im_detect: 993/1024 0.292s 0.003s
+im_detect: 994/1024 0.292s 0.003s
+im_detect: 995/1024 0.292s 0.003s
+im_detect: 996/1024 0.292s 0.003s
+im_detect: 997/1024 0.292s 0.003s
+im_detect: 998/1024 0.292s 0.003s
+im_detect: 999/1024 0.292s 0.003s
+im_detect: 1000/1024 0.292s 0.003s
+im_detect: 1001/1024 0.292s 0.003s
+im_detect: 1002/1024 0.292s 0.003s
+im_detect: 1003/1024 0.292s 0.003s
+im_detect: 1004/1024 0.292s 0.003s
+im_detect: 1005/1024 0.292s 0.003s
+im_detect: 1006/1024 0.292s 0.003s
+im_detect: 1007/1024 0.292s 0.003s
+im_detect: 1008/1024 0.292s 0.003s
+im_detect: 1009/1024 0.292s 0.003s
+im_detect: 1010/1024 0.292s 0.003s
+im_detect: 1011/1024 0.292s 0.003s
+im_detect: 1012/1024 0.292s 0.003s
+im_detect: 1013/1024 0.292s 0.003s
+im_detect: 1014/1024 0.292s 0.003s
+im_detect: 1015/1024 0.292s 0.003s
+im_detect: 1016/1024 0.292s 0.003s
+im_detect: 1017/1024 0.292s 0.003s
+im_detect: 1018/1024 0.292s 0.003s
+im_detect: 1019/1024 0.292s 0.003s
+im_detect: 1020/1024 0.292s 0.003s
+im_detect: 1021/1024 0.292s 0.003s
+im_detect: 1022/1024 0.292s 0.003s
+im_detect: 1023/1024 0.292s 0.003s
+im_detect: 1024/1024 0.292s 0.003s
+Evaluating detections
+Writing aeroplane VOC results file
+Writing bicycle VOC results file
+Writing bird VOC results file
+Writing boat VOC results file
+Writing bottle VOC results file
+Writing bus VOC results file
+Writing car VOC results file
+Writing cat VOC results file
+Writing chair VOC results file
+Writing cow VOC results file
+Writing diningtable VOC results file
+Writing dog VOC results file
+Writing horse VOC results file
+Writing motorbike VOC results file
+Writing person VOC results file
+Writing pottedplant VOC results file
+Writing sheep VOC results file
+Writing sofa VOC results file
+Writing train VOC results file
+Writing tvmonitor VOC results file
+VOC07 metric? Yes
+Reading annotation for 1/1024
+Reading annotation for 101/1024
+Reading annotation for 201/1024
+Reading annotation for 301/1024
+Reading annotation for 401/1024
+Reading annotation for 501/1024
+Reading annotation for 601/1024
+Reading annotation for 701/1024
+Reading annotation for 801/1024
+Reading annotation for 901/1024
+Reading annotation for 1001/1024
+Saving cached annotations to /home/ubuntu/pytorch-faster-rcnn/data/VOCdevkit2007/VOC2007/ImageSets/Main/test.txt_annots.pkl
+
+ aeroplane
+im_name = 008908_gblur_r14
+max IoU = 0.710946563707
+
+ aeroplane
+im_name = 004497_gblur_r14
+max IoU = 0.84946638811
+
+ aeroplane
+im_name = 009329_gblur_r14
+max IoU = 0.666467947699
+
+ aeroplane
+im_name = 007973_gblur_r14
+max IoU = 0.37989884839
+
+ aeroplane
+im_name = 001568_gblur_r14
+max IoU = 0.718141222228
+
+ aeroplane
+im_name = 008352_gblur_r14
+max IoU = 0.71177747217
+
+ aeroplane
+im_name = 000668_gblur_r14
+max IoU = 0.551246234615
+
+ aeroplane
+im_name = 002665_gblur_r14
+max IoU = 0.267742776415
+
+ aeroplane
+im_name = 004314_gblur_r14
+max IoU = 0.752718941941
+
+ aeroplane
+im_name = 001305_gblur_r14
+max IoU = 0.603562304602
+
+ aeroplane
+im_name = 008459_gblur_r14
+max IoU = 0.616157820629
+
+ aeroplane
+im_name = 000817_gblur_r14
+max IoU = 0.0240095104879
+
+ aeroplane
+im_name = 006051_gblur_r14
+max IoU = 0.0261777494116
+
+ aeroplane
+im_name = 008055_gblur_r14
+max IoU = 0.0041167690047
+
+ aeroplane
+im_name = 007711_gblur_r14
+max IoU = 0.470182580037
+
+ aeroplane
+im_name = 007286_gblur_r14
+max IoU = 0.457384820326
+
+ aeroplane
+im_name = 007135_gblur_r14
+max IoU = 0.0661699635738
+
+ aeroplane
+im_name = 000316_gblur_r14
+max IoU = 0.048252498507
+
+ aeroplane
+im_name = 002661_gblur_r14
+max IoU = 0.433002754109
+
+ aeroplane
+im_name = 001377_gblur_r14
+max IoU = 0.0369508670309
+
+ aeroplane
+im_name = 006024_gblur_r14
+max IoU = 0.559396305777
+
+ aeroplane
+im_name = 003372_gblur_r14
+max IoU = 0.0760035869566
+
+ aeroplane
+im_name = 004680_gblur_r14
+max IoU = 0.334996210973
+
+ aeroplane
+im_name = 004556_gblur_r14
+max IoU = 0.659641925319
+
+ aeroplane
+im_name = 007870_gblur_r14
+max IoU = 0.406263100835
+
+ aeroplane
+im_name = 005076_gblur_r14
+max IoU = 0.655049155854
+
+ aeroplane
+im_name = 006294_gblur_r14
+max IoU = 0.544740927177
+
+ aeroplane
+im_name = 009030_gblur_r14
+max IoU = 0.836475105604
+
+ aeroplane
+im_name = 002110_gblur_r14
+max IoU = 0.68512452641
+
+ aeroplane
+im_name = 003037_gblur_r14
+max IoU = 0.687544196721
+
+ aeroplane
+im_name = 003931_gblur_r14
+max IoU = 0.828457034323
+
+ aeroplane
+im_name = 000128_gblur_r14
+max IoU = 0.436975645604
+
+ aeroplane
+im_name = 001373_gblur_r14
+max IoU = 0.739603861359
+
+ aeroplane
+im_name = 001046_gblur_r14
+max IoU = 0.67562665405
+
+ aeroplane
+im_name = 009838_gblur_r14
+max IoU = 0.534439961383
+
+ aeroplane
+im_name = 002703_gblur_r14
+max IoU = 0.0494035576721
+
+ aeroplane
+im_name = 003823_gblur_r14
+max IoU = 0.420374100963
+
+ aeroplane
+im_name = 003347_gblur_r14
+max IoU = 0.0163775776074
+
+ aeroplane
+im_name = 007096_gblur_r14
+max IoU = 0.63970936344
+
+ aeroplane
+im_name = 000968_gblur_r14
+max IoU = 0.522441867452
+
+ aeroplane
+im_name = 008554_gblur_r14
+max IoU = 0.338521969456
+
+ aeroplane
+im_name = 008791_gblur_r14
+max IoU = 0.466695337769
+
+ aeroplane
+im_name = 001884_gblur_r14
+max IoU = 0.262935944603
+AP for aeroplane = 0.0057
+
+ bicycle
+im_name = 001213_gblur_r14
+max IoU = 0.204591205815
+
+ bicycle
+im_name = 001781_gblur_r14
+max IoU = 0.442949491019
+
+ bicycle
+im_name = 009534_gblur_r14
+max IoU = 0.221686548956
+
+ bicycle
+im_name = 009564_gblur_r14
+max IoU = 0.149562477708
+
+ bicycle
+im_name = 000015_gblur_r14
+max IoU = 0.407703262044
+
+ bicycle
+im_name = 002227_gblur_r14
+max IoU = 0.4779528434
+
+ bicycle
+im_name = 006975_gblur_r14
+max IoU = 0.215539832285
+
+ bicycle
+im_name = 001613_gblur_r14
+max IoU = 0.574324814902
+
+ bicycle
+im_name = 001336_gblur_r14
+max IoU = 0.440236793057
+
+ bicycle
+im_name = 006118_gblur_r14
+max IoU = 0.346738104661
+
+ bicycle
+im_name = 006915_gblur_r14
+max IoU = 0.00504075619408
+
+ bicycle
+im_name = 004703_gblur_r14
+max IoU = 0.240866105047
+
+ bicycle
+im_name = 007371_gblur_r14
+max IoU = 0.268146503191
+
+ bicycle
+im_name = 004930_gblur_r14
+max IoU = 0.19376579286
+
+ bicycle
+im_name = 000891_gblur_r14
+max IoU = 0.217420705641
+
+ bicycle
+im_name = 001089_gblur_r14
+max IoU = 0.468489698033
+
+ bicycle
+im_name = 009135_gblur_r14
+max IoU = 0.615440759153
+
+ bicycle
+im_name = 006775_gblur_r14
+max IoU = 0.130519313983
+
+ bicycle
+im_name = 005516_gblur_r14
+max IoU = 0.8253719188
+
+ bicycle
+im_name = 006199_gblur_r14
+max IoU = 0.52245377997
+
+ bicycle
+im_name = 008735_gblur_r14
+max IoU = 0.0254837057689
+
+ bicycle
+im_name = 007529_gblur_r14
+max IoU = 0.654462931757
+
+ bicycle
+im_name = 005301_gblur_r14
+max IoU = 0.493246102541
+
+ bicycle
+im_name = 008074_gblur_r14
+max IoU = 0.691079533872
+
+ bicycle
+im_name = 005048_gblur_r14
+max IoU = 0.566758918795
+
+ bicycle
+im_name = 007124_gblur_r14
+max IoU = 0.355967312681
+
+ bicycle
+im_name = 008401_gblur_r14
+max IoU = 0.399342585855
+
+ bicycle
+im_name = 006608_gblur_r14
+max IoU = 0.718301126382
+
+ bicycle
+im_name = 003542_gblur_r14
+max IoU = 0.157681803263
+
+ bicycle
+im_name = 006032_gblur_r14
+max IoU = 0.150428069024
+
+ bicycle
+im_name = 002325_gblur_r14
+max IoU = 0.223522164192
+
+ bicycle
+im_name = 002640_gblur_r14
+max IoU = 0.454476485554
+
+ bicycle
+im_name = 001403_gblur_r14
+max IoU = 0.104080784422
+
+ bicycle
+im_name = 007235_gblur_r14
+max IoU = 0.430892557851
+
+ bicycle
+im_name = 002631_gblur_r14
+max IoU = 0.497179422181
+
+ bicycle
+im_name = 007010_gblur_r14
+max IoU = 0.589523651162
+
+ bicycle
+im_name = 007725_gblur_r14
+max IoU = 0.150867211522
+
+ bicycle
+im_name = 007447_gblur_r14
+max IoU = 0.0714322784706
+
+ bicycle
+im_name = 009948_gblur_r14
+max IoU = 0.839433789391
+
+ bicycle
+im_name = 004769_gblur_r14
+max IoU = 0.24260469321
+
+ bicycle
+im_name = 004330_gblur_r14
+max IoU = 0.43360043002
+
+ bicycle
+im_name = 007860_gblur_r14
+max IoU = 0.454542196356
+
+ bicycle
+im_name = 003999_gblur_r14
+max IoU = 0.731259942363
+
+ bicycle
+im_name = 008666_gblur_r14
+max IoU = 0.257297507326
+
+ bicycle
+im_name = 007646_gblur_r14
+max IoU = 0.286273213647
+
+ bicycle
+im_name = 009677_gblur_r14
+max IoU = 0.491063190224
+AP for bicycle = 0.0008
+
+ bird
+im_name = 006834_gblur_r14
+max IoU = 0.793338337296
+
+ bird
+im_name = 008028_gblur_r14
+max IoU = 0.178178213616
+
+ bird
+im_name = 004949_gblur_r14
+max IoU = 0.385172601651
+
+ bird
+im_name = 003741_gblur_r14
+max IoU = 0.365762188253
+
+ bird
+im_name = 001967_gblur_r14
+max IoU = 0.17346509672
+
+ bird
+im_name = 009266_gblur_r14
+max IoU = 0.621846908504
+
+ bird
+im_name = 006132_gblur_r14
+max IoU = 0.572826374812
+
+ bird
+im_name = 002316_gblur_r14
+max IoU = 0.674306931086
+
+ bird
+im_name = 002380_gblur_r14
+max IoU = 0.324414073817
+
+ bird
+im_name = 005772_gblur_r14
+max IoU = 0.373603469754
+
+ bird
+im_name = 008066_gblur_r14
+max IoU = 0.549980448546
+
+ bird
+im_name = 005115_gblur_r14
+max IoU = 0.55376789863
+
+ bird
+im_name = 000186_gblur_r14
+max IoU = 0.514914958718
+
+ bird
+im_name = 008123_gblur_r14
+max IoU = 0.0560280382318
+
+ bird
+im_name = 004176_gblur_r14
+max IoU = 0.617992711818
+
+ bird
+im_name = 004362_gblur_r14
+max IoU = 0.567530333135
+
+ bird
+im_name = 002980_gblur_r14
+max IoU = 0.632744487443
+
+ bird
+im_name = 000127_gblur_r14
+max IoU = 0.386539275517
+
+ bird
+im_name = 008934_gblur_r14
+max IoU = 0.40444400669
+
+ bird
+im_name = 000568_gblur_r14
+max IoU = 0.588632627771
+
+ bird
+im_name = 003850_gblur_r14
+max IoU = 0.408573067781
+
+ bird
+im_name = 009642_gblur_r14
+max IoU = 0.019278607717
+
+ bird
+im_name = 001122_gblur_r14
+max IoU = 0.526712263815
+
+ bird
+im_name = 008193_gblur_r14
+max IoU = 0.263739834821
+
+ bird
+im_name = 004461_gblur_r14
+max IoU = 0.60451148596
+
+ bird
+im_name = 003148_gblur_r14
+max IoU = 0.575798429958
+
+ bird
+im_name = 008959_gblur_r14
+max IoU = 0.634955783171
+
+ bird
+im_name = 009232_gblur_r14
+max IoU = 0.597641151013
+
+ bird
+im_name = 007505_gblur_r14
+max IoU = 0.313298271976
+
+ bird
+im_name = 000852_gblur_r14
+max IoU = 0.605534093508
+
+ bird
+im_name = 006683_gblur_r14
+max IoU = 0.550951717734
+
+ bird
+im_name = 005532_gblur_r14
+max IoU = 0.131657690006
+
+ bird
+im_name = 007201_gblur_r14
+max IoU = 0.358764714985
+
+ bird
+im_name = 002861_gblur_r14
+max IoU = 0.53682072884
+
+ bird
+im_name = 009616_gblur_r14
+max IoU = 0.59647352566
+
+ bird
+im_name = 006535_gblur_r14
+max IoU = 0.342138755001
+
+ bird
+im_name = 007476_gblur_r14
+max IoU = 0.312112673787
+
+ bird
+im_name = 006929_gblur_r14
+max IoU = 0.340253851311
+
+ bird
+im_name = 002825_gblur_r14
+max IoU = 0.763435671747
+
+ bird
+im_name = 005502_gblur_r14
+max IoU = 0.214709624715
+
+ bird
+im_name = 009300_gblur_r14
+max IoU = 0.511015102172
+
+ bird
+im_name = 006640_gblur_r14
+max IoU = 0.4507511419
+
+ bird
+im_name = 007604_gblur_r14
+max IoU = 0.37100342642
+
+ bird
+im_name = 004513_gblur_r14
+max IoU = 0.00832323042726
+
+ bird
+im_name = 007730_gblur_r14
+max IoU = 0.582597066232
+
+ bird
+im_name = 002400_gblur_r14
+max IoU = 0.557478184531
+
+ bird
+im_name = 001415_gblur_r14
+max IoU = 0.121017894961
+
+ bird
+im_name = 005207_gblur_r14
+max IoU = 0.562705717028
+
+ bird
+im_name = 001235_gblur_r14
+max IoU = 0.264281606284
+
+ bird
+im_name = 007000_gblur_r14
+max IoU = 0.186691710818
+
+ bird
+im_name = 000472_gblur_r14
+max IoU = 0.784796051057
+
+ bird
+im_name = 001262_gblur_r14
+max IoU = 0.572013290076
+
+ bird
+im_name = 005802_gblur_r14
+max IoU = 0.544952023363
+
+ bird
+im_name = 000569_gblur_r14
+max IoU = 0.734685838093
+
+ bird
+im_name = 000737_gblur_r14
+max IoU = 0.0265157627963
+
+ bird
+im_name = 000821_gblur_r14
+max IoU = 0.49404950613
+
+ bird
+im_name = 006650_gblur_r14
+max IoU = 0.23791804634
+
+ bird
+im_name = 009102_gblur_r14
+max IoU = 0.075528117135
+
+ bird
+im_name = 004403_gblur_r14
+max IoU = 0.319550948888
+
+ bird
+im_name = 000199_gblur_r14
+max IoU = 0.673398110192
+
+ bird
+im_name = 002431_gblur_r14
+max IoU = 0.166750362683
+
+ bird
+im_name = 003682_gblur_r14
+max IoU = 0.318756424269
+
+ bird
+im_name = 000274_gblur_r14
+max IoU = 0.540040079715
+
+ bird
+im_name = 009608_gblur_r14
+max IoU = 0.330211045902
+
+ bird
+im_name = 007340_gblur_r14
+max IoU = 0.46708139308
+
+ bird
+im_name = 008118_gblur_r14
+max IoU = 0.439144053331
+
+ bird
+im_name = 001181_gblur_r14
+max IoU = 0.458618024103
+
+ bird
+im_name = 008214_gblur_r14
+max IoU = 0.329003115265
+
+ bird
+im_name = 007557_gblur_r14
+max IoU = 0.0735807587712
+
+ bird
+im_name = 008662_gblur_r14
+max IoU = 0.239946414566
+AP for bird = 0.0161
+
+ boat
+im_name = 007400_gblur_r14
+max IoU = 0.126313114981
+
+ boat
+im_name = 002628_gblur_r14
+max IoU = 0.235592606017
+
+ boat
+im_name = 000538_gblur_r14
+max IoU = 0.117681893701
+
+ boat
+im_name = 005329_gblur_r14
+max IoU = 0.121690147749
+
+ boat
+im_name = 003012_gblur_r14
+max IoU = 0.0172848544005
+
+ boat
+im_name = 001227_gblur_r14
+max IoU = 0.543735994467
+
+ boat
+im_name = 005720_gblur_r14
+max IoU = 0.590709711804
+
+ boat
+im_name = 000914_gblur_r14
+max IoU = 0.478073900479
+
+ boat
+im_name = 000995_gblur_r14
+max IoU = 0.42907670883
+
+ boat
+im_name = 009423_gblur_r14
+max IoU = 0.472034263994
+
+ boat
+im_name = 001355_gblur_r14
+max IoU = 0.414184185313
+
+ boat
+im_name = 001822_gblur_r14
+max IoU = 0.21711576902
+
+ boat
+im_name = 007415_gblur_r14
+max IoU = 0.673161715007
+
+ boat
+im_name = 006332_gblur_r14
+max IoU = 0.575739424805
+
+ boat
+im_name = 004613_gblur_r14
+max IoU = 0.00740942099336
+
+ boat
+im_name = 003952_gblur_r14
+max IoU = 0.133677700231
+
+ boat
+im_name = 004573_gblur_r14
+max IoU = 0.100785089329
+
+ boat
+im_name = 003498_gblur_r14
+max IoU = 0.527778415746
+
+ boat
+im_name = 002390_gblur_r14
+max IoU = 0.619547984917
+
+ boat
+im_name = 006205_gblur_r14
+max IoU = 0.123011763973
+
+ boat
+im_name = 004382_gblur_r14
+max IoU = 0.194715896068
+
+ boat
+im_name = 009538_gblur_r14
+max IoU = 0.218940353933
+
+ boat
+im_name = 004914_gblur_r14
+max IoU = 0.595316980837
+
+ boat
+im_name = 004899_gblur_r14
+max IoU = 0.744144480615
+
+ boat
+im_name = 007990_gblur_r14
+max IoU = 0.43709197339
+
+ boat
+im_name = 009102_gblur_r14
+max IoU = 0.49718938647
+
+ boat
+im_name = 006164_gblur_r14
+max IoU = 0.222859834336
+
+ boat
+im_name = 007428_gblur_r14
+max IoU = 0.432015254573
+
+ boat
+im_name = 004123_gblur_r14
+max IoU = 0.430404705906
+
+ boat
+im_name = 007952_gblur_r14
+max IoU = 0.169880293524
+
+ boat
+im_name = 005771_gblur_r14
+max IoU = 0.0466532835399
+
+ boat
+im_name = 007635_gblur_r14
+max IoU = 0.472465681429
+
+ boat
+im_name = 005604_gblur_r14
+max IoU = 0.679741631924
+AP for boat = 0.0012
+
+ bottle
+im_name = 001925_gblur_r14
+max IoU = 0.601136527118
+
+ bottle
+im_name = 008778_gblur_r14
+max IoU = 0.178522664339
+
+ bottle
+im_name = 008627_gblur_r14
+max IoU = 0.0737205541974
+
+ bottle
+im_name = 001354_gblur_r14
+max IoU = 0.150927055611
+
+ bottle
+im_name = 002950_gblur_r14
+max IoU = 0.286676583603
+
+ bottle
+im_name = 000517_gblur_r14
+max IoU = 0.200072424407
+
+ bottle
+im_name = 009547_gblur_r14
+max IoU = 0.428293695458
+
+ bottle
+im_name = 004068_gblur_r14
+max IoU = 0.0956045226536
+
+ bottle
+im_name = 003067_gblur_r14
+max IoU = 0.377192409845
+
+ bottle
+im_name = 002982_gblur_r14
+max IoU = 0.578057642434
+
+ bottle
+im_name = 007532_gblur_r14
+max IoU = 0.0441659105585
+
+ bottle
+im_name = 004469_gblur_r14
+max IoU = 0.0827222249203
+
+ bottle
+im_name = 007225_gblur_r14
+max IoU = 0.0796029700802
+
+ bottle
+im_name = 005226_gblur_r14
+max IoU = 0.113402349049
+
+ bottle
+im_name = 001921_gblur_r14
+max IoU = 0.0665476914973
+
+ bottle
+im_name = 000299_gblur_r14
+max IoU = 0.011448350936
+
+ bottle
+im_name = 003590_gblur_r14
+max IoU = 0.025317517881
+
+ bottle
+im_name = 006248_gblur_r14
+max IoU = 0.137343038743
+
+ bottle
+im_name = 008894_gblur_r14
+max IoU = 0.481720460807
+
+ bottle
+im_name = 004032_gblur_r14
+max IoU = 0.0182740664764
+
+ bottle
+im_name = 004712_gblur_r14
+max IoU = 0.10627657721
+
+ bottle
+im_name = 007569_gblur_r14
+max IoU = 0.0667786239784
+
+ bottle
+im_name = 003249_gblur_r14
+max IoU = 0.819417024736
+
+ bottle
+im_name = 002945_gblur_r14
+max IoU = 0.065067132738
+
+ bottle
+im_name = 004919_gblur_r14
+max IoU = 0.374991006714
+
+ bottle
+im_name = 000280_gblur_r14
+max IoU = 0.139735323734
+
+ bottle
+im_name = 003776_gblur_r14
+max IoU = 0.0051974948075
+
+ bottle
+im_name = 008094_gblur_r14
+max IoU = 0.0978037000154
+
+ bottle
+im_name = 009311_gblur_r14
+max IoU = 0.0147078389395
+
+ bottle
+im_name = 006390_gblur_r14
+max IoU = 0.522835789911
+
+ bottle
+im_name = 007494_gblur_r14
+max IoU = 0.385207345813
+
+ bottle
+im_name = 002231_gblur_r14
+max IoU = 0.559620669158
+
+ bottle
+im_name = 003942_gblur_r14
+max IoU = 0.0487142628973
+
+ bottle
+im_name = 003944_gblur_r14
+max IoU = 0.0345153482977
+
+ bottle
+im_name = 000144_gblur_r14
+max IoU = 0.0535038939699
+
+ bottle
+im_name = 000327_gblur_r14
+max IoU = 0.0384225674003
+
+ bottle
+im_name = 009840_gblur_r14
+max IoU = 0.0678669534852
+
+ bottle
+im_name = 007500_gblur_r14
+max IoU = 0.320052801259
+
+ bottle
+im_name = 004072_gblur_r14
+max IoU = 0.0173290368779
+
+ bottle
+im_name = 005233_gblur_r14
+max IoU = 0.0242260920089
+
+ bottle
+im_name = 009366_gblur_r14
+max IoU = 0.573936869161
+
+ bottle
+im_name = 000762_gblur_r14
+max IoU = 0.307604804792
+
+ bottle
+im_name = 003697_gblur_r14
+max IoU = 0.388573442025
+
+ bottle
+im_name = 001035_gblur_r14
+max IoU = 0.0244454946953
+
+ bottle
+im_name = 009891_gblur_r14
+max IoU = 0.629882758237
+
+ bottle
+im_name = 006452_gblur_r14
+max IoU = 0.0897360814615
+
+ bottle
+im_name = 000737_gblur_r14
+max IoU = 0.0181301393097
+
+ bottle
+im_name = 009929_gblur_r14
+max IoU = 0.717110599137
+
+ bottle
+im_name = 002235_gblur_r14
+max IoU = 0.0347684430584
+
+ bottle
+im_name = 003802_gblur_r14
+max IoU = 0.0253604607362
+
+ bottle
+im_name = 004311_gblur_r14
+max IoU = 0.0160520269124
+
+ bottle
+im_name = 003076_gblur_r14
+max IoU = 0.0840169731259
+
+ bottle
+im_name = 001631_gblur_r14
+max IoU = 0.385853633699
+
+ bottle
+im_name = 003906_gblur_r14
+max IoU = 0.547976244861
+
+ bottle
+im_name = 007598_gblur_r14
+max IoU = 0.0433534910645
+
+ bottle
+im_name = 004720_gblur_r14
+max IoU = 0.00622405105589
+
+ bottle
+im_name = 007744_gblur_r14
+max IoU = 0.280884988567
+
+ bottle
+im_name = 003431_gblur_r14
+max IoU = 0.366195071766
+
+ bottle
+im_name = 001720_gblur_r14
+max IoU = 0.0747574677696
+
+ bottle
+im_name = 008405_gblur_r14
+max IoU = 0.018396147905
+
+ bottle
+im_name = 009075_gblur_r14
+max IoU = 0.229122075324
+
+ bottle
+im_name = 005926_gblur_r14
+max IoU = 0.036284378819
+
+ bottle
+im_name = 007778_gblur_r14
+max IoU = 0.324051960324
+
+ bottle
+im_name = 002905_gblur_r14
+max IoU = 0.0711731752484
+
+ bottle
+im_name = 004922_gblur_r14
+max IoU = 0.138952358661
+
+ bottle
+im_name = 008925_gblur_r14
+max IoU = 0.39867986229
+
+ bottle
+im_name = 006402_gblur_r14
+max IoU = 0.180579980408
+
+ bottle
+im_name = 003010_gblur_r14
+max IoU = 0.326017602642
+
+ bottle
+im_name = 008591_gblur_r14
+max IoU = 0.257182448037
+
+ bottle
+im_name = 001023_gblur_r14
+max IoU = 0.00589760649326
+AP for bottle = 0.0002
+
+ bus
+im_name = 007510_gblur_r14
+max IoU = 0.845701013873
+
+ bus
+im_name = 008915_gblur_r14
+max IoU = 0.638212960767
+
+ bus
+im_name = 004099_gblur_r14
+max IoU = 0.534707698005
+
+ bus
+im_name = 007949_gblur_r14
+max IoU = 0.378652112187
+
+ bus
+im_name = 000833_gblur_r14
+max IoU = 0.784233760113
+
+ bus
+im_name = 004802_gblur_r14
+max IoU = 0.361889753115
+
+ bus
+im_name = 008642_gblur_r14
+max IoU = 0.603123022997
+
+ bus
+im_name = 000341_gblur_r14
+max IoU = 0.0789614836783
+
+ bus
+im_name = 006405_gblur_r14
+max IoU = 0.415842266751
+
+ bus
+im_name = 003864_gblur_r14
+max IoU = 0.541736299179
+
+ bus
+im_name = 000723_gblur_r14
+max IoU = 0.336960276273
+
+ bus
+im_name = 009643_gblur_r14
+max IoU = 0.056861442716
+
+ bus
+im_name = 000719_gblur_r14
+max IoU = 0.513041745168
+
+ bus
+im_name = 001817_gblur_r14
+max IoU = 0.724305288535
+
+ bus
+im_name = 005978_gblur_r14
+max IoU = 0.418865236844
+
+ bus
+im_name = 002229_gblur_r14
+max IoU = 0.553838846111
+
+ bus
+im_name = 005666_gblur_r14
+max IoU = 0.0114739514678
+
+ bus
+im_name = 004094_gblur_r14
+max IoU = 0.828786794807
+
+ bus
+im_name = 005870_gblur_r14
+max IoU = 0.44820832935
+
+ bus
+im_name = 006334_gblur_r14
+max IoU = 0.122993379632
+
+ bus
+im_name = 005809_gblur_r14
+max IoU = 0.428784623853
+
+ bus
+im_name = 009322_gblur_r14
+max IoU = 0.0211092414595
+
+ bus
+im_name = 002216_gblur_r14
+max IoU = 0.6839715181
+
+ bus
+im_name = 000864_gblur_r14
+max IoU = 0.522586479933
+
+ bus
+im_name = 009936_gblur_r14
+max IoU = 0.440347097472
+
+ bus
+im_name = 001844_gblur_r14
+max IoU = 0.153648283191
+
+ bus
+im_name = 000512_gblur_r14
+max IoU = 0.609290882747
+
+ bus
+im_name = 006992_gblur_r14
+max IoU = 0.351480371666
+
+ bus
+im_name = 003715_gblur_r14
+max IoU = 0.824921451782
+
+ bus
+im_name = 005265_gblur_r14
+max IoU = 0.630068972047
+
+ bus
+im_name = 000054_gblur_r14
+max IoU = 0.765082771472
+
+ bus
+im_name = 004594_gblur_r14
+max IoU = 0.287359036953
+
+ bus
+im_name = 005484_gblur_r14
+max IoU = 0.312078432619
+
+ bus
+im_name = 009530_gblur_r14
+max IoU = 0.0377961507381
+
+ bus
+im_name = 007690_gblur_r14
+max IoU = 0.60207295413
+
+ bus
+im_name = 004762_gblur_r14
+max IoU = 0.67043467803
+
+ bus
+im_name = 001884_gblur_r14
+max IoU = 0.0693559897931
+
+ bus
+im_name = 008158_gblur_r14
+max IoU = 0.0706663390171
+
+ bus
+im_name = 006723_gblur_r14
+max IoU = 0.64420105194
+AP for bus = 0.0085
+
+ car
+im_name = 007510_gblur_r14
+max IoU = 0.273687559656
+
+ car
+im_name = 003481_gblur_r14
+max IoU = 0.0638334735387
+
+ car
+im_name = 008915_gblur_r14
+max IoU = 0.0426261422905
+
+ car
+im_name = 002319_gblur_r14
+max IoU = 0.510107783414
+
+ car
+im_name = 004313_gblur_r14
+max IoU = 0.575652440296
+
+ car
+im_name = 007634_gblur_r14
+max IoU = 0.0255944902043
+
+ car
+im_name = 008824_gblur_r14
+max IoU = 0.285180156596
+
+ car
+im_name = 001613_gblur_r14
+max IoU = 0.61622367055
+
+ car
+im_name = 003328_gblur_r14
+max IoU = 0.417811900971
+
+ car
+im_name = 009723_gblur_r14
+max IoU = 0.824919695784
+
+ car
+im_name = 009536_gblur_r14
+max IoU = 0.844352027157
+
+ car
+im_name = 006006_gblur_r14
+max IoU = 0.689805009029
+
+ car
+im_name = 005105_gblur_r14
+max IoU = 0.672701550327
+
+ car
+im_name = 007368_gblur_r14
+max IoU = 0.129349219698
+
+ car
+im_name = 007906_gblur_r14
+max IoU = 0.653540212205
+
+ car
+im_name = 004554_gblur_r14
+max IoU = 0.838909350734
+
+ car
+im_name = 007522_gblur_r14
+max IoU = 0.732485771965
+
+ car
+im_name = 003810_gblur_r14
+max IoU = 0.214993976462
+
+ car
+im_name = 005468_gblur_r14
+max IoU = 0.347723589215
+
+ car
+im_name = 005316_gblur_r14
+max IoU = 0.454954142654
+
+ car
+im_name = 005809_gblur_r14
+max IoU = 0.150922686424
+
+ car
+im_name = 008622_gblur_r14
+max IoU = 0.259624029932
+
+ car
+im_name = 009829_gblur_r14
+max IoU = 0.514381788481
+
+ car
+im_name = 008324_gblur_r14
+max IoU = 0.242983305485
+
+ car
+im_name = 009071_gblur_r14
+max IoU = 0.677431783303
+
+ car
+im_name = 004697_gblur_r14
+max IoU = 0.492655074873
+
+ car
+im_name = 006283_gblur_r14
+max IoU = 0.954166279154
+
+ car
+im_name = 000293_gblur_r14
+max IoU = 0.686517912641
+
+ car
+im_name = 000593_gblur_r14
+max IoU = 0.611835207038
+
+ car
+im_name = 005041_gblur_r14
+max IoU = 0.680741755454
+
+ car
+im_name = 005287_gblur_r14
+max IoU = 0.434479952117
+
+ car
+im_name = 006326_gblur_r14
+max IoU = 0.700800053148
+
+ car
+im_name = 001003_gblur_r14
+max IoU = 0.395044022281
+
+ car
+im_name = 003052_gblur_r14
+max IoU = 0.35797562712
+
+ car
+im_name = 007807_gblur_r14
+max IoU = 0.826542586371
+
+ car
+im_name = 002729_gblur_r14
+max IoU = 0.766509519984
+
+ car
+im_name = 002740_gblur_r14
+max IoU = 0.391567578717
+
+ car
+im_name = 001135_gblur_r14
+max IoU = 0.331219902014
+
+ car
+im_name = 001804_gblur_r14
+max IoU = 0.631418528711
+
+ car
+im_name = 002650_gblur_r14
+max IoU = 0.00339590652831
+
+ car
+im_name = 000624_gblur_r14
+max IoU = 0.621769309528
+
+ car
+im_name = 006405_gblur_r14
+max IoU = 0.418693649193
+
+ car
+im_name = 006653_gblur_r14
+max IoU = 0.844753129601
+
+ car
+im_name = 005372_gblur_r14
+max IoU = 0.537923521515
+
+ car
+im_name = 001951_gblur_r14
+max IoU = 0.864862874481
+
+ car
+im_name = 008114_gblur_r14
+max IoU = 0.100989837533
+
+ car
+im_name = 000358_gblur_r14
+max IoU = 0.420897069646
+
+ car
+im_name = 009804_gblur_r14
+max IoU = 0.516066032897
+
+ car
+im_name = 000883_gblur_r14
+max IoU = 0.430624483044
+
+ car
+im_name = 007714_gblur_r14
+max IoU = 0.261948555889
+
+ car
+im_name = 005157_gblur_r14
+max IoU = 0.102747904598
+
+ car
+im_name = 006481_gblur_r14
+max IoU = 0.710473247794
+
+ car
+im_name = 004996_gblur_r14
+max IoU = 0.776511918975
+
+ car
+im_name = 001005_gblur_r14
+max IoU = 0.224228567682
+
+ car
+im_name = 001321_gblur_r14
+max IoU = 0.501460421526
+
+ car
+im_name = 007447_gblur_r14
+max IoU = 0.0271026791665
+
+ car
+im_name = 000135_gblur_r14
+max IoU = 0.121905704928
+
+ car
+im_name = 008421_gblur_r14
+max IoU = 0.516769744988
+
+ car
+im_name = 005401_gblur_r14
+max IoU = 0.648938271428
+
+ car
+im_name = 009705_gblur_r14
+max IoU = 0.385305334881
+
+ car
+im_name = 002543_gblur_r14
+max IoU = 0.508975876839
+
+ car
+im_name = 003483_gblur_r14
+max IoU = 0.396122514719
+
+ car
+im_name = 009643_gblur_r14
+max IoU = 0.00479706413258
+
+ car
+im_name = 005770_gblur_r14
+max IoU = 0.51976256638
+
+ car
+im_name = 006907_gblur_r14
+max IoU = 0.336888331242
+
+ car
+im_name = 001776_gblur_r14
+max IoU = 0.651070612707
+
+ car
+im_name = 007580_gblur_r14
+max IoU = 0.0331720146668
+
+ car
+im_name = 007061_gblur_r14
+max IoU = 0.80675314111
+
+ car
+im_name = 006358_gblur_r14
+max IoU = 0.0518118198105
+
+ car
+im_name = 009396_gblur_r14
+max IoU = 0.379229704028
+
+ car
+im_name = 008158_gblur_r14
+max IoU = 0.589395702517
+
+ car
+im_name = 003501_gblur_r14
+max IoU = 0.526664941138
+
+ car
+im_name = 000507_gblur_r14
+max IoU = 0.67207037526
+
+ car
+im_name = 004684_gblur_r14
+max IoU = 0.656114091224
+
+ car
+im_name = 006376_gblur_r14
+max IoU = 0.768323169683
+
+ car
+im_name = 000197_gblur_r14
+max IoU = 0.641216681878
+
+ car
+im_name = 002556_gblur_r14
+max IoU = 0.718176704895
+
+ car
+im_name = 005546_gblur_r14
+max IoU = 0.472327087889
+
+ car
+im_name = 007126_gblur_r14
+max IoU = 0.285597842883
+
+ car
+im_name = 000341_gblur_r14
+max IoU = 0.426643006528
+
+ car
+im_name = 007143_gblur_r14
+max IoU = 0.384004409153
+
+ car
+im_name = 008579_gblur_r14
+max IoU = 0.0151805172892
+
+ car
+im_name = 009052_gblur_r14
+max IoU = 0.352871213822
+
+ car
+im_name = 002829_gblur_r14
+max IoU = 0.68869147366
+
+ car
+im_name = 004933_gblur_r14
+max IoU = 0.0268098453513
+
+ car
+im_name = 003578_gblur_r14
+max IoU = 0.280008164419
+
+ car
+im_name = 006423_gblur_r14
+max IoU = 0.037563569117
+
+ car
+im_name = 009564_gblur_r14
+max IoU = 0.194590994703
+
+ car
+im_name = 006034_gblur_r14
+max IoU = 0.556189912771
+
+ car
+im_name = 005694_gblur_r14
+max IoU = 0.506637553009
+
+ car
+im_name = 002746_gblur_r14
+max IoU = 0.396640223985
+
+ car
+im_name = 003904_gblur_r14
+max IoU = 0.316422783634
+
+ car
+im_name = 003055_gblur_r14
+max IoU = 0.142657024123
+
+ car
+im_name = 000719_gblur_r14
+max IoU = 0.035894613415
+
+ car
+im_name = 003046_gblur_r14
+max IoU = 0.844909576449
+
+ car
+im_name = 008715_gblur_r14
+max IoU = 0.34736547669
+
+ car
+im_name = 009321_gblur_r14
+max IoU = 0.533026461491
+
+ car
+im_name = 005666_gblur_r14
+max IoU = 0.0152467755974
+
+ car
+im_name = 001280_gblur_r14
+max IoU = 0.772229005497
+
+ car
+im_name = 006155_gblur_r14
+max IoU = 0.214774163889
+
+ car
+im_name = 002522_gblur_r14
+max IoU = 0.520684470622
+
+ car
+im_name = 006024_gblur_r14
+max IoU = 0.268140047368
+
+ car
+im_name = 000844_gblur_r14
+max IoU = 0.609173102729
+
+ car
+im_name = 007992_gblur_r14
+max IoU = 0.204158148287
+
+ car
+im_name = 009210_gblur_r14
+max IoU = 0.171402988045
+
+ car
+im_name = 001111_gblur_r14
+max IoU = 0.0589875589876
+
+ car
+im_name = 008548_gblur_r14
+max IoU = 0.652209361632
+
+ car
+im_name = 005870_gblur_r14
+max IoU = 0.0157322654462
+
+ car
+im_name = 002232_gblur_r14
+max IoU = 0.191599948827
+
+ car
+im_name = 006441_gblur_r14
+max IoU = 0.0623075464372
+
+ car
+im_name = 008658_gblur_r14
+max IoU = 0.568798524904
+
+ car
+im_name = 001422_gblur_r14
+max IoU = 0.612102720553
+
+ car
+im_name = 004097_gblur_r14
+max IoU = 0.35348380359
+
+ car
+im_name = 006334_gblur_r14
+max IoU = 0.0345693143561
+
+ car
+im_name = 009322_gblur_r14
+max IoU = 0.0867023384859
+
+ car
+im_name = 005904_gblur_r14
+max IoU = 0.347680178652
+
+ car
+im_name = 009601_gblur_r14
+max IoU = 0.127883106275
+
+ car
+im_name = 000788_gblur_r14
+max IoU = 0.00534104818071
+
+ car
+im_name = 004240_gblur_r14
+max IoU = 0.292081092657
+
+ car
+im_name = 008708_gblur_r14
+max IoU = 0.00318325902538
+
+ car
+im_name = 009768_gblur_r14
+max IoU = 0.0163875185935
+
+ car
+im_name = 009688_gblur_r14
+max IoU = 0.598746738379
+
+ car
+im_name = 002607_gblur_r14
+max IoU = 0.268734715952
+
+ car
+im_name = 001283_gblur_r14
+max IoU = 0.100215872022
+
+ car
+im_name = 001403_gblur_r14
+max IoU = 0.0763191582293
+
+ car
+im_name = 002703_gblur_r14
+max IoU = 0.019218731496
+
+ car
+im_name = 006383_gblur_r14
+max IoU = 0.57617895432
+
+ car
+im_name = 002057_gblur_r14
+max IoU = 0.509981212425
+
+ car
+im_name = 005021_gblur_r14
+max IoU = 0.44300623414
+
+ car
+im_name = 007690_gblur_r14
+max IoU = 0.0125875204039
+
+ car
+im_name = 004602_gblur_r14
+max IoU = 0.543478567587
+
+ car
+im_name = 000945_gblur_r14
+max IoU = 0.491793868232
+
+ car
+im_name = 009530_gblur_r14
+max IoU = 0.0409477382863
+
+ car
+im_name = 005484_gblur_r14
+max IoU = 0.0516489289488
+
+ car
+im_name = 008276_gblur_r14
+max IoU = 0.079196114612
+
+ car
+im_name = 009492_gblur_r14
+max IoU = 0.564779404416
+
+ car
+im_name = 003701_gblur_r14
+max IoU = 0.202794051374
+
+ car
+im_name = 009675_gblur_r14
+max IoU = 0.663265974088
+
+ car
+im_name = 007386_gblur_r14
+max IoU = 0.744870763636
+
+ car
+im_name = 009847_gblur_r14
+max IoU = 0.0875605398193
+
+ car
+im_name = 004762_gblur_r14
+max IoU = 0.0071788654202
+
+ car
+im_name = 005708_gblur_r14
+max IoU = 0.027642329734
+
+ car
+im_name = 009701_gblur_r14
+max IoU = 0.290557411455
+
+ car
+im_name = 004147_gblur_r14
+max IoU = 0.221209143574
+
+ car
+im_name = 000801_gblur_r14
+max IoU = 0.171829687835
+
+ car
+im_name = 006685_gblur_r14
+max IoU = 0.680609673368
+
+ car
+im_name = 009895_gblur_r14
+max IoU = 0.585813938403
+
+ car
+im_name = 001919_gblur_r14
+max IoU = 0.196486213134
+
+ car
+im_name = 009430_gblur_r14
+max IoU = 0.568386253587
+
+ car
+im_name = 004959_gblur_r14
+max IoU = 0.503536627293
+
+ car
+im_name = 007927_gblur_r14
+max IoU = 0.728932228024
+
+ car
+im_name = 005638_gblur_r14
+max IoU = 0.450619130488
+
+ car
+im_name = 002271_gblur_r14
+max IoU = 0.394330983252
+
+ car
+im_name = 003569_gblur_r14
+max IoU = 0.0171037670898
+
+ car
+im_name = 004172_gblur_r14
+max IoU = 0.0246219718437
+AP for car = 0.0174
+
+ cat
+im_name = 007291_gblur_r14
+max IoU = 0.661199315494
+
+ cat
+im_name = 004677_gblur_r14
+max IoU = 0.0633720501515
+
+ cat
+im_name = 004934_gblur_r14
+max IoU = 0.513084569008
+
+ cat
+im_name = 006688_gblur_r14
+max IoU = 0.70345317433
+
+ cat
+im_name = 003352_gblur_r14
+max IoU = 0.454111731891
+
+ cat
+im_name = 009720_gblur_r14
+max IoU = 0.51682674171
+
+ cat
+im_name = 005356_gblur_r14
+max IoU = 0.43167398149
+
+ cat
+im_name = 007409_gblur_r14
+max IoU = 0.586530100127
+
+ cat
+im_name = 004116_gblur_r14
+max IoU = 0.443243261819
+
+ cat
+im_name = 000517_gblur_r14
+max IoU = 0.212543879481
+
+ cat
+im_name = 007221_gblur_r14
+max IoU = 0.741374437708
+
+ cat
+im_name = 003119_gblur_r14
+max IoU = 0.66889306491
+
+ cat
+im_name = 005012_gblur_r14
+max IoU = 0.38019447248
+
+ cat
+im_name = 005939_gblur_r14
+max IoU = 0.177155125186
+
+ cat
+im_name = 007199_gblur_r14
+max IoU = 0.699553805583
+
+ cat
+im_name = 003080_gblur_r14
+max IoU = 0.607612546951
+
+ cat
+im_name = 004759_gblur_r14
+max IoU = 0.870544259956
+
+ cat
+im_name = 009522_gblur_r14
+max IoU = 0.765005800266
+
+ cat
+im_name = 002740_gblur_r14
+max IoU = 0.39260978572
+
+ cat
+im_name = 001973_gblur_r14
+max IoU = 0.522759349585
+
+ cat
+im_name = 005155_gblur_r14
+max IoU = 0.566157919268
+
+ cat
+im_name = 005038_gblur_r14
+max IoU = 0.451727861644
+
+ cat
+im_name = 007360_gblur_r14
+max IoU = 0.398161207677
+
+ cat
+im_name = 005872_gblur_r14
+max IoU = 0.816866446477
+
+ cat
+im_name = 002084_gblur_r14
+max IoU = 0.495755977743
+
+ cat
+im_name = 001663_gblur_r14
+max IoU = 0.909012126477
+
+ cat
+im_name = 002936_gblur_r14
+max IoU = 0.562679686564
+
+ cat
+im_name = 001392_gblur_r14
+max IoU = 0.523166730256
+
+ cat
+im_name = 005543_gblur_r14
+max IoU = 0.34376512668
+
+ cat
+im_name = 002167_gblur_r14
+max IoU = 0.231941238195
+
+ cat
+im_name = 004252_gblur_r14
+max IoU = 0.274438861376
+
+ cat
+im_name = 007542_gblur_r14
+max IoU = 0.639941052632
+
+ cat
+im_name = 009669_gblur_r14
+max IoU = 0.605733052693
+
+ cat
+im_name = 002003_gblur_r14
+max IoU = 0.493309944285
+
+ cat
+im_name = 006801_gblur_r14
+max IoU = 0.51508732791
+
+ cat
+im_name = 009575_gblur_r14
+max IoU = 0.771632395599
+
+ cat
+im_name = 003427_gblur_r14
+max IoU = 0.645032866076
+
+ cat
+im_name = 003540_gblur_r14
+max IoU = 0.397965285921
+
+ cat
+im_name = 005646_gblur_r14
+max IoU = 0.26616967739
+
+ cat
+im_name = 002736_gblur_r14
+max IoU = 0.51156794952
+
+ cat
+im_name = 008011_gblur_r14
+max IoU = 0.674092009685
+
+ cat
+im_name = 004161_gblur_r14
+max IoU = 0.546423435147
+
+ cat
+im_name = 006080_gblur_r14
+max IoU = 0.695291667872
+
+ cat
+im_name = 001228_gblur_r14
+max IoU = 0.252624897663
+
+ cat
+im_name = 005317_gblur_r14
+max IoU = 0.632230563468
+
+ cat
+im_name = 001966_gblur_r14
+max IoU = 0.59583621964
+
+ cat
+im_name = 005089_gblur_r14
+max IoU = 0.52090734708
+
+ cat
+im_name = 008110_gblur_r14
+max IoU = 0.103172694155
+
+ cat
+im_name = 001890_gblur_r14
+max IoU = 0.571973321919
+
+ cat
+im_name = 000213_gblur_r14
+max IoU = 0.424891674077
+
+ cat
+im_name = 004029_gblur_r14
+max IoU = 0.182077264091
+
+ cat
+im_name = 000658_gblur_r14
+max IoU = 0.115257974168
+
+ cat
+im_name = 006818_gblur_r14
+max IoU = 0.492901535581
+
+ cat
+im_name = 006211_gblur_r14
+max IoU = 0.0339142446921
+
+ cat
+im_name = 008575_gblur_r14
+max IoU = 0.468397366161
+
+ cat
+im_name = 009544_gblur_r14
+max IoU = 0.52115641836
+
+ cat
+im_name = 000119_gblur_r14
+max IoU = 0.348294932473
+
+ cat
+im_name = 003870_gblur_r14
+max IoU = 0.437490510173
+
+ cat
+im_name = 005962_gblur_r14
+max IoU = 0.790366944568
+
+ cat
+im_name = 009216_gblur_r14
+max IoU = 0.503713983175
+
+ cat
+im_name = 007574_gblur_r14
+max IoU = 0.490631199689
+
+ cat
+im_name = 003906_gblur_r14
+max IoU = 0.443442475488
+
+ cat
+im_name = 009489_gblur_r14
+max IoU = 0.182930394994
+
+ cat
+im_name = 004720_gblur_r14
+max IoU = 0.11559989206
+
+ cat
+im_name = 005452_gblur_r14
+max IoU = 0.210422698552
+
+ cat
+im_name = 006985_gblur_r14
+max IoU = 0.101220819936
+
+ cat
+im_name = 003591_gblur_r14
+max IoU = 0.120294057431
+
+ cat
+im_name = 000098_gblur_r14
+max IoU = 0.297555881597
+
+ cat
+im_name = 005300_gblur_r14
+max IoU = 0.505698711596
+AP for cat = 0.0370
+
+ chair
+im_name = 000641_gblur_r14
+max IoU = 0.752085332442
+
+ chair
+im_name = 004677_gblur_r14
+max IoU = 0.245650737079
+
+ chair
+im_name = 008210_gblur_r14
+max IoU = 0.120190925298
+
+ chair
+im_name = 007628_gblur_r14
+max IoU = 0.118177928071
+
+ chair
+im_name = 004881_gblur_r14
+max IoU = 0.244283636429
+
+ chair
+im_name = 003245_gblur_r14
+max IoU = 0.181133552889
+
+ chair
+im_name = 009606_gblur_r14
+max IoU = 0.532730233415
+
+ chair
+im_name = 006780_gblur_r14
+max IoU = 0.720558871936
+
+ chair
+im_name = 008178_gblur_r14
+max IoU = 0.863275897862
+
+ chair
+im_name = 004923_gblur_r14
+max IoU = 0.432996586495
+
+ chair
+im_name = 003123_gblur_r14
+max IoU = 0.533618401651
+
+ chair
+im_name = 008947_gblur_r14
+max IoU = 0.411392861376
+
+ chair
+im_name = 002724_gblur_r14
+max IoU = 0.540736467286
+
+ chair
+im_name = 007319_gblur_r14
+max IoU = 0.165366005727
+
+ chair
+im_name = 008705_gblur_r14
+max IoU = 0.282917879856
+
+ chair
+im_name = 000573_gblur_r14
+max IoU = 0.187682125747
+
+ chair
+im_name = 004661_gblur_r14
+max IoU = 0.472505580876
+
+ chair
+im_name = 009660_gblur_r14
+max IoU = 0.698078086947
+
+ chair
+im_name = 005994_gblur_r14
+max IoU = 0.0463061128474
+
+ chair
+im_name = 007178_gblur_r14
+max IoU = 0.392956441149
+
+ chair
+im_name = 003590_gblur_r14
+max IoU = 0.189164512354
+
+ chair
+im_name = 005233_gblur_r14
+max IoU = 0.363320405153
+
+ chair
+im_name = 007785_gblur_r14
+max IoU = 0.453170208358
+
+ chair
+im_name = 005295_gblur_r14
+max IoU = 0.164290977103
+
+ chair
+im_name = 008394_gblur_r14
+max IoU = 0.512881057269
+
+ chair
+im_name = 006792_gblur_r14
+max IoU = 0.205333111352
+
+ chair
+im_name = 007301_gblur_r14
+max IoU = 0.606349333862
+
+ chair
+im_name = 001599_gblur_r14
+max IoU = 0.189941764735
+
+ chair
+im_name = 005286_gblur_r14
+max IoU = 0.903610057592
+
+ chair
+im_name = 007816_gblur_r14
+max IoU = 0.0265011280016
+
+ chair
+im_name = 007494_gblur_r14
+max IoU = 0.322756288859
+
+ chair
+im_name = 008678_gblur_r14
+max IoU = 0.0383721060371
+
+ chair
+im_name = 009311_gblur_r14
+max IoU = 0.206569334163
+
+ chair
+im_name = 000299_gblur_r14
+max IoU = 0.0878074019966
+
+ chair
+im_name = 008407_gblur_r14
+max IoU = 0.709782087681
+
+ chair
+im_name = 008041_gblur_r14
+max IoU = 0.831622399097
+
+ chair
+im_name = 006271_gblur_r14
+max IoU = 0.241844644545
+
+ chair
+im_name = 002298_gblur_r14
+max IoU = 0.698630136986
+
+ chair
+im_name = 003825_gblur_r14
+max IoU = 0.554249806403
+
+ chair
+im_name = 000084_gblur_r14
+max IoU = 0.102221387554
+
+ chair
+im_name = 001025_gblur_r14
+max IoU = 0.776348354277
+
+ chair
+im_name = 009595_gblur_r14
+max IoU = 0.612049275095
+
+ chair
+im_name = 008490_gblur_r14
+max IoU = 0.301198548299
+
+ chair
+im_name = 003384_gblur_r14
+max IoU = 0.0951970968052
+
+ chair
+im_name = 000377_gblur_r14
+max IoU = 0.579577767491
+
+ chair
+im_name = 006010_gblur_r14
+max IoU = 0.161209637172
+
+ chair
+im_name = 000144_gblur_r14
+max IoU = 0.406635303106
+
+ chair
+im_name = 006422_gblur_r14
+max IoU = 0.554544676114
+
+ chair
+im_name = 005661_gblur_r14
+max IoU = 0.442406881788
+
+ chair
+im_name = 000327_gblur_r14
+max IoU = 0.0588799722954
+
+ chair
+im_name = 002353_gblur_r14
+max IoU = 0.43331324789
+
+ chair
+im_name = 007817_gblur_r14
+max IoU = 0.063736020797
+
+ chair
+im_name = 005498_gblur_r14
+max IoU = 0.570086756616
+
+ chair
+im_name = 005362_gblur_r14
+max IoU = 0.0281548915322
+
+ chair
+im_name = 008110_gblur_r14
+max IoU = 0.350330014548
+
+ chair
+im_name = 006541_gblur_r14
+max IoU = 0.220889235674
+
+ chair
+im_name = 005934_gblur_r14
+max IoU = 0.76059470065
+
+ chair
+im_name = 005767_gblur_r14
+max IoU = 0.0901079997323
+
+ chair
+im_name = 007207_gblur_r14
+max IoU = 0.0366712342912
+
+ chair
+im_name = 005218_gblur_r14
+max IoU = 0.337696286714
+
+ chair
+im_name = 001534_gblur_r14
+max IoU = 0.278166567651
+
+ chair
+im_name = 002650_gblur_r14
+max IoU = 0.108841910116
+
+ chair
+im_name = 006984_gblur_r14
+max IoU = 0.52673289626
+
+ chair
+im_name = 005727_gblur_r14
+max IoU = 0.0399410656829
+
+ chair
+im_name = 000234_gblur_r14
+max IoU = 0.495591005932
+
+ chair
+im_name = 004559_gblur_r14
+max IoU = 0.154851098401
+
+ chair
+im_name = 000247_gblur_r14
+max IoU = 0.419359270381
+
+ chair
+im_name = 006954_gblur_r14
+max IoU = 0.441204660457
+
+ chair
+im_name = 005060_gblur_r14
+max IoU = 0.122195497328
+
+ chair
+im_name = 007393_gblur_r14
+max IoU = 0.763818806139
+
+ chair
+im_name = 008803_gblur_r14
+max IoU = 0.247269038911
+
+ chair
+im_name = 008347_gblur_r14
+max IoU = 0.317644639993
+
+ chair
+im_name = 007335_gblur_r14
+max IoU = 0.119521570786
+
+ chair
+im_name = 000116_gblur_r14
+max IoU = 0.0722069917018
+
+ chair
+im_name = 000314_gblur_r14
+max IoU = 0.109864365626
+
+ chair
+im_name = 001712_gblur_r14
+max IoU = 0.227622413831
+
+ chair
+im_name = 007203_gblur_r14
+max IoU = 0.50799868949
+
+ chair
+im_name = 002365_gblur_r14
+max IoU = 0.692575900519
+
+ chair
+im_name = 003617_gblur_r14
+max IoU = 0.677327823536
+
+ chair
+im_name = 003526_gblur_r14
+max IoU = 0.0295676616513
+
+ chair
+im_name = 006297_gblur_r14
+max IoU = 0.274810982653
+
+ chair
+im_name = 005555_gblur_r14
+max IoU = 0.573580943755
+
+ chair
+im_name = 009225_gblur_r14
+max IoU = 0.147605396319
+
+ chair
+im_name = 001519_gblur_r14
+max IoU = 0.0846218864075
+
+ chair
+im_name = 009118_gblur_r14
+max IoU = 0.349605217988
+
+ chair
+im_name = 008156_gblur_r14
+max IoU = 0.0956959161758
+
+ chair
+im_name = 009689_gblur_r14
+max IoU = 0.575487627805
+
+ chair
+im_name = 000006_gblur_r14
+max IoU = 0.308223598491
+
+ chair
+im_name = 008543_gblur_r14
+max IoU = 0.14068588105
+
+ chair
+im_name = 000124_gblur_r14
+max IoU = 0.321521269416
+
+ chair
+im_name = 007202_gblur_r14
+max IoU = 0.0276945318954
+
+ chair
+im_name = 005103_gblur_r14
+max IoU = 0.0513666442078
+
+ chair
+im_name = 001246_gblur_r14
+max IoU = 0.453806660747
+
+ chair
+im_name = 002167_gblur_r14
+max IoU = 0.249042145594
+
+ chair
+im_name = 004363_gblur_r14
+max IoU = 0.123019443907
+
+ chair
+im_name = 007896_gblur_r14
+max IoU = 0.474900946179
+
+ chair
+im_name = 006795_gblur_r14
+max IoU = 0.384475181826
+
+ chair
+im_name = 003448_gblur_r14
+max IoU = 0.362265723598
+
+ chair
+im_name = 009075_gblur_r14
+max IoU = 0.144524337333
+
+ chair
+im_name = 000547_gblur_r14
+max IoU = 0.131815252417
+
+ chair
+im_name = 009662_gblur_r14
+max IoU = 0.21538973201
+
+ chair
+im_name = 003206_gblur_r14
+max IoU = 0.0781448738694
+
+ chair
+im_name = 001814_gblur_r14
+max IoU = 0.319061023735
+
+ chair
+im_name = 001826_gblur_r14
+max IoU = 0.407896883668
+
+ chair
+im_name = 006705_gblur_r14
+max IoU = 0.0763833579796
+
+ chair
+im_name = 006307_gblur_r14
+max IoU = 0.149202116365
+
+ chair
+im_name = 006393_gblur_r14
+max IoU = 0.0817831232619
+
+ chair
+im_name = 009677_gblur_r14
+max IoU = 0.166095693121
+
+ chair
+im_name = 000905_gblur_r14
+max IoU = 0.644186930461
+
+ chair
+im_name = 001735_gblur_r14
+max IoU = 0.374377233108
+
+ chair
+im_name = 008045_gblur_r14
+max IoU = 0.0628968070121
+
+ chair
+im_name = 009263_gblur_r14
+max IoU = 0.238468347208
+
+ chair
+im_name = 008591_gblur_r14
+max IoU = 0.0199693124894
+
+ chair
+im_name = 001023_gblur_r14
+max IoU = 0.191003740541
+
+ chair
+im_name = 007747_gblur_r14
+max IoU = 0.503736297083
+
+ chair
+im_name = 004068_gblur_r14
+max IoU = 0.200226565064
+
+ chair
+im_name = 004712_gblur_r14
+max IoU = 0.0850421713235
+AP for chair = 0.0237
+
+ cow
+im_name = 002326_gblur_r14
+max IoU = 0.039287117397
+
+ cow
+im_name = 001764_gblur_r14
+max IoU = 0.0256578257484
+
+ cow
+im_name = 006573_gblur_r14
+max IoU = 0.716361625978
+
+ cow
+im_name = 008763_gblur_r14
+max IoU = 0.630286018112
+
+ cow
+im_name = 009771_gblur_r14
+max IoU = 0.558598800987
+
+ cow
+im_name = 001917_gblur_r14
+max IoU = 0.0751152549693
+
+ cow
+im_name = 008090_gblur_r14
+max IoU = 0.180381410614
+
+ cow
+im_name = 007069_gblur_r14
+max IoU = 0.0738545343379
+
+ cow
+im_name = 001103_gblur_r14
+max IoU = 0.341072702239
+
+ cow
+im_name = 007602_gblur_r14
+max IoU = 0.551852358737
+
+ cow
+im_name = 000013_gblur_r14
+max IoU = 0.113181872678
+
+ cow
+im_name = 006589_gblur_r14
+max IoU = 0.112434547126
+
+ cow
+im_name = 009223_gblur_r14
+max IoU = 0.339961268416
+
+ cow
+im_name = 006060_gblur_r14
+max IoU = 0.380804787027
+
+ cow
+im_name = 008358_gblur_r14
+max IoU = 0.576332465149
+
+ cow
+im_name = 001716_gblur_r14
+max IoU = 0.0726685506661
+
+ cow
+im_name = 009264_gblur_r14
+max IoU = 0.500080708773
+
+ cow
+im_name = 007380_gblur_r14
+max IoU = 0.0101281287663
+
+ cow
+im_name = 002313_gblur_r14
+max IoU = 0.815761928544
+
+ cow
+im_name = 009301_gblur_r14
+max IoU = 0.730848086119
+
+ cow
+im_name = 000273_gblur_r14
+max IoU = 0.0255466294416
+
+ cow
+im_name = 002903_gblur_r14
+max IoU = 0.669967640875
+
+ cow
+im_name = 003394_gblur_r14
+max IoU = 0.576913913789
+
+ cow
+im_name = 005335_gblur_r14
+max IoU = 0.100012371644
+
+ cow
+im_name = 009768_gblur_r14
+max IoU = 0.117179687393
+
+ cow
+im_name = 004741_gblur_r14
+max IoU = 0.137483391605
+
+ cow
+im_name = 005876_gblur_r14
+max IoU = 0.28974344317
+
+ cow
+im_name = 004375_gblur_r14
+max IoU = 0.0371155061979
+
+ cow
+im_name = 007851_gblur_r14
+max IoU = 0.467711650228
+
+ cow
+im_name = 000360_gblur_r14
+max IoU = 0.618280454589
+
+ cow
+im_name = 005080_gblur_r14
+max IoU = 0.527656566849
+
+ cow
+im_name = 001987_gblur_r14
+max IoU = 0.246102487781
+
+ cow
+im_name = 003411_gblur_r14
+max IoU = 0.617785487873
+AP for cow = 0.0024
+
+ diningtable
+im_name = 007628_gblur_r14
+max IoU = 0.240318413702
+
+ diningtable
+im_name = 002888_gblur_r14
+max IoU = 0.373452235677
+
+ diningtable
+im_name = 008210_gblur_r14
+max IoU = 0.892509023482
+
+ diningtable
+im_name = 004740_gblur_r14
+max IoU = 0.390284568007
+
+ diningtable
+im_name = 004881_gblur_r14
+max IoU = 0.636911594457
+
+ diningtable
+im_name = 002724_gblur_r14
+max IoU = 0.428325305246
+
+ diningtable
+im_name = 006941_gblur_r14
+max IoU = 0.517283906167
+
+ diningtable
+im_name = 000280_gblur_r14
+max IoU = 0.542431375912
+
+ diningtable
+im_name = 009606_gblur_r14
+max IoU = 0.554738888828
+
+ diningtable
+im_name = 006271_gblur_r14
+max IoU = 0.610887514793
+
+ diningtable
+im_name = 005233_gblur_r14
+max IoU = 0.38338434233
+
+ diningtable
+im_name = 002167_gblur_r14
+max IoU = 0.610618649829
+
+ diningtable
+im_name = 001720_gblur_r14
+max IoU = 0.489310344828
+
+ diningtable
+im_name = 003153_gblur_r14
+max IoU = 0.719665215936
+
+ diningtable
+im_name = 000377_gblur_r14
+max IoU = 0.815183182063
+
+ diningtable
+im_name = 002945_gblur_r14
+max IoU = 0.595031472624
+
+ diningtable
+im_name = 001023_gblur_r14
+max IoU = 0.418840314502
+
+ diningtable
+im_name = 007494_gblur_r14
+max IoU = 0.837732355977
+
+ diningtable
+im_name = 001354_gblur_r14
+max IoU = 0.814219022116
+
+ diningtable
+im_name = 003123_gblur_r14
+max IoU = 0.272146612237
+
+ diningtable
+im_name = 001035_gblur_r14
+max IoU = 0.408203085453
+
+ diningtable
+im_name = 006010_gblur_r14
+max IoU = 0.102015066765
+
+ diningtable
+im_name = 000144_gblur_r14
+max IoU = 0.459139279806
+
+ diningtable
+im_name = 005226_gblur_r14
+max IoU = 0.368640732134
+
+ diningtable
+im_name = 000327_gblur_r14
+max IoU = 0.852807181193
+
+ diningtable
+im_name = 003668_gblur_r14
+max IoU = 0.576778871824
+
+ diningtable
+im_name = 005362_gblur_r14
+max IoU = 0.1443544649
+
+ diningtable
+im_name = 000084_gblur_r14
+max IoU = 0.193282002996
+
+ diningtable
+im_name = 006541_gblur_r14
+max IoU = 0.331151332936
+
+ diningtable
+im_name = 005661_gblur_r14
+max IoU = 0.41516978278
+
+ diningtable
+im_name = 007207_gblur_r14
+max IoU = 0.455715938332
+
+ diningtable
+im_name = 005994_gblur_r14
+max IoU = 0.261260178758
+
+ diningtable
+im_name = 001534_gblur_r14
+max IoU = 0.216901933959
+
+ diningtable
+im_name = 002298_gblur_r14
+max IoU = 0.465402906331
+
+ diningtable
+im_name = 000762_gblur_r14
+max IoU = 0.472529423497
+
+ diningtable
+im_name = 004032_gblur_r14
+max IoU = 0.59736253901
+
+ diningtable
+im_name = 007393_gblur_r14
+max IoU = 0.34269823549
+
+ diningtable
+im_name = 004559_gblur_r14
+max IoU = 0.444449716495
+
+ diningtable
+im_name = 000314_gblur_r14
+max IoU = 0.128162544456
+
+ diningtable
+im_name = 009225_gblur_r14
+max IoU = 0.100027362324
+
+ diningtable
+im_name = 005612_gblur_r14
+max IoU = 0.689374717946
+
+ diningtable
+im_name = 003617_gblur_r14
+max IoU = 0.340823389946
+
+ diningtable
+im_name = 004469_gblur_r14
+max IoU = 0.538545601668
+
+ diningtable
+im_name = 004482_gblur_r14
+max IoU = 0.53450677276
+
+ diningtable
+im_name = 000006_gblur_r14
+max IoU = 0.212570127091
+
+ diningtable
+im_name = 000547_gblur_r14
+max IoU = 0.144048975642
+
+ diningtable
+im_name = 007896_gblur_r14
+max IoU = 0.205371775417
+
+ diningtable
+im_name = 002188_gblur_r14
+max IoU = 0.587017987292
+
+ diningtable
+im_name = 009662_gblur_r14
+max IoU = 0.440877791171
+
+ diningtable
+im_name = 008490_gblur_r14
+max IoU = 0.359545243894
+
+ diningtable
+im_name = 008045_gblur_r14
+max IoU = 0.121846705119
+
+ diningtable
+im_name = 008591_gblur_r14
+max IoU = 0.587491172016
+
+ diningtable
+im_name = 007747_gblur_r14
+max IoU = 0.379522068996
+
+ diningtable
+im_name = 002856_gblur_r14
+max IoU = 0.751259306523
+
+ diningtable
+im_name = 004712_gblur_r14
+max IoU = 0.190171844019
+AP for diningtable = 0.0084
+
+ dog
+im_name = 009660_gblur_r14
+max IoU = 0.45776976211
+
+ dog
+im_name = 003888_gblur_r14
+max IoU = 0.647591805938
+
+ dog
+im_name = 008178_gblur_r14
+max IoU = 0.0974940055499
+
+ dog
+im_name = 003310_gblur_r14
+max IoU = 0.548086419753
+
+ dog
+im_name = 005012_gblur_r14
+max IoU = 0.685855788689
+
+ dog
+im_name = 008705_gblur_r14
+max IoU = 0.329020646884
+
+ dog
+im_name = 003352_gblur_r14
+max IoU = 0.579886272033
+
+ dog
+im_name = 001549_gblur_r14
+max IoU = 0.78343773036
+
+ dog
+im_name = 000517_gblur_r14
+max IoU = 0.587688205636
+
+ dog
+im_name = 000183_gblur_r14
+max IoU = 0.609345276776
+
+ dog
+im_name = 005361_gblur_r14
+max IoU = 0.687740999287
+
+ dog
+im_name = 007183_gblur_r14
+max IoU = 0.564730874344
+
+ dog
+im_name = 006194_gblur_r14
+max IoU = 0.650196595616
+
+ dog
+im_name = 009556_gblur_r14
+max IoU = 0.540340583858
+
+ dog
+im_name = 003854_gblur_r14
+max IoU = 0.60400080668
+
+ dog
+im_name = 007962_gblur_r14
+max IoU = 0.473747412923
+
+ dog
+im_name = 005152_gblur_r14
+max IoU = 0.660530528241
+
+ dog
+im_name = 005482_gblur_r14
+max IoU = 0.596283221399
+
+ dog
+im_name = 002076_gblur_r14
+max IoU = 0.474951067315
+
+ dog
+im_name = 000001_gblur_r14
+max IoU = 0.279360285538
+
+ dog
+im_name = 002111_gblur_r14
+max IoU = 0.191225093745
+
+ dog
+im_name = 003156_gblur_r14
+max IoU = 0.562442886742
+
+ dog
+im_name = 002574_gblur_r14
+max IoU = 0.510104644052
+
+ dog
+im_name = 003933_gblur_r14
+max IoU = 0.605636347523
+
+ dog
+im_name = 004157_gblur_r14
+max IoU = 0.646723488118
+
+ dog
+im_name = 005913_gblur_r14
+max IoU = 0.67233425159
+
+ dog
+im_name = 005937_gblur_r14
+max IoU = 0.432977620179
+
+ dog
+im_name = 003805_gblur_r14
+max IoU = 0.519059620179
+
+ dog
+im_name = 002876_gblur_r14
+max IoU = 0.744024217502
+
+ dog
+im_name = 002587_gblur_r14
+max IoU = 0.476614699332
+
+ dog
+im_name = 009176_gblur_r14
+max IoU = 0.694464589277
+
+ dog
+im_name = 002447_gblur_r14
+max IoU = 0.455128520124
+
+ dog
+im_name = 003384_gblur_r14
+max IoU = 0.417349204616
+
+ dog
+im_name = 009604_gblur_r14
+max IoU = 0.515224767263
+
+ dog
+im_name = 004696_gblur_r14
+max IoU = 0.304303348564
+
+ dog
+im_name = 008656_gblur_r14
+max IoU = 0.251578264009
+
+ dog
+im_name = 003472_gblur_r14
+max IoU = 0.406191922313
+
+ dog
+im_name = 000255_gblur_r14
+max IoU = 0.659920279276
+
+ dog
+im_name = 005684_gblur_r14
+max IoU = 0.0881800878437
+
+ dog
+im_name = 008532_gblur_r14
+max IoU = 0.511149828572
+
+ dog
+im_name = 004021_gblur_r14
+max IoU = 0.653088496402
+
+ dog
+im_name = 005117_gblur_r14
+max IoU = 0.490533853484
+
+ dog
+im_name = 000086_gblur_r14
+max IoU = 0.0160838969129
+
+ dog
+im_name = 003901_gblur_r14
+max IoU = 0.50133522136
+
+ dog
+im_name = 002131_gblur_r14
+max IoU = 0.213096197609
+
+ dog
+im_name = 002408_gblur_r14
+max IoU = 0.556272822391
+
+ dog
+im_name = 007418_gblur_r14
+max IoU = 0.47111530069
+
+ dog
+im_name = 006915_gblur_r14
+max IoU = 0.649776844316
+
+ dog
+im_name = 000205_gblur_r14
+max IoU = 0.241351715328
+
+ dog
+im_name = 006039_gblur_r14
+max IoU = 0.329382218604
+
+ dog
+im_name = 003712_gblur_r14
+max IoU = 0.300334143915
+
+ dog
+im_name = 007703_gblur_r14
+max IoU = 0.238403160345
+
+ dog
+im_name = 003174_gblur_r14
+max IoU = 0.9259090867
+
+ dog
+im_name = 008762_gblur_r14
+max IoU = 0.0927659151523
+
+ dog
+im_name = 001257_gblur_r14
+max IoU = 0.528335081825
+
+ dog
+im_name = 000957_gblur_r14
+max IoU = 0.5355737761
+
+ dog
+im_name = 008441_gblur_r14
+max IoU = 0.656902510542
+
+ dog
+im_name = 006182_gblur_r14
+max IoU = 0.373715867614
+
+ dog
+im_name = 000734_gblur_r14
+max IoU = 0.383872759978
+
+ dog
+im_name = 008641_gblur_r14
+max IoU = 0.410933010938
+
+ dog
+im_name = 000079_gblur_r14
+max IoU = 0.564766694637
+
+ dog
+im_name = 000018_gblur_r14
+max IoU = 0.664548755129
+
+ dog
+im_name = 008419_gblur_r14
+max IoU = 0.389794424665
+
+ dog
+im_name = 001656_gblur_r14
+max IoU = 0.218940732114
+
+ dog
+im_name = 001282_gblur_r14
+max IoU = 0.218235278021
+
+ dog
+im_name = 000785_gblur_r14
+max IoU = 0.735157396331
+
+ dog
+im_name = 009190_gblur_r14
+max IoU = 0.568465375183
+
+ dog
+im_name = 004029_gblur_r14
+max IoU = 0.0182359618401
+
+ dog
+im_name = 000551_gblur_r14
+max IoU = 0.688879040432
+
+ dog
+im_name = 001123_gblur_r14
+max IoU = 0.582294960095
+
+ dog
+im_name = 007552_gblur_r14
+max IoU = 0.00582523433983
+
+ dog
+im_name = 001866_gblur_r14
+max IoU = 0.528982267918
+
+ dog
+im_name = 006315_gblur_r14
+max IoU = 0.356360134053
+
+ dog
+im_name = 006998_gblur_r14
+max IoU = 0.602045094638
+
+ dog
+im_name = 007659_gblur_r14
+max IoU = 0.112383438101
+
+ dog
+im_name = 002541_gblur_r14
+max IoU = 0.523406697683
+
+ dog
+im_name = 001095_gblur_r14
+max IoU = 0.21320200597
+
+ dog
+im_name = 000410_gblur_r14
+max IoU = 0.128186600653
+
+ dog
+im_name = 003084_gblur_r14
+max IoU = 0.0472637497944
+
+ dog
+im_name = 008977_gblur_r14
+max IoU = 0.728930253848
+
+ dog
+im_name = 004343_gblur_r14
+max IoU = 0.699750058608
+
+ dog
+im_name = 009204_gblur_r14
+max IoU = 0.42053401909
+
+ dog
+im_name = 003737_gblur_r14
+max IoU = 0.408268009439
+
+ dog
+im_name = 005241_gblur_r14
+max IoU = 0.512003576276
+
+ dog
+im_name = 008827_gblur_r14
+max IoU = 0.342110108636
+
+ dog
+im_name = 008637_gblur_r14
+max IoU = 0.290727656535
+AP for dog = 0.0165
+
+ horse
+im_name = 009937_gblur_r14
+max IoU = 0.52392550037
+
+ horse
+im_name = 004561_gblur_r14
+max IoU = 0.0924107848812
+
+ horse
+im_name = 003304_gblur_r14
+max IoU = 0.286952480539
+
+ horse
+im_name = 000616_gblur_r14
+max IoU = 0.441381244708
+
+ horse
+im_name = 000319_gblur_r14
+max IoU = 0.59823664889
+
+ horse
+im_name = 005182_gblur_r14
+max IoU = 0.40879808781
+
+ horse
+im_name = 007134_gblur_r14
+max IoU = 0.475729937815
+
+ horse
+im_name = 000866_gblur_r14
+max IoU = 0.291051284033
+
+ horse
+im_name = 008228_gblur_r14
+max IoU = 0.712473260168
+
+ horse
+im_name = 008476_gblur_r14
+max IoU = 0.0634143882642
+
+ horse
+im_name = 003978_gblur_r14
+max IoU = 0.546192572951
+
+ horse
+im_name = 006002_gblur_r14
+max IoU = 0.0319642328621
+
+ horse
+im_name = 001417_gblur_r14
+max IoU = 0.362995349485
+
+ horse
+im_name = 000267_gblur_r14
+max IoU = 0.549343879531
+
+ horse
+im_name = 005334_gblur_r14
+max IoU = 0.680050434057
+
+ horse
+im_name = 000666_gblur_r14
+max IoU = 0.321677502962
+
+ horse
+im_name = 008812_gblur_r14
+max IoU = 0.44215969681
+
+ horse
+im_name = 000413_gblur_r14
+max IoU = 0.575846341029
+
+ horse
+im_name = 000704_gblur_r14
+max IoU = 0.438631183761
+
+ horse
+im_name = 006511_gblur_r14
+max IoU = 0.726827794562
+
+ horse
+im_name = 006106_gblur_r14
+max IoU = 0.309458780876
+
+ horse
+im_name = 006207_gblur_r14
+max IoU = 0.585802237019
+
+ horse
+im_name = 007055_gblur_r14
+max IoU = 0.627622547394
+
+ horse
+im_name = 000737_gblur_r14
+max IoU = 0.301872484396
+
+ horse
+im_name = 007616_gblur_r14
+max IoU = 0.449589713259
+
+ horse
+im_name = 008059_gblur_r14
+max IoU = 0.373875261821
+
+ horse
+im_name = 006540_gblur_r14
+max IoU = 0.495106178403
+
+ horse
+im_name = 007293_gblur_r14
+max IoU = 0.591039659187
+
+ horse
+im_name = 009768_gblur_r14
+max IoU = 0.0857986855581
+
+ horse
+im_name = 000978_gblur_r14
+max IoU = 0.204818634179
+
+ horse
+im_name = 000455_gblur_r14
+max IoU = 0.621783221945
+
+ horse
+im_name = 002909_gblur_r14
+max IoU = 0.248771367713
+
+ horse
+im_name = 002017_gblur_r14
+max IoU = 0.302508308594
+
+ horse
+im_name = 004803_gblur_r14
+max IoU = 0.331220043678
+
+ horse
+im_name = 005342_gblur_r14
+max IoU = 0.433819641913
+
+ horse
+im_name = 003680_gblur_r14
+max IoU = 0.50687371853
+
+ horse
+im_name = 003922_gblur_r14
+max IoU = 0.626068215204
+
+ horse
+im_name = 002655_gblur_r14
+max IoU = 0.55093489786
+
+ horse
+im_name = 003579_gblur_r14
+max IoU = 0.270828722246
+
+ horse
+im_name = 009803_gblur_r14
+max IoU = 0.167724343084
+
+ horse
+im_name = 009130_gblur_r14
+max IoU = 0.626277045791
+
+ horse
+im_name = 000410_gblur_r14
+max IoU = 0.127099360453
+
+ horse
+im_name = 001819_gblur_r14
+max IoU = 0.360433512429
+
+ horse
+im_name = 005890_gblur_r14
+max IoU = 0.333491278618
+
+ horse
+im_name = 003084_gblur_r14
+max IoU = 0.181976201051
+
+ horse
+im_name = 000356_gblur_r14
+max IoU = 0.303239937476
+
+ horse
+im_name = 006649_gblur_r14
+max IoU = 0.0798942993631
+
+ horse
+im_name = 005882_gblur_r14
+max IoU = 0.214248215507
+
+ horse
+im_name = 009661_gblur_r14
+max IoU = 0.530791171058
+
+ horse
+im_name = 003764_gblur_r14
+max IoU = 0.413795970203
+AP for horse = 0.0049
+
+ motorbike
+im_name = 000775_gblur_r14
+max IoU = 0.283945161322
+
+ motorbike
+im_name = 009139_gblur_r14
+max IoU = 0.717456245464
+
+ motorbike
+im_name = 004641_gblur_r14
+max IoU = 0.773164793211
+
+ motorbike
+im_name = 008824_gblur_r14
+max IoU = 0.132828636958
+
+ motorbike
+im_name = 009145_gblur_r14
+max IoU = 0.629565040108
+
+ motorbike
+im_name = 006531_gblur_r14
+max IoU = 0.0132042253521
+
+ motorbike
+im_name = 001031_gblur_r14
+max IoU = 0.697282809499
+
+ motorbike
+im_name = 008901_gblur_r14
+max IoU = 0.24449160415
+
+ motorbike
+im_name = 003578_gblur_r14
+max IoU = 0.634270953579
+
+ motorbike
+im_name = 008579_gblur_r14
+max IoU = 0.596856669211
+
+ motorbike
+im_name = 001264_gblur_r14
+max IoU = 0.825887745983
+
+ motorbike
+im_name = 009705_gblur_r14
+max IoU = 0.444128854837
+
+ motorbike
+im_name = 006796_gblur_r14
+max IoU = 0.644122739446
+
+ motorbike
+im_name = 003333_gblur_r14
+max IoU = 0.480463904326
+
+ motorbike
+im_name = 004243_gblur_r14
+max IoU = 0.334287012286
+
+ motorbike
+im_name = 005468_gblur_r14
+max IoU = 0.73971668933
+
+ motorbike
+im_name = 009563_gblur_r14
+max IoU = 0.866275373554
+
+ motorbike
+im_name = 003810_gblur_r14
+max IoU = 0.239422252017
+
+ motorbike
+im_name = 003670_gblur_r14
+max IoU = 0.468227650506
+
+ motorbike
+im_name = 002686_gblur_r14
+max IoU = 0.253386043056
+
+ motorbike
+im_name = 009850_gblur_r14
+max IoU = 0.561560167022
+
+ motorbike
+im_name = 005133_gblur_r14
+max IoU = 0.366252276311
+
+ motorbike
+im_name = 005553_gblur_r14
+max IoU = 0.679267479389
+
+ motorbike
+im_name = 007338_gblur_r14
+max IoU = 0.443814613661
+
+ motorbike
+im_name = 001285_gblur_r14
+max IoU = 0.479125649922
+
+ motorbike
+im_name = 005506_gblur_r14
+max IoU = 0.447656326524
+
+ motorbike
+im_name = 001998_gblur_r14
+max IoU = 0.299569361403
+
+ motorbike
+im_name = 009322_gblur_r14
+max IoU = 0.0903431746212
+
+ motorbike
+im_name = 005087_gblur_r14
+max IoU = 0.264084214119
+
+ motorbike
+im_name = 000265_gblur_r14
+max IoU = 0.290633030243
+
+ motorbike
+im_name = 009317_gblur_r14
+max IoU = 0.367195964731
+
+ motorbike
+im_name = 008994_gblur_r14
+max IoU = 0.497795073405
+
+ motorbike
+im_name = 001157_gblur_r14
+max IoU = 0.516171332065
+
+ motorbike
+im_name = 000630_gblur_r14
+max IoU = 0.47303893398
+
+ motorbike
+im_name = 008195_gblur_r14
+max IoU = 0.536857436197
+
+ motorbike
+im_name = 009639_gblur_r14
+max IoU = 0.740280356913
+
+ motorbike
+im_name = 009293_gblur_r14
+max IoU = 0.470223979072
+
+ motorbike
+im_name = 008324_gblur_r14
+max IoU = 0.104664137846
+
+ motorbike
+im_name = 001447_gblur_r14
+max IoU = 0.530098697105
+
+ motorbike
+im_name = 006193_gblur_r14
+max IoU = 0.240075373241
+
+ motorbike
+im_name = 007368_gblur_r14
+max IoU = 0.782166421642
+
+ motorbike
+im_name = 007645_gblur_r14
+max IoU = 0.867283746147
+
+ motorbike
+im_name = 002999_gblur_r14
+max IoU = 0.236158819617
+
+ motorbike
+im_name = 002379_gblur_r14
+max IoU = 0.636173075928
+
+ motorbike
+im_name = 003505_gblur_r14
+max IoU = 0.16978606537
+
+ motorbike
+im_name = 005479_gblur_r14
+max IoU = 0.66186557294
+
+ motorbike
+im_name = 001916_gblur_r14
+max IoU = 0.201097685006
+
+ motorbike
+im_name = 005316_gblur_r14
+max IoU = 0.246388242506
+
+ motorbike
+im_name = 005041_gblur_r14
+max IoU = 0.147083259951
+
+ motorbike
+im_name = 009890_gblur_r14
+max IoU = 0.411477039396
+
+ motorbike
+im_name = 006119_gblur_r14
+max IoU = 0.840490552252
+
+ motorbike
+im_name = 005708_gblur_r14
+max IoU = 0.125588535145
+
+ motorbike
+im_name = 006920_gblur_r14
+max IoU = 0.416635174968
+
+ motorbike
+im_name = 009277_gblur_r14
+max IoU = 0.400222132858
+AP for motorbike = 0.0072
+
+ person
+im_name = 009253_gblur_r14
+max IoU = 0.611095989946
+
+ person
+im_name = 003245_gblur_r14
+max IoU = 0.240035283332
+
+ person
+im_name = 009364_gblur_r14
+max IoU = 0.584373455264
+
+ person
+im_name = 006872_gblur_r14
+max IoU = 0.474996846454
+
+ person
+im_name = 002888_gblur_r14
+max IoU = 0.447896525443
+
+ person
+im_name = 007966_gblur_r14
+max IoU = 0.393604607412
+
+ person
+im_name = 007161_gblur_r14
+max IoU = 0.63582866403
+
+ person
+im_name = 004923_gblur_r14
+max IoU = 0.691480942348
+
+ person
+im_name = 000641_gblur_r14
+max IoU = 0.183527804546
+
+ person
+im_name = 002344_gblur_r14
+max IoU = 0.770117011642
+
+ person
+im_name = 007469_gblur_r14
+max IoU = 0.83553037065
+
+ person
+im_name = 002119_gblur_r14
+max IoU = 0.661734065409
+
+ person
+im_name = 006780_gblur_r14
+max IoU = 0.648558682828
+
+ person
+im_name = 002950_gblur_r14
+max IoU = 0.469108519345
+
+ person
+im_name = 003249_gblur_r14
+max IoU = 0.547809810634
+
+ person
+im_name = 008022_gblur_r14
+max IoU = 0.671164660295
+
+ person
+im_name = 005012_gblur_r14
+max IoU = 0.348818991305
+
+ person
+im_name = 004661_gblur_r14
+max IoU = 0.560492735717
+
+ person
+im_name = 008857_gblur_r14
+max IoU = 0.699596748674
+
+ person
+im_name = 004709_gblur_r14
+max IoU = 0.795819616756
+
+ person
+im_name = 009766_gblur_r14
+max IoU = 0.669710318688
+
+ person
+im_name = 002905_gblur_r14
+max IoU = 0.618777354999
+
+ person
+im_name = 001979_gblur_r14
+max IoU = 0.147175866306
+
+ person
+im_name = 002982_gblur_r14
+max IoU = 0.656733583804
+
+ person
+im_name = 000502_gblur_r14
+max IoU = 0.915525378151
+
+ person
+im_name = 006288_gblur_r14
+max IoU = 0.72832045596
+
+ person
+im_name = 008894_gblur_r14
+max IoU = 0.826558232932
+
+ person
+im_name = 007634_gblur_r14
+max IoU = 0.819383683435
+
+ person
+im_name = 007628_gblur_r14
+max IoU = 0.687631969443
+
+ person
+im_name = 007977_gblur_r14
+max IoU = 0.737163390723
+
+ person
+im_name = 005548_gblur_r14
+max IoU = 0.721259505522
+
+ person
+im_name = 004740_gblur_r14
+max IoU = 0.618220503196
+
+ person
+im_name = 003352_gblur_r14
+max IoU = 0.497689656385
+
+ person
+im_name = 007830_gblur_r14
+max IoU = 0.756059324433
+
+ person
+im_name = 002639_gblur_r14
+max IoU = 0.177412152564
+
+ person
+im_name = 005366_gblur_r14
+max IoU = 0.671907448597
+
+ person
+im_name = 007124_gblur_r14
+max IoU = 0.511560549313
+
+ person
+im_name = 009391_gblur_r14
+max IoU = 0.35055009695
+
+ person
+im_name = 008666_gblur_r14
+max IoU = 0.781550539335
+
+ person
+im_name = 009660_gblur_r14
+max IoU = 0.670521697042
+
+ person
+im_name = 000517_gblur_r14
+max IoU = 0.406600546513
+
+ person
+im_name = 005546_gblur_r14
+max IoU = 0.34974340944
+
+ person
+im_name = 008178_gblur_r14
+max IoU = 0.524401433591
+
+ person
+im_name = 004739_gblur_r14
+max IoU = 0.618961832061
+
+ person
+im_name = 003026_gblur_r14
+max IoU = 0.52085302786
+
+ person
+im_name = 000578_gblur_r14
+max IoU = 0.599124604465
+
+ person
+im_name = 002509_gblur_r14
+max IoU = 0.622484017253
+
+ person
+im_name = 005117_gblur_r14
+max IoU = 0.629971922455
+
+ person
+im_name = 006452_gblur_r14
+max IoU = 0.243647051945
+
+ person
+im_name = 005356_gblur_r14
+max IoU = 0.70781088
+
+ person
+im_name = 004469_gblur_r14
+max IoU = 0.793787393459
+
+ person
+im_name = 009610_gblur_r14
+max IoU = 0.646238965259
+
+ person
+im_name = 001031_gblur_r14
+max IoU = 0.482831344386
+
+ person
+im_name = 001993_gblur_r14
+max IoU = 0.964764986034
+
+ person
+im_name = 007962_gblur_r14
+max IoU = 0.160269522743
+
+ person
+im_name = 004934_gblur_r14
+max IoU = 0.671913029763
+
+ person
+im_name = 004769_gblur_r14
+max IoU = 0.387748415451
+
+ person
+im_name = 009850_gblur_r14
+max IoU = 0.342532313055
+
+ person
+im_name = 009697_gblur_r14
+max IoU = 0.837236422453
+
+ person
+im_name = 007595_gblur_r14
+max IoU = 0.500438864523
+
+ person
+im_name = 001893_gblur_r14
+max IoU = 0.336803208291
+
+ person
+im_name = 002298_gblur_r14
+max IoU = 0.583285186008
+
+ person
+im_name = 007319_gblur_r14
+max IoU = 0.231352910831
+
+ person
+im_name = 000299_gblur_r14
+max IoU = 0.170242869588
+
+ person
+im_name = 005937_gblur_r14
+max IoU = 0.864824026577
+
+ person
+im_name = 005041_gblur_r14
+max IoU = 0.547436552275
+
+ person
+im_name = 009563_gblur_r14
+max IoU = 0.363001272696
+
+ person
+im_name = 008652_gblur_r14
+max IoU = 0.516863496569
+
+ person
+im_name = 002455_gblur_r14
+max IoU = 0.320405161129
+
+ person
+im_name = 005691_gblur_r14
+max IoU = 0.631136229698
+
+ person
+im_name = 008678_gblur_r14
+max IoU = 0.32891183888
+
+ person
+im_name = 005152_gblur_r14
+max IoU = 0.871803282415
+
+ person
+im_name = 004497_gblur_r14
+max IoU = 0.138660848397
+
+ person
+im_name = 000758_gblur_r14
+max IoU = 0.343737983598
+
+ person
+im_name = 008974_gblur_r14
+max IoU = 0.563873143674
+
+ person
+im_name = 002631_gblur_r14
+max IoU = 0.584277620397
+
+ person
+im_name = 003825_gblur_r14
+max IoU = 0.636000124633
+
+ person
+im_name = 008074_gblur_r14
+max IoU = 0.360630935136
+
+ person
+im_name = 000280_gblur_r14
+max IoU = 0.219003332611
+
+ person
+im_name = 007816_gblur_r14
+max IoU = 0.0326274433662
+
+ person
+im_name = 005468_gblur_r14
+max IoU = 0.456783536346
+
+ person
+im_name = 008207_gblur_r14
+max IoU = 0.471953835112
+
+ person
+im_name = 008041_gblur_r14
+max IoU = 0.539332315569
+
+ person
+im_name = 000191_gblur_r14
+max IoU = 0.413099244891
+
+ person
+im_name = 009139_gblur_r14
+max IoU = 0.431358242231
+
+ person
+im_name = 003590_gblur_r14
+max IoU = 0.586937864007
+
+ person
+im_name = 005926_gblur_r14
+max IoU = 0.584910618738
+
+ person
+im_name = 000538_gblur_r14
+max IoU = 0.127752068036
+
+ person
+im_name = 006656_gblur_r14
+max IoU = 0.805121694562
+
+ person
+im_name = 000001_gblur_r14
+max IoU = 0.614201410588
+
+ person
+im_name = 008778_gblur_r14
+max IoU = 0.715242071549
+
+ person
+im_name = 001781_gblur_r14
+max IoU = 0.698448982286
+
+ person
+im_name = 001157_gblur_r14
+max IoU = 0.323191011236
+
+ person
+im_name = 009473_gblur_r14
+max IoU = 0.891471768718
+
+ person
+im_name = 006792_gblur_r14
+max IoU = 0.271352969436
+
+ person
+im_name = 007400_gblur_r14
+max IoU = 0.0407880800571
+
+ person
+im_name = 008824_gblur_r14
+max IoU = 0.102911005732
+
+ person
+im_name = 002079_gblur_r14
+max IoU = 0.311278268972
+
+ person
+im_name = 004712_gblur_r14
+max IoU = 0.461002387621
+
+ person
+im_name = 005170_gblur_r14
+max IoU = 0.182634124249
+
+ person
+im_name = 000413_gblur_r14
+max IoU = 0.544273941869
+
+ person
+im_name = 003052_gblur_r14
+max IoU = 0.702641855517
+
+ person
+im_name = 009547_gblur_r14
+max IoU = 0.586219583615
+
+ person
+im_name = 007500_gblur_r14
+max IoU = 0.695651235285
+
+ person
+im_name = 005286_gblur_r14
+max IoU = 0.58050587422
+
+ person
+im_name = 007522_gblur_r14
+max IoU = 0.231474147211
+
+ person
+im_name = 002651_gblur_r14
+max IoU = 0.816906407997
+
+ person
+im_name = 009556_gblur_r14
+max IoU = 0.681566412452
+
+ person
+im_name = 008407_gblur_r14
+max IoU = 0.420714011651
+
+ person
+im_name = 000547_gblur_r14
+max IoU = 0.104814052709
+
+ person
+im_name = 008807_gblur_r14
+max IoU = 0.11026461636
+
+ person
+im_name = 008915_gblur_r14
+max IoU = 0.0477168976457
+
+ person
+im_name = 006390_gblur_r14
+max IoU = 0.59674619048
+
+ person
+im_name = 004639_gblur_r14
+max IoU = 0.57856984394
+
+ person
+im_name = 006856_gblur_r14
+max IoU = 0.616749078132
+
+ person
+im_name = 009536_gblur_r14
+max IoU = 0.035286078279
+
+ person
+im_name = 005316_gblur_r14
+max IoU = 0.185099526251
+
+ person
+im_name = 009595_gblur_r14
+max IoU = 0.0647035581098
+
+ person
+im_name = 001808_gblur_r14
+max IoU = 0.429618551205
+
+ person
+im_name = 002587_gblur_r14
+max IoU = 0.416506095298
+
+ person
+im_name = 005972_gblur_r14
+max IoU = 0.610830122548
+
+ person
+im_name = 002945_gblur_r14
+max IoU = 0.641751252247
+
+ person
+im_name = 003431_gblur_r14
+max IoU = 0.550132453525
+
+ person
+im_name = 005295_gblur_r14
+max IoU = 0.495326431569
+
+ person
+im_name = 005226_gblur_r14
+max IoU = 0.572909143316
+
+ person
+im_name = 005994_gblur_r14
+max IoU = 0.386290220122
+
+ person
+im_name = 004482_gblur_r14
+max IoU = 0.491962367726
+
+ person
+im_name = 006471_gblur_r14
+max IoU = 0.0491488222136
+
+ person
+im_name = 008901_gblur_r14
+max IoU = 0.345530535428
+
+ person
+im_name = 001035_gblur_r14
+max IoU = 0.392945544068
+
+ person
+im_name = 007126_gblur_r14
+max IoU = 0.791035313843
+
+ person
+im_name = 008094_gblur_r14
+max IoU = 0.76264219935
+
+ person
+im_name = 001354_gblur_r14
+max IoU = 0.806173395735
+
+ person
+im_name = 005808_gblur_r14
+max IoU = 0.568253622189
+
+ person
+im_name = 002111_gblur_r14
+max IoU = 0.122049274592
+
+ person
+im_name = 003225_gblur_r14
+max IoU = 0.498533964297
+
+ person
+im_name = 005882_gblur_r14
+max IoU = 0.350135095455
+
+ person
+im_name = 006168_gblur_r14
+max IoU = 0.782598574366
+
+ person
+im_name = 005921_gblur_r14
+max IoU = 0.651167278817
+
+ person
+im_name = 005162_gblur_r14
+max IoU = 0.0780944543726
+
+ person
+im_name = 003328_gblur_r14
+max IoU = 0.562380821925
+
+ person
+im_name = 001921_gblur_r14
+max IoU = 0.691057434246
+
+ person
+im_name = 006954_gblur_r14
+max IoU = 0.515003369025
+
+ person
+im_name = 004420_gblur_r14
+max IoU = 0.648506006781
+
+ person
+im_name = 000978_gblur_r14
+max IoU = 0.561368144801
+
+ person
+im_name = 007645_gblur_r14
+max IoU = 0.255892728645
+
+ person
+im_name = 008629_gblur_r14
+max IoU = 0.609055916867
+
+ person
+im_name = 003942_gblur_r14
+max IoU = 0.201844390377
+
+ person
+im_name = 004099_gblur_r14
+max IoU = 0.410515550682
+
+ person
+im_name = 003123_gblur_r14
+max IoU = 0.304939270191
+
+ person
+im_name = 006629_gblur_r14
+max IoU = 0.272627803781
+
+ person
+im_name = 004922_gblur_r14
+max IoU = 0.422106820716
+
+ person
+im_name = 003427_gblur_r14
+max IoU = 0.774884010695
+
+ person
+im_name = 007913_gblur_r14
+max IoU = 0.605437504155
+
+ person
+im_name = 005708_gblur_r14
+max IoU = 0.49872861714
+
+ person
+im_name = 007955_gblur_r14
+max IoU = 0.517825385345
+
+ person
+im_name = 000293_gblur_r14
+max IoU = 0.0919042757807
+
+ person
+im_name = 005105_gblur_r14
+max IoU = 0.0680636112039
+
+ person
+im_name = 008239_gblur_r14
+max IoU = 0.388383659858
+
+ person
+im_name = 006941_gblur_r14
+max IoU = 0.799456364861
+
+ person
+im_name = 005233_gblur_r14
+max IoU = 0.594628316966
+
+ person
+im_name = 007778_gblur_r14
+max IoU = 0.515330548372
+
+ person
+im_name = 006178_gblur_r14
+max IoU = 0.662267157381
+
+ person
+im_name = 003595_gblur_r14
+max IoU = 0.428933040763
+
+ person
+im_name = 009311_gblur_r14
+max IoU = 0.230684585847
+
+ person
+im_name = 007846_gblur_r14
+max IoU = 0.789382239382
+
+ person
+im_name = 009948_gblur_r14
+max IoU = 0.653968204421
+
+ person
+im_name = 007531_gblur_r14
+max IoU = 0.353774989577
+
+ person
+im_name = 009840_gblur_r14
+max IoU = 0.0710197916159
+
+ person
+im_name = 004641_gblur_r14
+max IoU = 0.343032766965
+
+ person
+im_name = 000507_gblur_r14
+max IoU = 0.279406901747
+
+ person
+im_name = 006481_gblur_r14
+max IoU = 0.121629613469
+
+ person
+im_name = 003153_gblur_r14
+max IoU = 0.47468443862
+
+ person
+im_name = 007301_gblur_r14
+max IoU = 0.574203109517
+
+ person
+im_name = 004068_gblur_r14
+max IoU = 0.335337372487
+
+ person
+im_name = 006559_gblur_r14
+max IoU = 0.556025548411
+
+ person
+im_name = 003617_gblur_r14
+max IoU = 0.630686830682
+
+ person
+im_name = 000616_gblur_r14
+max IoU = 0.162898550602
+
+ person
+im_name = 005720_gblur_r14
+max IoU = 0.286538498771
+
+ person
+im_name = 009263_gblur_r14
+max IoU = 0.24970533539
+
+ person
+im_name = 005287_gblur_r14
+max IoU = 0.0405092529497
+
+ person
+im_name = 004248_gblur_r14
+max IoU = 0.119192470686
+
+ person
+im_name = 004959_gblur_r14
+max IoU = 0.331773959117
+
+ person
+im_name = 000265_gblur_r14
+max IoU = 0.297974904169
+
+ person
+im_name = 003613_gblur_r14
+max IoU = 0.384075637801
+
+ person
+im_name = 003737_gblur_r14
+max IoU = 0.637171131408
+
+ person
+im_name = 000630_gblur_r14
+max IoU = 0.312981544484
+
+ person
+im_name = 000377_gblur_r14
+max IoU = 0.415398050461
+
+ person
+im_name = 001392_gblur_r14
+max IoU = 0.569247235792
+
+ person
+im_name = 002729_gblur_r14
+max IoU = 0.331652102516
+
+ person
+im_name = 008928_gblur_r14
+max IoU = 0.490349497843
+
+ person
+im_name = 006248_gblur_r14
+max IoU = 0.716812631896
+
+ person
+im_name = 009145_gblur_r14
+max IoU = 0.054633739314
+
+ person
+im_name = 009548_gblur_r14
+max IoU = 0.012142558158
+
+ person
+im_name = 003012_gblur_r14
+max IoU = 0.452940224603
+
+ person
+im_name = 003197_gblur_r14
+max IoU = 0.541995146262
+
+ person
+im_name = 007520_gblur_r14
+max IoU = 0.0174718580117
+
+ person
+im_name = 003378_gblur_r14
+max IoU = 0.48742402551
+
+ person
+im_name = 004899_gblur_r14
+max IoU = 0.46255610582
+
+ person
+im_name = 007896_gblur_r14
+max IoU = 0.466306001332
+
+ person
+im_name = 003771_gblur_r14
+max IoU = 0.537685441681
+
+ person
+im_name = 001776_gblur_r14
+max IoU = 0.782378166079
+
+ person
+im_name = 001227_gblur_r14
+max IoU = 0.078531006293
+
+ person
+im_name = 007532_gblur_r14
+max IoU = 0.608962133041
+
+ person
+im_name = 005103_gblur_r14
+max IoU = 0.472494711816
+
+ person
+im_name = 005482_gblur_r14
+max IoU = 0.710039077444
+
+ person
+im_name = 001065_gblur_r14
+max IoU = 0.642951272984
+
+ person
+im_name = 007360_gblur_r14
+max IoU = 0.430151243296
+
+ person
+im_name = 005553_gblur_r14
+max IoU = 0.444833364805
+
+ person
+im_name = 008548_gblur_r14
+max IoU = 0.0080172148615
+
+ person
+im_name = 006193_gblur_r14
+max IoU = 0.470066269797
+
+ person
+im_name = 007349_gblur_r14
+max IoU = 0.018967917123
+
+ person
+im_name = 004703_gblur_r14
+max IoU = 0.231591440144
+
+ person
+im_name = 007368_gblur_r14
+max IoU = 0.171075175132
+
+ person
+im_name = 007178_gblur_r14
+max IoU = 0.519076018282
+
+ person
+im_name = 000144_gblur_r14
+max IoU = 0.846122914014
+
+ person
+im_name = 009013_gblur_r14
+max IoU = 0.0591483656793
+
+ person
+im_name = 003810_gblur_r14
+max IoU = 0.0261278479808
+
+ person
+im_name = 003206_gblur_r14
+max IoU = 0.0802328325336
+
+ person
+im_name = 006505_gblur_r14
+max IoU = 0.684998157258
+
+ person
+im_name = 004561_gblur_r14
+max IoU = 0.199011333185
+
+ person
+im_name = 001417_gblur_r14
+max IoU = 0.208239336411
+
+ person
+im_name = 000866_gblur_r14
+max IoU = 0.177041187003
+
+ person
+im_name = 007817_gblur_r14
+max IoU = 0.710786631442
+
+ person
+im_name = 007714_gblur_r14
+max IoU = 0.0649943099321
+
+ person
+im_name = 003578_gblur_r14
+max IoU = 0.00867074763561
+
+ person
+im_name = 006531_gblur_r14
+max IoU = 0.00807043461875
+
+ person
+im_name = 009937_gblur_r14
+max IoU = 0.387538026814
+
+ person
+im_name = 002326_gblur_r14
+max IoU = 0.0803570381711
+
+ person
+im_name = 003304_gblur_r14
+max IoU = 0.37169676179
+
+ person
+im_name = 003978_gblur_r14
+max IoU = 0.139570009419
+
+ person
+im_name = 009052_gblur_r14
+max IoU = 0.0232192880464
+
+ person
+im_name = 006002_gblur_r14
+max IoU = 0.305686412634
+
+ person
+im_name = 008726_gblur_r14
+max IoU = 0.412605619835
+
+ person
+im_name = 006087_gblur_r14
+max IoU = 0.630577999977
+
+ person
+im_name = 000341_gblur_r14
+max IoU = 0.0232621237132
+
+ person
+im_name = 007134_gblur_r14
+max IoU = 0.219305177426
+
+ person
+im_name = 003944_gblur_r14
+max IoU = 0.677985869766
+
+ person
+im_name = 005182_gblur_r14
+max IoU = 0.145428425578
+
+ person
+im_name = 008579_gblur_r14
+max IoU = 0.0731579939161
+
+ person
+im_name = 008642_gblur_r14
+max IoU = 0.0183678158463
+
+ person
+im_name = 009534_gblur_r14
+max IoU = 0.338858058305
+
+ person
+im_name = 006796_gblur_r14
+max IoU = 0.554175817409
+
+ person
+im_name = 000127_gblur_r14
+max IoU = 0.519506072862
+
+ person
+im_name = 006332_gblur_r14
+max IoU = 0.0192081274486
+
+ person
+im_name = 004414_gblur_r14
+max IoU = 0.0177614635446
+
+ person
+im_name = 006804_gblur_r14
+max IoU = 0.197360264068
+
+ person
+im_name = 000719_gblur_r14
+max IoU = 0.469776631615
+
+ person
+im_name = 004243_gblur_r14
+max IoU = 0.108935921735
+
+ person
+im_name = 009564_gblur_r14
+max IoU = 0.136951710932
+
+ person
+im_name = 001118_gblur_r14
+max IoU = 0.766095073481
+
+ person
+im_name = 008110_gblur_r14
+max IoU = 0.28345338019
+
+ person
+im_name = 002746_gblur_r14
+max IoU = 0.0135366907397
+
+ person
+im_name = 000319_gblur_r14
+max IoU = 0.197688182292
+
+ person
+im_name = 000861_gblur_r14
+max IoU = 0.77043740043
+
+ person
+im_name = 003501_gblur_r14
+max IoU = 0.56951595666
+
+ person
+im_name = 000666_gblur_r14
+max IoU = 0.263386022834
+
+ person
+im_name = 008812_gblur_r14
+max IoU = 0.431301348721
+
+ person
+im_name = 001108_gblur_r14
+max IoU = 0.800043169456
+
+ person
+im_name = 000723_gblur_r14
+max IoU = 0.231163267207
+
+ person
+im_name = 000704_gblur_r14
+max IoU = 0.0665113612608
+
+ person
+im_name = 000624_gblur_r14
+max IoU = 0.459775200338
+
+ person
+im_name = 005666_gblur_r14
+max IoU = 0.300061885824
+
+ person
+im_name = 003952_gblur_r14
+max IoU = 0.00719021030505
+
+ person
+im_name = 007207_gblur_r14
+max IoU = 0.72883636941
+
+ person
+im_name = 005218_gblur_r14
+max IoU = 0.390961262554
+
+ person
+im_name = 002229_gblur_r14
+max IoU = 0.158753307201
+
+ person
+im_name = 006975_gblur_r14
+max IoU = 0.414865315807
+
+ person
+im_name = 001482_gblur_r14
+max IoU = 0.348406077459
+
+ person
+im_name = 005506_gblur_r14
+max IoU = 0.36468298923
+
+ person
+im_name = 005095_gblur_r14
+max IoU = 0.0517017465753
+
+ person
+im_name = 006904_gblur_r14
+max IoU = 0.563083177807
+
+ person
+im_name = 004573_gblur_r14
+max IoU = 0.0231475471193
+
+ person
+im_name = 001570_gblur_r14
+max IoU = 0.60984727626
+
+ person
+im_name = 008569_gblur_r14
+max IoU = 0.624139739657
+
+ person
+im_name = 005227_gblur_r14
+max IoU = 0.678674499052
+
+ person
+im_name = 002686_gblur_r14
+max IoU = 0.353415699729
+
+ person
+im_name = 009223_gblur_r14
+max IoU = 0.0406397396025
+
+ person
+im_name = 001336_gblur_r14
+max IoU = 0.337633610479
+
+ person
+im_name = 006915_gblur_r14
+max IoU = 0.614998922071
+
+ person
+im_name = 003670_gblur_r14
+max IoU = 0.206778558008
+
+ person
+im_name = 002522_gblur_r14
+max IoU = 0.0319494383837
+
+ person
+im_name = 006118_gblur_r14
+max IoU = 0.763110552959
+
+ person
+im_name = 004072_gblur_r14
+max IoU = 0.412010800757
+
+ person
+im_name = 006115_gblur_r14
+max IoU = 0.19080660269
+
+ person
+im_name = 003483_gblur_r14
+max IoU = 0.343196505375
+
+ person
+im_name = 007992_gblur_r14
+max IoU = 0.00909223203472
+
+ person
+im_name = 000205_gblur_r14
+max IoU = 0.482271038488
+
+ person
+im_name = 003025_gblur_r14
+max IoU = 0.0947776993649
+
+ person
+im_name = 005133_gblur_r14
+max IoU = 0.245035581734
+
+ person
+im_name = 006060_gblur_r14
+max IoU = 0.726313038261
+
+ person
+im_name = 000762_gblur_r14
+max IoU = 0.735015103428
+
+ person
+im_name = 004094_gblur_r14
+max IoU = 0.0424720823751
+
+ person
+im_name = 007371_gblur_r14
+max IoU = 0.384855151747
+
+ person
+im_name = 007393_gblur_r14
+max IoU = 0.408897126107
+
+ person
+im_name = 000247_gblur_r14
+max IoU = 0.393813965797
+
+ person
+im_name = 007338_gblur_r14
+max IoU = 0.661010625169
+
+ person
+im_name = 005809_gblur_r14
+max IoU = 0.104561515476
+
+ person
+im_name = 005870_gblur_r14
+max IoU = 0.0801630010745
+
+ person
+im_name = 004930_gblur_r14
+max IoU = 0.530275229358
+
+ person
+im_name = 008762_gblur_r14
+max IoU = 0.373689816136
+
+ person
+im_name = 002295_gblur_r14
+max IoU = 0.536038238359
+
+ person
+im_name = 007580_gblur_r14
+max IoU = 0.0230614933118
+
+ person
+im_name = 005025_gblur_r14
+max IoU = 0.381570408825
+
+ person
+im_name = 005060_gblur_r14
+max IoU = 0.582743051553
+
+ person
+im_name = 006207_gblur_r14
+max IoU = 0.198955598947
+
+ person
+im_name = 000458_gblur_r14
+max IoU = 0.451499975835
+
+ person
+im_name = 001998_gblur_r14
+max IoU = 0.30913092392
+
+ person
+im_name = 000891_gblur_r14
+max IoU = 0.604386337035
+
+ person
+im_name = 007000_gblur_r14
+max IoU = 0.500093817246
+
+ person
+im_name = 004393_gblur_r14
+max IoU = 0.0168244093585
+
+ person
+im_name = 007945_gblur_r14
+max IoU = 0.00643976826201
+
+ person
+im_name = 002110_gblur_r14
+max IoU = 0.0194443244178
+
+ person
+im_name = 008567_gblur_r14
+max IoU = 0.551432698862
+
+ person
+im_name = 006334_gblur_r14
+max IoU = 0.0444599596896
+
+ person
+im_name = 009322_gblur_r14
+max IoU = 0.310863111429
+
+ person
+im_name = 009248_gblur_r14
+max IoU = 0.674394765071
+
+ person
+im_name = 004454_gblur_r14
+max IoU = 0.26077039229
+
+ person
+im_name = 001712_gblur_r14
+max IoU = 0.400823623073
+
+ person
+im_name = 005087_gblur_r14
+max IoU = 0.555925245844
+
+ person
+im_name = 007203_gblur_r14
+max IoU = 0.390611941565
+
+ person
+im_name = 000734_gblur_r14
+max IoU = 0.119972181291
+
+ person
+im_name = 001282_gblur_r14
+max IoU = 0.659666180414
+
+ person
+im_name = 007616_gblur_r14
+max IoU = 0.125667039917
+
+ person
+im_name = 002365_gblur_r14
+max IoU = 0.593229134499
+
+ person
+im_name = 009317_gblur_r14
+max IoU = 0.208401407209
+
+ person
+im_name = 008641_gblur_r14
+max IoU = 0.620196111593
+
+ person
+im_name = 001566_gblur_r14
+max IoU = 0.613114672191
+
+ person
+im_name = 006775_gblur_r14
+max IoU = 0.50013629926
+
+ person
+im_name = 006540_gblur_r14
+max IoU = 0.160706856488
+
+ person
+im_name = 008195_gblur_r14
+max IoU = 0.51697798286
+
+ person
+im_name = 006199_gblur_r14
+max IoU = 0.653418402101
+
+ person
+im_name = 001866_gblur_r14
+max IoU = 0.540051223757
+
+ person
+im_name = 009601_gblur_r14
+max IoU = 0.689001071918
+
+ person
+im_name = 001656_gblur_r14
+max IoU = 0.557671567624
+
+ person
+im_name = 002781_gblur_r14
+max IoU = 0.479238062946
+
+ person
+im_name = 008059_gblur_r14
+max IoU = 0.302659740304
+
+ person
+im_name = 002235_gblur_r14
+max IoU = 0.498520949044
+
+ person
+im_name = 000128_gblur_r14
+max IoU = 0.0714342661245
+
+ person
+im_name = 004311_gblur_r14
+max IoU = 0.323812580231
+
+ person
+im_name = 000883_gblur_r14
+max IoU = 0.0627404944365
+
+ person
+im_name = 007293_gblur_r14
+max IoU = 0.510687546631
+
+ person
+im_name = 007860_gblur_r14
+max IoU = 0.277511934755
+
+ person
+im_name = 008708_gblur_r14
+max IoU = 0.412226041052
+
+ person
+im_name = 005612_gblur_r14
+max IoU = 0.48845317351
+
+ person
+im_name = 005301_gblur_r14
+max IoU = 0.446448324497
+
+ person
+im_name = 002660_gblur_r14
+max IoU = 0.82876121254
+
+ person
+im_name = 009768_gblur_r14
+max IoU = 0.0963830828968
+
+ person
+im_name = 006313_gblur_r14
+max IoU = 0.415441426853
+
+ person
+im_name = 002607_gblur_r14
+max IoU = 0.00820804173968
+
+ person
+im_name = 009102_gblur_r14
+max IoU = 0.742213733134
+
+ person
+im_name = 001447_gblur_r14
+max IoU = 0.39250722024
+
+ person
+im_name = 007598_gblur_r14
+max IoU = 0.554347168457
+
+ person
+im_name = 008234_gblur_r14
+max IoU = 0.0541823961087
+
+ person
+im_name = 007235_gblur_r14
+max IoU = 0.322124908865
+
+ person
+im_name = 000455_gblur_r14
+max IoU = 0.180378226794
+
+ person
+im_name = 002909_gblur_r14
+max IoU = 0.390457852894
+
+ person
+im_name = 007476_gblur_r14
+max IoU = 0.339068846682
+
+ person
+im_name = 006608_gblur_r14
+max IoU = 0.352151773647
+
+ person
+im_name = 003542_gblur_r14
+max IoU = 0.269085596006
+
+ person
+im_name = 006032_gblur_r14
+max IoU = 0.174700668636
+
+ person
+im_name = 000124_gblur_r14
+max IoU = 0.532990624553
+
+ person
+im_name = 001403_gblur_r14
+max IoU = 0.141428111257
+
+ person
+im_name = 007428_gblur_r14
+max IoU = 0.343147543903
+
+ person
+im_name = 000358_gblur_r14
+max IoU = 0.454521958146
+
+ person
+im_name = 004363_gblur_r14
+max IoU = 0.538002580723
+
+ person
+im_name = 003680_gblur_r14
+max IoU = 0.194067172788
+
+ person
+im_name = 003659_gblur_r14
+max IoU = 0.0703227535541
+
+ person
+im_name = 001228_gblur_r14
+max IoU = 0.502990098808
+
+ person
+im_name = 007785_gblur_r14
+max IoU = 0.300779653187
+
+ person
+im_name = 004803_gblur_r14
+max IoU = 0.424618059158
+
+ person
+im_name = 009043_gblur_r14
+max IoU = 0.0879862852882
+
+ person
+im_name = 007744_gblur_r14
+max IoU = 0.0260962566845
+
+ person
+im_name = 007552_gblur_r14
+max IoU = 0.00876853765936
+
+ person
+im_name = 005342_gblur_r14
+max IoU = 0.476837015244
+
+ person
+im_name = 005865_gblur_r14
+max IoU = 0.422160047771
+
+ person
+im_name = 009612_gblur_r14
+max IoU = 0.712090086764
+
+ person
+im_name = 003922_gblur_r14
+max IoU = 0.247773281678
+
+ person
+im_name = 002325_gblur_r14
+max IoU = 0.447698278494
+
+ person
+im_name = 006552_gblur_r14
+max IoU = 0.773810218789
+
+ person
+im_name = 000409_gblur_r14
+max IoU = 0.632554843003
+
+ person
+im_name = 003505_gblur_r14
+max IoU = 0.199091890308
+
+ person
+im_name = 004697_gblur_r14
+max IoU = 0.263517062609
+
+ person
+im_name = 007447_gblur_r14
+max IoU = 0.629191158208
+
+ person
+im_name = 001720_gblur_r14
+max IoU = 0.787112954567
+
+ person
+im_name = 002379_gblur_r14
+max IoU = 0.582973417233
+
+ person
+im_name = 009207_gblur_r14
+max IoU = 0.677486801079
+
+ person
+im_name = 003579_gblur_r14
+max IoU = 0.465997903553
+
+ person
+im_name = 009075_gblur_r14
+max IoU = 0.832588587429
+
+ person
+im_name = 002999_gblur_r14
+max IoU = 0.241480858225
+
+ person
+im_name = 002655_gblur_r14
+max IoU = 0.13918361303
+
+ person
+im_name = 005479_gblur_r14
+max IoU = 0.609957563166
+
+ person
+im_name = 005425_gblur_r14
+max IoU = 0.281237369579
+
+ person
+im_name = 008276_gblur_r14
+max IoU = 0.735482571235
+
+ person
+im_name = 009847_gblur_r14
+max IoU = 0.156014914633
+
+ person
+im_name = 003701_gblur_r14
+max IoU = 0.640717532594
+
+ person
+im_name = 001095_gblur_r14
+max IoU = 0.162987322619
+
+ person
+im_name = 007415_gblur_r14
+max IoU = 0.00524488951078
+
+ person
+im_name = 003884_gblur_r14
+max IoU = 0.836713434071
+
+ person
+im_name = 007690_gblur_r14
+max IoU = 0.079411458326
+
+ person
+im_name = 000410_gblur_r14
+max IoU = 0.221378088646
+
+ person
+im_name = 009130_gblur_r14
+max IoU = 0.204720239505
+
+ person
+im_name = 007725_gblur_r14
+max IoU = 0.279135286103
+
+ person
+im_name = 009803_gblur_r14
+max IoU = 0.081196714656
+
+ person
+im_name = 005890_gblur_r14
+max IoU = 0.570681071152
+
+ person
+im_name = 003084_gblur_r14
+max IoU = 0.0572637230586
+
+ person
+im_name = 001819_gblur_r14
+max IoU = 0.307923556365
+
+ person
+im_name = 006307_gblur_r14
+max IoU = 0.0764372469636
+
+ person
+im_name = 004762_gblur_r14
+max IoU = 0.0156235396524
+
+ person
+im_name = 000356_gblur_r14
+max IoU = 0.274406641616
+
+ person
+im_name = 009804_gblur_r14
+max IoU = 0.0914408279692
+
+ person
+im_name = 003764_gblur_r14
+max IoU = 0.24445316439
+
+ person
+im_name = 006920_gblur_r14
+max IoU = 0.43148359157
+
+ person
+im_name = 006705_gblur_r14
+max IoU = 0.0655936355734
+
+ person
+im_name = 009895_gblur_r14
+max IoU = 0.070059834886
+
+ person
+im_name = 006376_gblur_r14
+max IoU = 0.07779839217
+
+ person
+im_name = 002018_gblur_r14
+max IoU = 0.504025019979
+
+ person
+im_name = 004330_gblur_r14
+max IoU = 0.410205204491
+
+ person
+im_name = 003829_gblur_r14
+max IoU = 0.0671592330511
+
+ person
+im_name = 001735_gblur_r14
+max IoU = 0.452224150217
+
+ person
+im_name = 009661_gblur_r14
+max IoU = 0.111780610773
+
+ person
+im_name = 009423_gblur_r14
+max IoU = 0.0271057250192
+
+ person
+im_name = 008045_gblur_r14
+max IoU = 0.554959571677
+
+ person
+im_name = 007646_gblur_r14
+max IoU = 0.26333655218
+
+ person
+im_name = 000223_gblur_r14
+max IoU = 0.0735688643291
+
+ person
+im_name = 009430_gblur_r14
+max IoU = 0.100627827416
+
+ person
+im_name = 001916_gblur_r14
+max IoU = 0.257074303995
+
+ person
+im_name = 004197_gblur_r14
+max IoU = 0.762388818297
+
+ person
+im_name = 007927_gblur_r14
+max IoU = 0.0497844820753
+
+ person
+im_name = 003938_gblur_r14
+max IoU = 0.230307591636
+
+ person
+im_name = 005638_gblur_r14
+max IoU = 0.535695650349
+
+ person
+im_name = 002856_gblur_r14
+max IoU = 0.333383060335
+
+ person
+im_name = 009890_gblur_r14
+max IoU = 0.37537586272
+
+ person
+im_name = 009277_gblur_r14
+max IoU = 0.258895626971
+AP for person = 0.0957
+
+ pottedplant
+im_name = 000983_gblur_r14
+max IoU = 0.589189956618
+
+ pottedplant
+im_name = 008207_gblur_r14
+max IoU = 0.416139961723
+
+ pottedplant
+im_name = 009606_gblur_r14
+max IoU = 0.0862943534419
+
+ pottedplant
+im_name = 008239_gblur_r14
+max IoU = 0.218013074044
+
+ pottedplant
+im_name = 004116_gblur_r14
+max IoU = 0.873968135776
+
+ pottedplant
+im_name = 008155_gblur_r14
+max IoU = 0.0903967772831
+
+ pottedplant
+im_name = 002035_gblur_r14
+max IoU = 0.233547010328
+
+ pottedplant
+im_name = 004712_gblur_r14
+max IoU = 0.489792903672
+
+ pottedplant
+im_name = 007319_gblur_r14
+max IoU = 0.493967140002
+
+ pottedplant
+im_name = 008947_gblur_r14
+max IoU = 0.0676360458969
+
+ pottedplant
+im_name = 000788_gblur_r14
+max IoU = 0.641898354571
+
+ pottedplant
+im_name = 007913_gblur_r14
+max IoU = 0.577713405555
+
+ pottedplant
+im_name = 005926_gblur_r14
+max IoU = 0.0731511989059
+
+ pottedplant
+im_name = 000006_gblur_r14
+max IoU = 0.06953722334
+
+ pottedplant
+im_name = 001712_gblur_r14
+max IoU = 0.794079326923
+
+ pottedplant
+im_name = 004311_gblur_r14
+max IoU = 0.181397521903
+
+ pottedplant
+im_name = 001023_gblur_r14
+max IoU = 0.0831944461676
+
+ pottedplant
+im_name = 005937_gblur_r14
+max IoU = 0.0898415560773
+
+ pottedplant
+im_name = 002945_gblur_r14
+max IoU = 0.0232426247077
+
+ pottedplant
+im_name = 001035_gblur_r14
+max IoU = 0.00868861756988
+
+ pottedplant
+im_name = 000124_gblur_r14
+max IoU = 0.32154131567
+
+ pottedplant
+im_name = 006792_gblur_r14
+max IoU = 0.11172687589
+
+ pottedplant
+im_name = 000116_gblur_r14
+max IoU = 0.171171654302
+
+ pottedplant
+im_name = 000650_gblur_r14
+max IoU = 0.711774402631
+
+ pottedplant
+im_name = 006776_gblur_r14
+max IoU = 0.416831807592
+
+ pottedplant
+im_name = 006807_gblur_r14
+max IoU = 0.735905873993
+
+ pottedplant
+im_name = 005661_gblur_r14
+max IoU = 0.0196750785927
+
+ pottedplant
+im_name = 006115_gblur_r14
+max IoU = 0.573805899298
+
+ pottedplant
+im_name = 000234_gblur_r14
+max IoU = 0.415003680564
+
+ pottedplant
+im_name = 001648_gblur_r14
+max IoU = 0.579468155386
+
+ pottedplant
+im_name = 009367_gblur_r14
+max IoU = 0.0335041378264
+
+ pottedplant
+im_name = 002422_gblur_r14
+max IoU = 0.673191605472
+
+ pottedplant
+im_name = 007335_gblur_r14
+max IoU = 0.0781229140968
+
+ pottedplant
+im_name = 000737_gblur_r14
+max IoU = 0.411203148153
+
+ pottedplant
+im_name = 006297_gblur_r14
+max IoU = 0.0878171023762
+
+ pottedplant
+im_name = 001631_gblur_r14
+max IoU = 0.853377910145
+
+ pottedplant
+im_name = 008156_gblur_r14
+max IoU = 0.350702241845
+
+ pottedplant
+im_name = 009925_gblur_r14
+max IoU = 0.562785613131
+
+ pottedplant
+im_name = 003448_gblur_r14
+max IoU = 0.274625481975
+
+ pottedplant
+im_name = 006795_gblur_r14
+max IoU = 0.37999103624
+
+ pottedplant
+im_name = 005673_gblur_r14
+max IoU = 0.269154205824
+
+ pottedplant
+im_name = 003591_gblur_r14
+max IoU = 0.522720822918
+
+ pottedplant
+im_name = 006307_gblur_r14
+max IoU = 0.0142840984375
+
+ pottedplant
+im_name = 002018_gblur_r14
+max IoU = 0.0818030488586
+
+ pottedplant
+im_name = 002887_gblur_r14
+max IoU = 0.0181739920608
+AP for pottedplant = 0.0913
+
+ sheep
+im_name = 007076_gblur_r14
+max IoU = 0.193651197941
+
+ sheep
+im_name = 004646_gblur_r14
+max IoU = 0.0643475622615
+
+ sheep
+im_name = 001477_gblur_r14
+max IoU = 0.524585938601
+
+ sheep
+im_name = 004610_gblur_r14
+max IoU = 0.586174867631
+
+ sheep
+im_name = 004827_gblur_r14
+max IoU = 0.35398166804
+
+ sheep
+im_name = 003595_gblur_r14
+max IoU = 0.262398077698
+
+ sheep
+im_name = 008912_gblur_r14
+max IoU = 0.386263657601
+
+ sheep
+im_name = 004072_gblur_r14
+max IoU = 0.0457392849511
+
+ sheep
+im_name = 003025_gblur_r14
+max IoU = 0.526242523696
+
+ sheep
+im_name = 004582_gblur_r14
+max IoU = 0.749956776486
+
+ sheep
+im_name = 000884_gblur_r14
+max IoU = 0.590327556656
+
+ sheep
+im_name = 000458_gblur_r14
+max IoU = 0.465882475355
+
+ sheep
+im_name = 002802_gblur_r14
+max IoU = 0.565375679453
+
+ sheep
+im_name = 006837_gblur_r14
+max IoU = 0.0654052648951
+
+ sheep
+im_name = 005916_gblur_r14
+max IoU = 0.202542064518
+AP for sheep = 0.0007
+
+ sofa
+im_name = 009471_gblur_r14
+max IoU = 0.931109919571
+
+ sofa
+im_name = 007192_gblur_r14
+max IoU = 0.724052718287
+
+ sofa
+im_name = 006288_gblur_r14
+max IoU = 0.761351052049
+
+ sofa
+im_name = 004923_gblur_r14
+max IoU = 0.609610745614
+
+ sofa
+im_name = 008155_gblur_r14
+max IoU = 0.360924435212
+
+ sofa
+im_name = 008947_gblur_r14
+max IoU = 0.430480973963
+
+ sofa
+im_name = 003317_gblur_r14
+max IoU = 0.528827283511
+
+ sofa
+im_name = 007319_gblur_r14
+max IoU = 0.668185941043
+
+ sofa
+im_name = 007816_gblur_r14
+max IoU = 0.0201389328838
+
+ sofa
+im_name = 002035_gblur_r14
+max IoU = 0.495562755207
+
+ sofa
+im_name = 009766_gblur_r14
+max IoU = 0.719544683943
+
+ sofa
+im_name = 002455_gblur_r14
+max IoU = 0.279409332546
+
+ sofa
+im_name = 008678_gblur_r14
+max IoU = 0.2768720895
+
+ sofa
+im_name = 007962_gblur_r14
+max IoU = 0.876919919308
+
+ sofa
+im_name = 000299_gblur_r14
+max IoU = 0.191089784794
+
+ sofa
+im_name = 000084_gblur_r14
+max IoU = 0.30890550114
+
+ sofa
+im_name = 009353_gblur_r14
+max IoU = 0.510206801653
+
+ sofa
+im_name = 009013_gblur_r14
+max IoU = 0.275663957349
+
+ sofa
+im_name = 005808_gblur_r14
+max IoU = 0.763888991853
+
+ sofa
+im_name = 006452_gblur_r14
+max IoU = 0.0891616371659
+
+ sofa
+im_name = 007301_gblur_r14
+max IoU = 0.219809403382
+
+ sofa
+im_name = 002541_gblur_r14
+max IoU = 0.642101941921
+
+ sofa
+im_name = 004068_gblur_r14
+max IoU = 0.736946323242
+
+ sofa
+im_name = 006505_gblur_r14
+max IoU = 0.811450763446
+
+ sofa
+im_name = 003197_gblur_r14
+max IoU = 0.540973619029
+
+ sofa
+im_name = 009118_gblur_r14
+max IoU = 0.229128088611
+
+ sofa
+im_name = 008114_gblur_r14
+max IoU = 0.379359406608
+
+ sofa
+im_name = 004096_gblur_r14
+max IoU = 0.968684416642
+
+ sofa
+im_name = 001534_gblur_r14
+max IoU = 0.0376842494832
+
+ sofa
+im_name = 004252_gblur_r14
+max IoU = 0.137428362872
+
+ sofa
+im_name = 005939_gblur_r14
+max IoU = 0.721607717891
+
+ sofa
+im_name = 002650_gblur_r14
+max IoU = 0.347668756027
+
+ sofa
+im_name = 006031_gblur_r14
+max IoU = 0.620329065143
+
+ sofa
+im_name = 008347_gblur_r14
+max IoU = 0.540803880276
+
+ sofa
+im_name = 007785_gblur_r14
+max IoU = 0.455676042296
+
+ sofa
+im_name = 004922_gblur_r14
+max IoU = 0.788819552319
+
+ sofa
+im_name = 001826_gblur_r14
+max IoU = 0.313718653304
+
+ sofa
+im_name = 002018_gblur_r14
+max IoU = 0.67298541329
+
+ sofa
+im_name = 005727_gblur_r14
+max IoU = 0.326025939361
+
+ sofa
+im_name = 000205_gblur_r14
+max IoU = 0.525798207816
+
+ sofa
+im_name = 005498_gblur_r14
+max IoU = 0.242072399168
+
+ sofa
+im_name = 005937_gblur_r14
+max IoU = 0.749097472924
+
+ sofa
+im_name = 003208_gblur_r14
+max IoU = 0.47644012945
+
+ sofa
+im_name = 002574_gblur_r14
+max IoU = 0.858272250451
+
+ sofa
+im_name = 001993_gblur_r14
+max IoU = 0.749218422664
+
+ sofa
+im_name = 002887_gblur_r14
+max IoU = 0.339458353144
+
+ sofa
+im_name = 001519_gblur_r14
+max IoU = 0.35365567639
+
+ sofa
+im_name = 003944_gblur_r14
+max IoU = 0.617909695233
+
+ sofa
+im_name = 000658_gblur_r14
+max IoU = 0.359161615717
+
+ sofa
+im_name = 005362_gblur_r14
+max IoU = 0.0776796467098
+
+ sofa
+im_name = 005767_gblur_r14
+max IoU = 0.260604664555
+
+ sofa
+im_name = 002408_gblur_r14
+max IoU = 0.31816866314
+
+ sofa
+im_name = 008569_gblur_r14
+max IoU = 0.54072187373
+
+ sofa
+im_name = 006115_gblur_r14
+max IoU = 0.494597755404
+
+ sofa
+im_name = 009367_gblur_r14
+max IoU = 0.428050006768
+
+ sofa
+im_name = 008803_gblur_r14
+max IoU = 0.41464330597
+
+ sofa
+im_name = 000160_gblur_r14
+max IoU = 0.319632215662
+
+ sofa
+im_name = 005025_gblur_r14
+max IoU = 0.66443720473
+
+ sofa
+im_name = 008762_gblur_r14
+max IoU = 0.115906327185
+
+ sofa
+im_name = 000314_gblur_r14
+max IoU = 0.697476152943
+
+ sofa
+im_name = 000116_gblur_r14
+max IoU = 0.399249530957
+
+ sofa
+im_name = 001461_gblur_r14
+max IoU = 0.372952973721
+
+ sofa
+im_name = 006297_gblur_r14
+max IoU = 0.414220719739
+
+ sofa
+im_name = 008395_gblur_r14
+max IoU = 0.539186114436
+
+ sofa
+im_name = 008286_gblur_r14
+max IoU = 0.291277098531
+
+ sofa
+im_name = 005551_gblur_r14
+max IoU = 0.452216639301
+
+ sofa
+im_name = 006313_gblur_r14
+max IoU = 0.403278322511
+
+ sofa
+im_name = 004029_gblur_r14
+max IoU = 0.587969474675
+
+ sofa
+im_name = 008543_gblur_r14
+max IoU = 0.468941634803
+
+ sofa
+im_name = 004363_gblur_r14
+max IoU = 0.36024395118
+
+ sofa
+im_name = 001197_gblur_r14
+max IoU = 0.438914292727
+
+ sofa
+im_name = 003884_gblur_r14
+max IoU = 0.579504032258
+
+ sofa
+im_name = 006795_gblur_r14
+max IoU = 0.419050939435
+
+ sofa
+im_name = 008650_gblur_r14
+max IoU = 0.626010087666
+
+ sofa
+im_name = 006705_gblur_r14
+max IoU = 0.25612779542
+
+ sofa
+im_name = 008119_gblur_r14
+max IoU = 0.0469754424965
+
+ sofa
+im_name = 003569_gblur_r14
+max IoU = 0.412256351864
+
+ sofa
+im_name = 007747_gblur_r14
+max IoU = 0.18085898709
+
+ sofa
+im_name = 001458_gblur_r14
+max IoU = 0.357128953771
+
+ sofa
+im_name = 006307_gblur_r14
+max IoU = 0.14920887095
+
+ sofa
+im_name = 009204_gblur_r14
+max IoU = 0.499103066975
+AP for sofa = 0.0487
+
+ train
+im_name = 000088_gblur_r14
+max IoU = 0.6968878131
+
+ train
+im_name = 005689_gblur_r14
+max IoU = 0.780204646536
+
+ train
+im_name = 004483_gblur_r14
+max IoU = 0.755769999338
+
+ train
+im_name = 007349_gblur_r14
+max IoU = 0.664788229844
+
+ train
+im_name = 009548_gblur_r14
+max IoU = 0.265132811507
+
+ train
+im_name = 001876_gblur_r14
+max IoU = 0.2420776734
+
+ train
+im_name = 002351_gblur_r14
+max IoU = 0.512607284035
+
+ train
+im_name = 003043_gblur_r14
+max IoU = 0.594589822093
+
+ train
+im_name = 002066_gblur_r14
+max IoU = 0.0476407966784
+
+ train
+im_name = 005626_gblur_r14
+max IoU = 0.588508286325
+
+ train
+im_name = 009784_gblur_r14
+max IoU = 0.632099002162
+
+ train
+im_name = 002979_gblur_r14
+max IoU = 0.0816784078638
+
+ train
+im_name = 005154_gblur_r14
+max IoU = 0.514590208005
+
+ train
+im_name = 006077_gblur_r14
+max IoU = 0.120030449125
+
+ train
+im_name = 002032_gblur_r14
+max IoU = 0.771824172824
+
+ train
+im_name = 007387_gblur_r14
+max IoU = 0.775460166163
+
+ train
+im_name = 004388_gblur_r14
+max IoU = 0.511136475622
+
+ train
+im_name = 007852_gblur_r14
+max IoU = 0.531536767858
+
+ train
+im_name = 008412_gblur_r14
+max IoU = 0.293189329279
+
+ train
+im_name = 004414_gblur_r14
+max IoU = 0.417030122525
+
+ train
+im_name = 000556_gblur_r14
+max IoU = 0.465653593306
+
+ train
+im_name = 005280_gblur_r14
+max IoU = 0.200434792301
+
+ train
+im_name = 004871_gblur_r14
+max IoU = 0.787914788141
+
+ train
+im_name = 005690_gblur_r14
+max IoU = 0.385665578274
+
+ train
+im_name = 006665_gblur_r14
+max IoU = 0.075790443066
+
+ train
+im_name = 004235_gblur_r14
+max IoU = 0.815930555432
+
+ train
+im_name = 007945_gblur_r14
+max IoU = 0.457484990801
+
+ train
+im_name = 009751_gblur_r14
+max IoU = 0.595619809907
+
+ train
+im_name = 005463_gblur_r14
+max IoU = 0.729456303553
+
+ train
+im_name = 007881_gblur_r14
+max IoU = 0.686182346376
+
+ train
+im_name = 004393_gblur_r14
+max IoU = 0.538448090998
+
+ train
+im_name = 008855_gblur_r14
+max IoU = 0.60680304236
+
+ train
+im_name = 005095_gblur_r14
+max IoU = 0.169367829902
+
+ train
+im_name = 003547_gblur_r14
+max IoU = 0.606050699764
+
+ train
+im_name = 005986_gblur_r14
+max IoU = 0.558365636259
+
+ train
+im_name = 005643_gblur_r14
+max IoU = 0.573500648474
+
+ train
+im_name = 003613_gblur_r14
+max IoU = 0.678033420864
+
+ train
+im_name = 008065_gblur_r14
+max IoU = 0.26906764781
+
+ train
+im_name = 002289_gblur_r14
+max IoU = 0.0850199949121
+
+ train
+im_name = 006372_gblur_r14
+max IoU = 0.46842312802
+
+ train
+im_name = 008234_gblur_r14
+max IoU = 0.300722515718
+
+ train
+im_name = 007796_gblur_r14
+max IoU = 0.493611779663
+
+ train
+im_name = 009921_gblur_r14
+max IoU = 0.147688812037
+
+ train
+im_name = 005011_gblur_r14
+max IoU = 0.386937138048
+
+ train
+im_name = 006629_gblur_r14
+max IoU = 0.799152423328
+
+ train
+im_name = 008165_gblur_r14
+max IoU = 0.823163500481
+
+ train
+im_name = 000636_gblur_r14
+max IoU = 0.557303994747
+
+ train
+im_name = 004473_gblur_r14
+max IoU = 0.145226122985
+
+ train
+im_name = 006278_gblur_r14
+max IoU = 0.863810673456
+
+ train
+im_name = 007520_gblur_r14
+max IoU = 0.802678521573
+
+ train
+im_name = 005390_gblur_r14
+max IoU = 0.204083434606
+
+ train
+im_name = 007488_gblur_r14
+max IoU = 0.658619355933
+
+ train
+im_name = 002236_gblur_r14
+max IoU = 0.70259714408
+
+ train
+im_name = 008266_gblur_r14
+max IoU = 0.60013059009
+
+ train
+im_name = 007581_gblur_r14
+max IoU = 0.629160151578
+
+ train
+im_name = 005172_gblur_r14
+max IoU = 0.949093918248
+
+ train
+im_name = 000002_gblur_r14
+max IoU = 0.0857917938284
+
+ train
+im_name = 003829_gblur_r14
+max IoU = 0.675512208702
+
+ train
+im_name = 003428_gblur_r14
+max IoU = 0.274321401082
+
+ train
+im_name = 000223_gblur_r14
+max IoU = 0.579886635783
+AP for train = 0.1068
+
+ tvmonitor
+im_name = 009357_gblur_r14
+max IoU = 0.546138078398
+
+ tvmonitor
+im_name = 008611_gblur_r14
+max IoU = 0.219185015416
+
+ tvmonitor
+im_name = 006688_gblur_r14
+max IoU = 0.581901330894
+
+ tvmonitor
+im_name = 001007_gblur_r14
+max IoU = 0.372066082685
+
+ tvmonitor
+im_name = 002119_gblur_r14
+max IoU = 0.106534090909
+
+ tvmonitor
+im_name = 001549_gblur_r14
+max IoU = 0.16196608421
+
+ tvmonitor
+im_name = 000758_gblur_r14
+max IoU = 0.755283782179
+
+ tvmonitor
+im_name = 002356_gblur_r14
+max IoU = 0.585482695487
+
+ tvmonitor
+im_name = 000265_gblur_r14
+max IoU = 0.194724642552
+
+ tvmonitor
+im_name = 000204_gblur_r14
+max IoU = 0.0754052477748
+
+ tvmonitor
+im_name = 005565_gblur_r14
+max IoU = 0.163732549315
+
+ tvmonitor
+im_name = 008947_gblur_r14
+max IoU = 0.0608834603873
+
+ tvmonitor
+im_name = 009319_gblur_r14
+max IoU = 0.764072344006
+
+ tvmonitor
+im_name = 008707_gblur_r14
+max IoU = 0.481328263871
+
+ tvmonitor
+im_name = 007178_gblur_r14
+max IoU = 0.193082637315
+
+ tvmonitor
+im_name = 009697_gblur_r14
+max IoU = 0.0800291534773
+
+ tvmonitor
+im_name = 008407_gblur_r14
+max IoU = 0.242911221096
+
+ tvmonitor
+im_name = 009840_gblur_r14
+max IoU = 0.558278201424
+
+ tvmonitor
+im_name = 003776_gblur_r14
+max IoU = 0.250700213128
+
+ tvmonitor
+im_name = 007816_gblur_r14
+max IoU = 0.0207517928864
+
+ tvmonitor
+im_name = 006075_gblur_r14
+max IoU = 0.0383284783927
+
+ tvmonitor
+im_name = 006452_gblur_r14
+max IoU = 0.063980925503
+
+ tvmonitor
+im_name = 005946_gblur_r14
+max IoU = 0.695086132568
+
+ tvmonitor
+im_name = 005808_gblur_r14
+max IoU = 0.495699100572
+
+ tvmonitor
+im_name = 001392_gblur_r14
+max IoU = 0.413283052316
+
+ tvmonitor
+im_name = 004252_gblur_r14
+max IoU = 0.301416727594
+
+ tvmonitor
+im_name = 001546_gblur_r14
+max IoU = 0.56431953253
+
+ tvmonitor
+im_name = 008405_gblur_r14
+max IoU = 0.263767423075
+
+ tvmonitor
+im_name = 007203_gblur_r14
+max IoU = 0.395235517055
+
+ tvmonitor
+im_name = 003590_gblur_r14
+max IoU = 0.0614795624102
+
+ tvmonitor
+im_name = 002905_gblur_r14
+max IoU = 0.183846845764
+
+ tvmonitor
+im_name = 008561_gblur_r14
+max IoU = 0.551402325726
+
+ tvmonitor
+im_name = 006010_gblur_r14
+max IoU = 0.0377337018858
+
+ tvmonitor
+im_name = 005834_gblur_r14
+max IoU = 0.23563320301
+
+ tvmonitor
+im_name = 008347_gblur_r14
+max IoU = 0.0357451196209
+
+ tvmonitor
+im_name = 001826_gblur_r14
+max IoU = 0.0754087152366
+
+ tvmonitor
+im_name = 009689_gblur_r14
+max IoU = 0.117795637591
+
+ tvmonitor
+im_name = 006984_gblur_r14
+max IoU = 0.240202791294
+
+ tvmonitor
+im_name = 008660_gblur_r14
+max IoU = 0.387769698124
+
+ tvmonitor
+im_name = 008659_gblur_r14
+max IoU = 0.605315080903
+
+ tvmonitor
+im_name = 006313_gblur_r14
+max IoU = 0.269019725695
+
+ tvmonitor
+im_name = 007747_gblur_r14
+max IoU = 0.0276780264857
+
+ tvmonitor
+im_name = 009216_gblur_r14
+max IoU = 0.646423591852
+
+ tvmonitor
+im_name = 006116_gblur_r14
+max IoU = 0.180236937762
+
+ tvmonitor
+im_name = 002227_gblur_r14
+max IoU = 0.190959812404
+
+ tvmonitor
+im_name = 001704_gblur_r14
+max IoU = 0.626798373977
+
+ tvmonitor
+im_name = 006307_gblur_r14
+max IoU = 0.0676368108219
+AP for tvmonitor = 0.0028
+Mean AP = 0.0248
+~~~~~~~~
+Results:
+0.006
+0.001
+0.016
+0.001
+0.000
+0.008
+0.017
+0.037
+0.024
+0.002
+0.008
+0.016
+0.005
+0.007
+0.096
+0.091
+0.001
+0.049
+0.107
+0.003
+0.025
+~~~~~~~~
+
+--------------------------------------------------------------
+Results computed with the **unofficial** Python eval code.
+Results should be very close to the official MATLAB eval code.
+Recompute with `./tools/reval.py --matlab ...` for your paper.
+-- Thanks, The Management
+--------------------------------------------------------------
+218.95user 106.43system 5:23.15elapsed 100%CPU (0avgtext+0avgdata 1770988maxresident)k
+0inputs+18776outputs (0major+326475minor)pagefaults 0swaps

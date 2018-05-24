@@ -216,11 +216,6 @@ def voc_eval(detpath,
             print('\n', classname)
             print('im_name =', k)
             print('max IoU =', val)
-            # print('confidence =', np.amax(confidence))
-            # cstp = np.cumsum(tp)
-            # csfp = np.cumsum(fp)
-            # print('recall =', cstp / float(npos))
-            # print('precision =', cstp / np.maximum(cstp + csfp, np.finfo(np.float64).eps), '\n')
 
     # compute precision recall
     fp = np.cumsum(fp)
@@ -229,6 +224,10 @@ def voc_eval(detpath,
     # avoid divide by zero in case the first detection matches a difficult
     # ground truth
     prec = tp / np.maximum(tp + fp, np.finfo(np.float64).eps)
+
+    print('\nrecall = ', rec)
+    print('precision = ', prec, '\n')
+
     ap = voc_ap(rec, prec, use_07_metric)
 
     return rec, prec, ap

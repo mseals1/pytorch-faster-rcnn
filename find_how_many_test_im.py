@@ -28,7 +28,7 @@ inp_d = args.inp_dir
 names = [f[:-4] for f in os.listdir(inp_d) if (os.path.isfile(os.path.join(inp_d, f)) and f.endswith(".jpg"))]
 names = np.array(names)
 
-with open(os.path.join(*inp_d.split("/")[:-2], 'deg_test.txt'), 'w') as f:
+with open(os.path.join(inp_d, 'test.txt'), 'w') as f:
     for n in names:
         n += '\n'
         f.write(n)

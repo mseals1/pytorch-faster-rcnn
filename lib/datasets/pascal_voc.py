@@ -253,7 +253,7 @@ class pascal_voc(imdb):
             #    print("precision = ", prec, '\n')
             with open(os.path.join(output_dir, cls + '_pr.pkl'), 'wb') as f:
                 pickle.dump({'rec': rec, 'prec': prec, 'ap': ap}, f)
-        print(('Mean AP = {:.4f}'.format(np.mean(aps))))
+        print(('\nMean AP = {:.4f}'.format(np.mean(aps))))
         print('~~~~~~~~')
         print('Results:')
         for ap in aps:
