@@ -1,8 +1,12 @@
+# writes csv files from the given dir of text files
+
 import argparse
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import csv
+import glob
+import natsort
 
 
 def parse(inputfn):
@@ -64,7 +68,7 @@ def parse(inputfn):
 def csvwriter(inputdir, clsns, imns, ious, ap, meanap):
     csvfn = inputdir[:-4] + '.csv'
 
-    with open(csvfn, 'w') as f:
+    with open(csvfn, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['image', 'parameter', 'class', 'maxIoU', 'AP', 'mAP'])
 
@@ -80,11 +84,16 @@ args = parser.parse_args()
 
 inp_fn = args.inp_file
 
-classnames, imnames, maxious, aps, meap = parse(inp_fn)
+files = glob.glob(os.path.join(inp_fn, "*.txt"))
 
-# print(classnames, '\n', imnames, '\n', maxious, '\n', aps, '\n', meap)
+files = natsort.natsorted(files)
 
-fn = csvwriter(inp_fn, classnames, imnames, maxious, aps, meap)
+for f in files:
+    classnames, imnames, maxious, aps, meap = parse(f)
+
+    # print(classnames, '\n', imnames, '\n', maxious, '\n', aps, '\n', meap)
+
+    fn = csvwriter(f, classnames, imnames, maxious, aps, meap)
 
 # exit()
 

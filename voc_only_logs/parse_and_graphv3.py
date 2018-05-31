@@ -1,7 +1,7 @@
 # read csv for each parameter and create the graph of the
-# mean maxIoUs for each parameter for each class
+# mean of all of the mean maxIoU lines
 
-# 1 graph, 20 lines, one for each class, over all 15 parameters (0 - 15)
+# 1 graph, 1 line for each of the different set sizes
 
 import argparse
 import pandas as pd
@@ -43,7 +43,9 @@ for _, g in g1:
 
 # print(xs)
 yvals = np.squeeze(np.array(yvals))
-# print(yvals)
+yerr = yvals
+yvals = yvals.mean(axis=1)
+# print(yvals.shape)
 ylabels = np.array(ylabels[0])
 # print(ylabels.shape)
 
@@ -51,10 +53,9 @@ plt.plot(xs, yvals)
 
 plt.xlabel('Gaussian Blur')
 plt.ylabel('mean maxIoU')
-plt.title('Mean maxIoU vs. Gaussian Blur radius')
-plt.axis(([0, 17, 0, 1]))
+plt.title('Mean of all mean maxIoUs for all classes vs. Gaussian Blur radius')
+plt.axis(([0, 16, 0, 1]))
 plt.grid(True)
-plt.legend(ylabels)
 
 plt.show()
 
