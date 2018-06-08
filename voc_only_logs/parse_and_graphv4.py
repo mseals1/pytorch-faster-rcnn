@@ -4,6 +4,8 @@
 # 1 graph, 1 line for each of the different set sizes
 # 5 lines total on the same graph
 
+# ERROR BARS
+
 import argparse
 import pandas as pd
 import os
@@ -23,9 +25,9 @@ inp_d = args.inp_file
 all_xs = []
 all_yvals = []
 all_labels = ['1024', '128', '256', '512', '64']
+yerrs = []
 
 for dirs, subdirs, files in os.walk(inp_d):
-
     fs = glob.glob(os.path.join(dirs, "*.csv"))
     if not fs:
         continue
@@ -37,6 +39,7 @@ for dirs, subdirs, files in os.walk(inp_d):
     xs = []
     yvals = []
     ylabels = []
+    yerr = []
 
     g1 = df.groupby(['parameter'], sort=False)
 
@@ -47,6 +50,7 @@ for dirs, subdirs, files in os.walk(inp_d):
 
         xs.append(param)
         yvals.append(g2.values)
+        yerr.append(g2.values.std())
 
     # print(xs)
     yvals = np.squeeze(np.array(yvals))
@@ -54,8 +58,17 @@ for dirs, subdirs, files in os.walk(inp_d):
     # print(yvals.shape)
     # print(ylabels.shape)
 
+    plt.errorbar(xs, yvals, yerr=yerr, fmt='-o')
+    plt.xlabel('Gaussian Blur')
+    plt.ylabel('mean maxIoU')
+    plt.title('Error Bars for ' + str(dirs.split("\\")[-1]))
+    plt.axis(([-1, 16, 0, 1]))
+    plt.grid(True)
+    plt.show()
+
     all_xs.append(xs)
     all_yvals.append(yvals)
+    yerrs.append(yerr)
 
 all_xs = np.array(all_xs)
 all_xs = all_xs[0]
@@ -64,10 +77,12 @@ all_labels = np.array(all_labels)
 # print(all_xs.shape)
 # print(all_yvals.shape, '\n')
 # print(all_labels)
-# exit()
+yerrs = np.array(yerrs).transpose()
+# print(yerrs.shape)
+exit()
 
-plt.plot(all_xs, all_yvals)
-
+# plt.plot(all_xs, all_yvals)
+plt.errorbar(all_xs, all_yvals, yerr=yerrs)
 plt.xlabel('Gaussian Blur')
 plt.ylabel('mean maxIoU')
 plt.title('Mean of all mean maxIoUs for all classes vs. Gaussian Blur radius')

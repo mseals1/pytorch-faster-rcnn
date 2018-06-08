@@ -73,7 +73,11 @@ def csvwriter(inputdir, clsns, imns, ious, ap, meanap):
         writer.writerow(['image', 'parameter', 'class', 'maxIoU', 'AP', 'mAP'])
 
         for i in range(len(clsns)):
-            writer.writerow([imns[i], imns[i].split("_")[-1], clsns[i], ious[i], ap[clsns[i]], meanap])
+            spl = imns[i].split("_")
+            if len(spl) == 1:
+                writer.writerow([imns[i], 'r0', clsns[i], ious[i], ap[clsns[i]], meanap])
+            else:
+                writer.writerow([imns[i], spl[-1], clsns[i], ious[i], ap[clsns[i]], meanap])
 
     return csvfn
 

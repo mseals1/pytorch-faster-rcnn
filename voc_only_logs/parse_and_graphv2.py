@@ -1,7 +1,7 @@
 # read csv for each parameter and create the graph of the
 # mean maxIoUs for each parameter for each class
 
-# 1 graph, 20 lines, one for each class, over all 15 parameters (0 - 15)
+# 1 graph, 20 lines, one for each class, over all 15 parameters (0 - 14)
 
 import argparse
 import pandas as pd
@@ -41,9 +41,10 @@ for _, g in g1:
     yvals.append(g2.values)
     ylabels.append(g2.index)
 
-# print(xs)
+xs = np.array(xs)
+# print(xs.shape)
 yvals = np.squeeze(np.array(yvals))
-# print(yvals)
+# print(yvals.shape)
 ylabels = np.array(ylabels[0])
 # print(ylabels.shape)
 
