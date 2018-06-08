@@ -7,6 +7,8 @@ import skimage.util.noise as skinoise
 import argparse
 import random
 import os
+import natsort
+import shutil
 
 
 # Adjusts the Guassian Blur applied to the image
@@ -27,6 +29,7 @@ inp_d = args.inp_dir
 
 names = [f[:-4] for f in os.listdir(inp_d) if (os.path.isfile(os.path.join(inp_d, f)) and f.endswith(".jpg"))]
 names = np.array(names)
+names = natsort.natsorted(names)
 
 with open(os.path.join(inp_d, 'test.txt'), 'w') as f:
     for n in names:
@@ -34,7 +37,7 @@ with open(os.path.join(inp_d, 'test.txt'), 'w') as f:
         f.write(n)
 
 # files = [os.path.join(inp_d, f) for f in os.listdir(inp_d) if (os.path.isfile(os.path.join(inp_d, f))
-#                                                                and not f.endswith('txt'))]
+#                                                                and not f.endswith('.txt'))]
 #
 # for f in files:
 #     im = Image.open(f)

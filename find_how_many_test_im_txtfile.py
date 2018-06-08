@@ -9,13 +9,6 @@ import random
 import os
 
 
-# Adjusts the Guassian Blur applied to the image
-# gblur_rad is the radius of the guassian blur being applied
-# [0, 9+]
-def gblur(im1, gblur_rad=0.0):
-    return im1.filter(ImageFilter.GaussianBlur(radius=gblur_rad))
-
-
 random.seed(1)
 
 parser = argparse.ArgumentParser(description='Applies the different degradation methods to the directory of images')

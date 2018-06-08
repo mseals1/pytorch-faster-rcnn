@@ -26,8 +26,11 @@ random.shuffle(d)
 
 dlen = len(d)
 
-testset = d[:1024]
-te_dst = r'/home/mseals1/Documents/pytorch-faster-rcnn/data/test_deg_voc'
+testset = d[:(512*3)]
+te_dst = r'/home/mseals1/Documents/pytorch-faster-rcnn/degradation_scripts/test_deg_voc_512_3'
+
+if not os.path.exists(te_dst):
+    os.makedirs(te_dst)
 
 for f in testset:
     shutil.copy(f, te_dst)
