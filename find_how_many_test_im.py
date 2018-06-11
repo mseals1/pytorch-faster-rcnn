@@ -36,14 +36,17 @@ with open(os.path.join(inp_d, 'test.txt'), 'w') as f:
         n += '\n'
         f.write(n)
 
-# files = [os.path.join(inp_d, f) for f in os.listdir(inp_d) if (os.path.isfile(os.path.join(inp_d, f))
-#                                                                and not f.endswith('.txt'))]
-#
-# for f in files:
-#     im = Image.open(f)
-#
-#     # GAUSSIAN BLUR CODE
-#     for i in range(0, 15):
-#         fn = os.path.join(inp_d, "degraded/{}_gblur_r{}.jpg".format(os.path.split(f)[-1][:-4], i))
-#         gblur(im, i).save(fn)
+files = [os.path.join(inp_d, f) for f in os.listdir(inp_d) if (os.path.isfile(os.path.join(inp_d, f))
+                                                               and not f.endswith('.txt'))]
+
+if not os.path.exists(os.path.join(inp_d, 'JPEGImages')):
+    os.makedirs(os.path.join(inp_d, 'JPEGImages'))
+
+for f in files:
+    im = Image.open(f)
+
+    # GAUSSIAN BLUR CODE
+    for i in range(0, 15):
+        fn = os.path.join(inp_d, "JPEGImages/{}_gblur_r{}.jpg".format(os.path.split(f)[-1][:-4], i))
+        gblur(im, i).save(fn)
 
