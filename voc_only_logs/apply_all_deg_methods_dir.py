@@ -28,8 +28,6 @@ import random
 import glob
 import os
 
-# 4545.jpg
-
 
 # Adjust the colors of the image
 # grayscale 0.0 -> original colors 1.0
@@ -110,246 +108,114 @@ ims = []
 for dirs, _, files in os.walk(inp_d):
     ims += glob.glob(os.path.join(dirs, "*.jpg"))
 
+# Color range
+r_col = np.linspace(0, 1, num=4, endpoint=False)
+r_col2 = np.geomspace(1, 10, num=8, endpoint=False)
+r_col = np.concatenate((r_col, r_col2))
+
+# Contrast range
+r_con = np.linspace(0.05, 1, num=6, endpoint=False)
+r_con2 = np.geomspace(1, 5, num=5)
+r_con = np.concatenate(([0], r_con, r_con2))
+
+# Brightness range
+r_br = np.geomspace(0.1, 1, num=6, endpoint=False)
+r_br2 = np.geomspace(1, 30, num=5)
+r_br = np.concatenate(([0], r_br, r_br2))
+
+# Brightness sqrt range
+r_br_sqrt = [np.sqrt(2) ** (i - 6) for i in range(0, 11)]
+r_br_sqrt = np.concatenate(([0], r_br_sqrt))
+
+# Sharpness range
+r_sh = [i*75 for i in range(0, 12)]
+
+# Gaussian Blur range
+r_gblur = [i for i in range(0, 12)]
+
+# Imresize range
+r_imr = np.geomspace(0.01, 1, num=12)
+r_imr = r_imr[::-1]
+
+# Gaussian Noise range
+r_gau = np.geomspace(0.01, 5, num=11)
+r_gau = np.concatenate(([0], r_gau))
+
+# Salt and Pepper range
+r_snp = np.geomspace(0.03, 1, num=11)
+r_snp = np.concatenate(([0], r_snp))
+
+# Speckle Noise range
+r_spe = np.geomspace(0.03, 100, num=11)
+r_spe = np.concatenate(([0], r_spe))
+
+# with open(os.path.join(inp_d, 'LookupTable.txt'), 'w') as f:
+#     f.write('Color (Saturation) Parameters\n' + str(r_col) + '\n\n')
+#     f.write('Contrast Parameters\n' + str(r_con) + '\n\n')
+#     f.write('Brightness Parameters\n' + str(r_br) + '\n\n')
+#     f.write('Brightness (using sqrt space) Parameters\n' + str(r_br_sqrt) + '\n\n')
+#     f.write('Sharpness Parameters\n' + str(r_sh) + '\n\n')
+#     f.write('Gaussian Blur Parameters\n' + str(r_gblur) + '\n\n')
+#     f.write('Image Resize Parameters\n' + str(r_imr) + '\n\n')
+#     f.write('Gaussian Noise Parameters\n' + str(r_gau) + '\n\n')
+#     f.write('Salt and Pepper Noise Parameters\n' + str(r_snp) + '\n\n')
+#     f.write('Speckle Noise Parameters\n' + str(r_spe))
+
 for fn in ims:
     im = Image.open(fn)
     numpy_im = np.array(im.convert('RGB'))
-
-    ims_color = []
-    ims_contr = []
-    ims_brigh = []
-    ims_sharp = []
-    ims_gblur = []
-    ims_imres = []
-    ims_gnois = []
-    ims_snpno = []
-    ims_snois = []
-    ims_brigh_sqrt = []
 
     ofn = r"voc_only_logs\degraded\JPEGImages"
     font = ImageFont.truetype(r"C:\Windows\Fonts\arial.ttf", 48)
     text_color = (0, 255, 255)
 
     # COLOR CODE
-    r_col = np.linspace(0, 1, num=4, endpoint=False)
-    r_col2 = np.geomspace(1, 10, num=8, endpoint=False)
-
-    for i in r_col:
-        f = os.path.join(ofn, "{}_color_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_col):
+        f = os.path.join(ofn, "{}_color_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         color_adj(im, i).save(f)
 
-    for i in r_col2:
-        f = os.path.join(ofn, "{}_color_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
-        color_adj(im, i).save(f)
-
-
-    # CONTRAST CODE #######################################################
-    r_con = np.linspace(0.05, 1, num=6, endpoint=False)
-    r_con2 = np.geomspace(1, 5, num=5)
-
-    f = os.path.join(ofn, "{}_contrast_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], 0))
-    contrast_adj(im, 0).save(f)
-
-    for i in r_con:
-        f = os.path.join(ofn, "{}_contrast_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    # CONTRAST CODE
+    for e, i in enumerate(r_con):
+        f = os.path.join(ofn, "{}_contrast_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         contrast_adj(im, i).save(f)
-
-    for i in r_con2:
-        f = os.path.join(ofn, "{}_contrast_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
-        contrast_adj(im, i).save(f)
-
 
     # BRIGHTNESS CODE
-    r_br = np.geomspace(0.1, 1, num=6, endpoint=False)
-    r_br2 = np.geomspace(1, 30, num=5)
-
-    f = os.path.join(ofn, "{}_brightness_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], 0))
-    bright_adj(im, 0).save(f)
-
-    for i in r_br:
-        f = os.path.join(ofn, "{}_brightness_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_br):
+        f = os.path.join(ofn, "{}_brightness_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         bright_adj(im, i).save(f)
-
-    for i in r_br2:
-        f = os.path.join(ofn, "{}_brightness_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
-        bright_adj(im, i).save(f)
-
 
     # BRIGHTNESS CODE using "Square Root space"
-    r_br = np.geomspace(0.1, 1, num=6, endpoint=False)
-    r_br2 = np.geomspace(1, 30, num=5)
-
-    f = os.path.join(ofn, "{}_brightness_sqrt_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], 0))
-    bright_adj(im, 0).save(f)
-
-    for i in range(0, 11):
-        i -= 6
-        var = np.sqrt(2) ** i
-        f = os.path.join(ofn, "{}_brightness_sqrt_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], var))
-        bright_adj(im, var).save(f)
-
+    for e, i in enumerate(r_br_sqrt):
+        f = os.path.join(ofn, "{}_brightness_sqrt_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
+        bright_adj(im, i).save(f)
 
     # SHARPNESS CODE
-    for i in range(0, 12):
-        i = i * 75
-        f = os.path.join(ofn, "{}_sharpness_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_sh):
+        f = os.path.join(ofn, "{}_sharpness_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         sharp_adj(im, i).save(f)
 
-
     # GAUSSIAN BLUR CODE
-    for i in range(0, 12):
-        f = os.path.join(ofn, "{}_gblur_r{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_gblur):
+        f = os.path.join(ofn, "{}_gblur_r{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         gblur(im, i).save(f)
 
-
     # IMRESIZE CODE
-    r_imr = np.geomspace(0.01, 1, num=12)
-    r_imr = r_imr[::-1]
-
-    for i in r_imr:
-        f = os.path.join(ofn, "{}_resize_{:.3f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_imr):
+        f = os.path.join(ofn, "{}_resize_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         imresize(im, i).save(f)
 
-
     # GAUSSIAN NOISE CODE
-    r_gau = np.geomspace(0.01, 5, num=11)
-
-    f = os.path.join(ofn, "{}_gnoise_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], 0))
-    gnoise(numpy_im, 0).save(f)
-
-    for i in r_gau:
-        f = os.path.join(ofn, "{}_gnoise_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_gau):
+        f = os.path.join(ofn, "{}_gnoise_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         gnoise(numpy_im, i).save(f)
 
-
     # SALT AND PEPPER NOISE CODE
-    r_snp = np.geomspace(0.03, 1, num=11)
-
-    f = os.path.join(ofn, "{}_snpnoise_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], 0))
-    snpnoise(numpy_im, 0).save(f)
-
-    for i in r_snp:
-        f = os.path.join(ofn, "{}_snpnoise_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_snp):
+        f = os.path.join(ofn, "{}_snpnoise_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         snpnoise(numpy_im, i).save(f)
 
-
     # SPECKLE NOISE CODE
-    r_spe = np.geomspace(0.03, 100, num=11)
-
-    f = os.path.join(ofn, "{}_snoise_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], 0))
-    snoise(numpy_im, 0).save(f)
-
-    for i in r_spe:
-        f = os.path.join(ofn, "{}_snoise_{:.2f}.jpg".format(os.path.split(fn)[-1][:-4], i))
+    for e, i in enumerate(r_spe):
+        f = os.path.join(ofn, "{}_snoise_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         snoise(numpy_im, i).save(f)
 
-
-# ims_color = np.array(ims_color)
-# ims_contr = np.array(ims_contr)
-# ims_brigh = np.array(ims_brigh)
-# ims_sharp = np.array(ims_sharp)
-# ims_gblur = np.array(ims_gblur)
-# ims_imres = np.array(ims_imres)
-# ims_gnois = np.array(ims_gnois)
-# ims_snpno = np.array(ims_snpno)
-# ims_snois = np.array(ims_snois)
-# ims_brigh_sqrt = np.array(ims_brigh_sqrt)
-#
-# vert_color = []
-# vert_contr = []
-# vert_brigh = []
-# vert_sharp = []
-# vert_gblur = []
-# vert_imres = []
-# vert_gnois = []
-# vert_snpno = []
-# vert_snois = []
-# vert_brigh_sqrt = []
-#
-# for i in range(3):
-#     horiz_color = []
-#     horiz_contr = []
-#     horiz_brigh = []
-#     horiz_sharp = []
-#     horiz_gblur = []
-#     horiz_imres = []
-#     horiz_gnois = []
-#     horiz_snpno = []
-#     horiz_snois = []
-#     horiz_brigh_sqrt = []
-#     ii = 4
-#     for j in range(ii):
-#         if j == 0:
-#             horiz_color = ims_color[j+i*ii]
-#             horiz_contr = ims_contr[j+i*ii]
-#             horiz_brigh = ims_brigh[j+i*ii]
-#             horiz_sharp = ims_sharp[j+i*ii]
-#             horiz_gblur = ims_gblur[j+i*ii]
-#             horiz_imres = ims_imres[j+i*ii]
-#             horiz_gnois = ims_gnois[j+i*ii]
-#             horiz_snpno = ims_snpno[j+i*ii]
-#             horiz_snois = ims_snois[j+i*ii]
-#             horiz_brigh_sqrt = ims_brigh_sqrt[j + i * ii]
-#         else:
-#             horiz_color = np.hstack((horiz_color, ims_color[j+i*ii]))
-#             horiz_contr = np.hstack((horiz_contr, ims_contr[j+i*ii]))
-#             horiz_brigh = np.hstack((horiz_brigh, ims_brigh[j+i*ii]))
-#             horiz_sharp = np.hstack((horiz_sharp, ims_sharp[j+i*ii]))
-#             horiz_gblur = np.hstack((horiz_gblur, ims_gblur[j+i*ii]))
-#             horiz_imres = np.hstack((horiz_imres, ims_imres[j+i*ii]))
-#             horiz_gnois = np.hstack((horiz_gnois, ims_gnois[j+i*ii]))
-#             horiz_snpno = np.hstack((horiz_snpno, ims_snpno[j+i*ii]))
-#             horiz_snois = np.hstack((horiz_snois, ims_snois[j+i*ii]))
-#             horiz_brigh_sqrt = np.hstack((horiz_brigh_sqrt, ims_brigh_sqrt[j+i*ii]))
-#     if i == 0:
-#         vert_color = horiz_color
-#         vert_contr = horiz_contr
-#         vert_brigh = horiz_brigh
-#         vert_sharp = horiz_sharp
-#         vert_gblur = horiz_gblur
-#         vert_imres = horiz_imres
-#         vert_gnois = horiz_gnois
-#         vert_snpno = horiz_snpno
-#         vert_snois = horiz_snois
-#         vert_brigh_sqrt = horiz_brigh_sqrt
-#     else:
-#         vert_color = np.vstack((vert_color, horiz_color))
-#         vert_contr = np.vstack((vert_contr, horiz_contr))
-#         vert_brigh = np.vstack((vert_brigh, horiz_brigh))
-#         vert_sharp = np.vstack((vert_sharp, horiz_sharp))
-#         vert_gblur = np.vstack((vert_gblur, horiz_gblur))
-#         vert_imres = np.vstack((vert_imres, horiz_imres))
-#         vert_gnois = np.vstack((vert_gnois, horiz_gnois))
-#         vert_snpno = np.vstack((vert_snpno, horiz_snpno))
-#         vert_snois = np.vstack((vert_snois, horiz_snois))
-#         vert_brigh_sqrt = np.vstack((vert_brigh_sqrt, horiz_brigh_sqrt))
-#
-# Image.fromarray(vert_color).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_color_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_contr).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_contrast_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_brigh).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_brightness_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_sharp).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_sharpness_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_gblur).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gblur_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_imres).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_resize_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_gnois).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gnoise_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_snpno).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snpnoise_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_snois).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snoise_tiled.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
-# Image.fromarray(vert_brigh_sqrt).save(
-#     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_brightness_tiled_sqrt.jpg"
-#     .format(os.path.split(inp_fn)[-1][:-4]))
