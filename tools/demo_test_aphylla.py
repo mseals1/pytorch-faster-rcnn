@@ -73,7 +73,7 @@ def demo(net, image_name):
     print('Detection took {:.3f}s for {:d} object proposals'.format(timer.total_time(), boxes.shape[0]))
 
     # Visualize detections for each class
-    thresh = 0  # CONF_THRESH
+    thresh = 0.8  # CONF_THRESH
     NMS_THRESH = 0.3
 
     im = im[:, :, (2, 1, 0)]
@@ -113,8 +113,8 @@ def demo(net, image_name):
             ss.append(score)
 
         ss = np.array(ss)
-        if cls == 'person' or cls == 'dog' or cls == 'horse':
-            print("{:s} confidence: {:.3f}".format(cls, np.amax(ss)))
+        # if cls == 'person' or cls == 'dog' or cls == 'horse':
+        print("{:s} confidence: {:.3f}".format(cls, np.amax(ss)))
 
         ax.set_title('All detections with threshold >= {:.1f}'.format(thresh), fontsize=14)
 
