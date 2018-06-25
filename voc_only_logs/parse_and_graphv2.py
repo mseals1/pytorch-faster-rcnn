@@ -37,7 +37,7 @@ for _, g in g1:
     g2 = g.groupby(['class']).mean()
     g2 = g2.drop(labels=['AP', 'mAP'], axis=1)
 
-    xs.append(param)
+    xs.append(param[1:])
     yvals.append(g2.values)
     ylabels.append(g2.index)
 
@@ -48,14 +48,19 @@ yvals = np.squeeze(np.array(yvals))
 ylabels = np.array(ylabels[0])
 # print(ylabels.shape)
 
+cmap = plt.cm.tab20((np.arange(20)).astype(int))
+plt.gca().set_color_cycle(cmap)
+
 plt.plot(xs, yvals)
 
-plt.xlabel('Gaussian Blur')
-plt.ylabel('mean maxIoU')
-plt.title('Mean maxIoU vs. Gaussian Blur radius')
+plt.xlabel('Radius (pixels)', fontsize=18)
+plt.ylabel('Mean MaxIoU', fontsize=18)
+plt.title('Mean MaxIoU vs. Radius of Gaussian Blur', fontsize=28)
 plt.axis(([0, 17, 0, 1]))
+plt.xticks(fontsize=14)
+plt.yticks(fontsize=14)
 plt.grid(True)
-plt.legend(ylabels)
+plt.legend(ylabels, fontsize=14)
 
 plt.show()
 

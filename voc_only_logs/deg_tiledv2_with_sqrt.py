@@ -1,3 +1,6 @@
+# Applies all 9 degradation functions to a single image
+# Most functions use the log space
+
 from PIL import ImageEnhance
 from PIL import Image
 from PIL import ImageFilter
@@ -10,7 +13,7 @@ import argparse
 import random
 import os
 
-# 1, 6, 98
+# 4545.jpg
 
 
 # Adjust the colors of the image
@@ -64,7 +67,7 @@ def gnoise(im1, var1):
 
 
 # Salt and Pepper Noise
-# amt: amount of s&p noise in the image (percentage)
+# amt: amount of s&p noise in the image
 def snpnoise(im1, amt=0.05):
     out = skinoise.random_noise(im1, mode='s&p', amount=amt)
     out *= 255.0
@@ -100,116 +103,187 @@ ims_imres = []
 ims_gnois = []
 ims_snpno = []
 ims_snois = []
+ims_brigh_sqrt = []
 
 font = ImageFont.truetype(r"C:\Windows\Fonts\arial.ttf", 48)
+text_color = (0, 255, 255)
 
-for i in range(0, 30):
-    # COLOR ADJ CODE
-    var = i / 29.
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_color_{:.2f}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # color_adj(im, var).save(f)
-    img = color_adj(im, var)
+# COLOR CODE
+r_col = np.linspace(0, 1, num=4, endpoint=False)
+r_col2 = np.geomspace(1, 10, num=8, endpoint=False)
 
+for i in r_col:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_color_{:.2f}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # color_adj(im, i).save(f)
+    img = color_adj(im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
-
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
     ims_color.append(np.array(img))
 
-    # CONTRAST ADJ CODE
-    var = i / 15.
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_contrast_{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # contrast_adj(im, var).save(f)
-    img = contrast_adj(im, var)
-
+for i in r_col2:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_color_{:.2f}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # color_adj(im, i).save(f)
+    img = color_adj(im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
+    ims_color.append(np.array(img))
 
+
+# CONTRAST CODE #######################################################
+r_con = np.linspace(0.05, 1, num=6, endpoint=False)
+r_con2 = np.geomspace(1, 5, num=5)
+
+img = contrast_adj(im, 0)
+draw = ImageDraw.Draw(img)
+draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
+ims_contr.append(np.array(img))
+
+for i in r_con:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_contrast_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # contrast_adj(im, i).save(f)
+    img = contrast_adj(im, i)
+    draw = ImageDraw.Draw(img)
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
     ims_contr.append(np.array(img))
 
-    # BRIGHTNESS CODE
-    var = i / 15.
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_brightness_{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # bright_adj(im, var).save(f)
-    img = bright_adj(im, var)
-
+for i in r_con2:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_contrast_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # contrast_adj(im, i).save(f)
+    img = contrast_adj(im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
+    ims_contr.append(np.array(img))
 
+
+# BRIGHTNESS CODE #######################################################
+r_br = np.geomspace(0.1, 1, num=6, endpoint=False)
+r_br2 = np.geomspace(1, 30, num=5)
+
+img = bright_adj(im, 0)
+draw = ImageDraw.Draw(img)
+draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
+ims_brigh.append(np.array(img))
+
+for i in r_br:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_brightness_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # bright_adj(im, i).save(f)
+    img = bright_adj(im, i)
+    draw = ImageDraw.Draw(img)
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
     ims_brigh.append(np.array(img))
 
-    # SHARPNESS CODE
-    var = i * 50
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_sharpness_{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # sharp_adj(im, var).save(f)
-    img = sharp_adj(im, var)
-
+for i in r_br2:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_brightness_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # bright_adj(im, i).save(f)
+    img = bright_adj(im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
+    ims_brigh.append(np.array(img))
 
+# BRIGHTNESS CODE using "Square Root space"
+r_br = np.geomspace(0.1, 1, num=6, endpoint=False)
+r_br2 = np.geomspace(1, 30, num=5)
+
+img = bright_adj(im, 0)
+draw = ImageDraw.Draw(img)
+draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
+ims_brigh_sqrt.append(np.array(img))
+
+for i in range(0, 12):
+    # f = os.path.join(r"voc_only_logs\degraded\{}_brightness_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # bright_adj(im, i).save(f)
+    i -= 6
+    var = np.sqrt(2) ** i
+    img = bright_adj(im, var)
+    draw = ImageDraw.Draw(img)
+    draw.text((0, 0), "{:.2f}".format(var), text_color, font=font)
+    ims_brigh_sqrt.append(np.array(img))
+
+
+# SHARPNESS CODE
+for i in range(0, 12):
+    i = i * 75
+    # f = os.path.join(r"voc_only_logs\degraded\{}_sharpness_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # sharp_adj(im, i).save(f)
+    img = sharp_adj(im, i)
+    draw = ImageDraw.Draw(img)
+    draw.text((0, 0), "{:.2f}".format(i / 100. + 1), text_color, font=font)
     ims_sharp.append(np.array(img))
 
-    # GAUSSIAN BLUR CODE
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gblur_r{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], i))
+
+# GAUSSIAN BLUR CODE
+for i in range(0, 12):
+    # f = os.path.join(r"voc_only_logs\degraded\{}_gblur_r{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
     # gblur(im, i).save(f)
     img = gblur(im, i)
-
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), 'r' + str(i), (255, 255, 255), font=font)
-
+    draw.text((0, 0), 'r' + str(i), text_color, font=font)
     ims_gblur.append(np.array(img))
 
-    # IMRESIZE CODE
-    var = 1 - i / 30.
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_resize_{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # imresize(im, var).save(f)
-    img = imresize(im, var)
 
+# IMRESIZE CODE
+r_imr = np.geomspace(0.01, 1, num=12)
+r_imr = r_imr[::-1]
+
+for i in r_imr:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_resize_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # imresize(im, i).save(f)
+    img = imresize(im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
-
+    draw.text((0, 0), "{:.3f}".format(i), text_color, font=font)
     ims_imres.append(np.array(img))
 
-    # GAUSSIAN NOISE CODE
-    var = i / 29.
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gnoise_{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # gnoise(numpy_im, var).save(f)
-    img = gnoise(numpy_im, var)
 
+# GAUSSIAN NOISE CODE
+r_gau = np.geomspace(0.01, 5, num=11)
+
+img = gnoise(numpy_im, 0)
+draw = ImageDraw.Draw(img)
+draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
+ims_gnois.append(np.array(img))
+
+for i in r_gau:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_gnoise_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # gnoise(numpy_im, i).save(f)
+    img = gnoise(numpy_im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
-
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
     ims_gnois.append(np.array(img))
 
-    # SALT AND PEPPER NOISE CODE
-    var = i / 29.
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snpnoise_{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # snpnoise(numpy_im, var).save(f)7
-    img = snpnoise(numpy_im, var)
 
+# SALT AND PEPPER NOISE CODE
+r_snp = np.geomspace(0.03, 1, num=11)
+
+img = snpnoise(numpy_im, 0)
+draw = ImageDraw.Draw(img)
+draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
+ims_snpno.append(np.array(img))
+
+for i in r_snp:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_snpnoise_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # snpnoise(numpy_im, i).save(f)7
+    img = snpnoise(numpy_im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
-
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
     ims_snpno.append(np.array(img))
 
-    # SPECKLE NOISE CODE
-    var = i / 29.
-    # f = os.path.join(r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snoise_{}.jpg"
-    #                  .format(os.path.split(inp_fn)[-1][:-4], var))
-    # snoise(numpy_im, var).save(f)
-    img = snoise(numpy_im, var)
 
+# SPECKLE NOISE CODE
+r_spe = np.geomspace(0.03, 100, num=11)
+
+img = snoise(numpy_im, 0)
+draw = ImageDraw.Draw(img)
+draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
+ims_snois.append(np.array(img))
+
+for i in r_spe:
+    # f = os.path.join(r"voc_only_logs\degraded\{}_snoise_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
+    # snoise(numpy_im, i).save(f)
+    img = snoise(numpy_im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(var), (255, 255, 255), font=font)
-
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
     ims_snois.append(np.array(img))
+
 
 ims_color = np.array(ims_color)
 ims_contr = np.array(ims_contr)
@@ -220,6 +294,7 @@ ims_imres = np.array(ims_imres)
 ims_gnois = np.array(ims_gnois)
 ims_snpno = np.array(ims_snpno)
 ims_snois = np.array(ims_snois)
+ims_brigh_sqrt = np.array(ims_brigh_sqrt)
 
 vert_color = []
 vert_contr = []
@@ -230,8 +305,9 @@ vert_imres = []
 vert_gnois = []
 vert_snpno = []
 vert_snois = []
+vert_brigh_sqrt = []
 
-for i in range(5):
+for i in range(3):
     horiz_color = []
     horiz_contr = []
     horiz_brigh = []
@@ -241,7 +317,8 @@ for i in range(5):
     horiz_gnois = []
     horiz_snpno = []
     horiz_snois = []
-    ii = 6
+    horiz_brigh_sqrt = []
+    ii = 4
     for j in range(ii):
         if j == 0:
             horiz_color = ims_color[j+i*ii]
@@ -253,6 +330,7 @@ for i in range(5):
             horiz_gnois = ims_gnois[j+i*ii]
             horiz_snpno = ims_snpno[j+i*ii]
             horiz_snois = ims_snois[j+i*ii]
+            horiz_brigh_sqrt = ims_brigh_sqrt[j + i * ii]
         else:
             horiz_color = np.hstack((horiz_color, ims_color[j+i*ii]))
             horiz_contr = np.hstack((horiz_contr, ims_contr[j+i*ii]))
@@ -263,6 +341,7 @@ for i in range(5):
             horiz_gnois = np.hstack((horiz_gnois, ims_gnois[j+i*ii]))
             horiz_snpno = np.hstack((horiz_snpno, ims_snpno[j+i*ii]))
             horiz_snois = np.hstack((horiz_snois, ims_snois[j+i*ii]))
+            horiz_brigh_sqrt = np.hstack((horiz_brigh_sqrt, ims_brigh_sqrt[j+i*ii]))
     if i == 0:
         vert_color = horiz_color
         vert_contr = horiz_contr
@@ -273,6 +352,7 @@ for i in range(5):
         vert_gnois = horiz_gnois
         vert_snpno = horiz_snpno
         vert_snois = horiz_snois
+        vert_brigh_sqrt = horiz_brigh_sqrt
     else:
         vert_color = np.vstack((vert_color, horiz_color))
         vert_contr = np.vstack((vert_contr, horiz_contr))
@@ -283,6 +363,7 @@ for i in range(5):
         vert_gnois = np.vstack((vert_gnois, horiz_gnois))
         vert_snpno = np.vstack((vert_snpno, horiz_snpno))
         vert_snois = np.vstack((vert_snois, horiz_snois))
+        vert_brigh_sqrt = np.vstack((vert_brigh_sqrt, horiz_brigh_sqrt))
 
 Image.fromarray(vert_color).save(
     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_color_tiled.jpg"
@@ -311,4 +392,6 @@ Image.fromarray(vert_snpno).save(
 Image.fromarray(vert_snois).save(
     r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snoise_tiled.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
-
+Image.fromarray(vert_brigh_sqrt).save(
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_brightness_tiled_sqrt.jpg"
+    .format(os.path.split(inp_fn)[-1][:-4]))
