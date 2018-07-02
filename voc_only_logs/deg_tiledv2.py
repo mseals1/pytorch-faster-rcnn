@@ -107,73 +107,65 @@ ims_snois = []
 font = ImageFont.truetype(r"C:\Windows\Fonts\arial.ttf", 48)
 text_color = (0, 255, 255)
 
-# COLOR CODE
+# Color range
 r_col = np.linspace(0, 1, num=4, endpoint=False)
 r_col2 = np.geomspace(1, 10, num=8, endpoint=False)
+r_col = np.concatenate((r_col, r_col2))
 
-for i in r_col:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_color_{:.2f}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # color_adj(im, i).save(f)
-    img = color_adj(im, i)
-    draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
-    ims_color.append(np.array(img))
-
-for i in r_col2:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_color_{:.2f}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # color_adj(im, i).save(f)
-    img = color_adj(im, i)
-    draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
-    ims_color.append(np.array(img))
-
-
-# CONTRAST CODE #######################################################
+# Contrast range
 r_con = np.linspace(0.05, 1, num=6, endpoint=False)
-r_con2 = np.geomspace(1, 5, num=5)
+r_con2 = np.geomspace(1, 20, num=5)
+r_con = np.concatenate(([0], r_con, r_con2))
 
-img = contrast_adj(im, 0)
-draw = ImageDraw.Draw(img)
-draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
-ims_contr.append(np.array(img))
-
-for i in r_con:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_contrast_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # contrast_adj(im, i).save(f)
-    img = contrast_adj(im, i)
-    draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
-    ims_contr.append(np.array(img))
-
-for i in r_con2:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_contrast_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # contrast_adj(im, i).save(f)
-    img = contrast_adj(im, i)
-    draw = ImageDraw.Draw(img)
-    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
-    ims_contr.append(np.array(img))
-
-
-# BRIGHTNESS CODE #######################################################
+# Brightness range
 r_br = np.geomspace(0.1, 1, num=6, endpoint=False)
 r_br2 = np.geomspace(1, 30, num=5)
+r_br = np.concatenate(([0], r_br, r_br2))
 
-img = bright_adj(im, 0)
-draw = ImageDraw.Draw(img)
-draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
-ims_brigh.append(np.array(img))
+# Sharpness range
+r_sh = [i * 34 for i in range(0, 12)]
 
-for i in r_br:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_brightness_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # bright_adj(im, i).save(f)
-    img = bright_adj(im, i)
+# Gaussian Blur range
+# r_gblur = [i for i in range(0, 12)]
+r_gblur = np.linspace(0.5, 2.5, num=4, endpoint=False)
+r_gblur2 = np.linspace(3, 9, num=7)
+r_gblur = np.concatenate(([0], r_gblur, r_gblur2))
+
+# Imresize range
+r_imr = np.geomspace(0.04, 1, num=12)
+r_imr = r_imr[::-1]
+
+# Gaussian Noise range
+r_gau = np.geomspace(0.01, 10.24, num=11)
+r_gau = np.concatenate(([0], r_gau))
+
+# Salt and Pepper range
+r_snp = np.linspace(0.03, 0.5, num=6, endpoint=False)
+r_snp2 = np.linspace(0.5, 1, num=5)
+r_snp = np.concatenate(([0], r_snp, r_snp2))
+
+# Speckle Noise range
+r_spe = np.geomspace(0.03, 30, num=11)
+r_spe = np.concatenate(([0], r_spe))
+
+# COLOR CODE
+for i in r_col:
+    img = color_adj(im, i)
     draw = ImageDraw.Draw(img)
     draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
-    ims_brigh.append(np.array(img))
+    ims_color.append(np.array(img))
 
-for i in r_br2:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_brightness_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # bright_adj(im, i).save(f)
+
+# CONTRAST CODE
+for i in r_con:
+    img = contrast_adj(im, i)
+    draw = ImageDraw.Draw(img)
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
+    ims_contr.append(np.array(img))
+
+
+# BRIGHTNESS CODE
+for i in r_br:
     img = bright_adj(im, i)
     draw = ImageDraw.Draw(img)
     draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
@@ -181,10 +173,7 @@ for i in r_br2:
 
 
 # SHARPNESS CODE
-for i in range(0, 12):
-    i = i * 75
-    # f = os.path.join(r"voc_only_logs\degraded\{}_sharpness_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # sharp_adj(im, i).save(f)
+for i in r_sh:
     img = sharp_adj(im, i)
     draw = ImageDraw.Draw(img)
     draw.text((0, 0), "{:.2f}".format(i / 100. + 1), text_color, font=font)
@@ -192,22 +181,15 @@ for i in range(0, 12):
 
 
 # GAUSSIAN BLUR CODE
-for i in range(0, 12):
-    # f = os.path.join(r"voc_only_logs\degraded\{}_gblur_r{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # gblur(im, i).save(f)
+for i in r_gblur:
     img = gblur(im, i)
     draw = ImageDraw.Draw(img)
-    draw.text((0, 0), 'r' + str(i), text_color, font=font)
+    draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
     ims_gblur.append(np.array(img))
 
 
 # IMRESIZE CODE
-r_imr = np.geomspace(0.01, 1, num=12)
-r_imr = r_imr[::-1]
-
 for i in r_imr:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_resize_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # imresize(im, i).save(f)
     img = imresize(im, i)
     draw = ImageDraw.Draw(img)
     draw.text((0, 0), "{:.3f}".format(i), text_color, font=font)
@@ -215,16 +197,7 @@ for i in r_imr:
 
 
 # GAUSSIAN NOISE CODE
-r_gau = np.geomspace(0.01, 5, num=11)
-
-img = gnoise(numpy_im, 0)
-draw = ImageDraw.Draw(img)
-draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
-ims_gnois.append(np.array(img))
-
 for i in r_gau:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_gnoise_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # gnoise(numpy_im, i).save(f)
     img = gnoise(numpy_im, i)
     draw = ImageDraw.Draw(img)
     draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
@@ -232,16 +205,7 @@ for i in r_gau:
 
 
 # SALT AND PEPPER NOISE CODE
-r_snp = np.geomspace(0.03, 1, num=11)
-
-img = snpnoise(numpy_im, 0)
-draw = ImageDraw.Draw(img)
-draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
-ims_snpno.append(np.array(img))
-
 for i in r_snp:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_snpnoise_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # snpnoise(numpy_im, i).save(f)7
     img = snpnoise(numpy_im, i)
     draw = ImageDraw.Draw(img)
     draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)
@@ -249,16 +213,7 @@ for i in r_snp:
 
 
 # SPECKLE NOISE CODE
-r_spe = np.geomspace(0.03, 100, num=11)
-
-img = snoise(numpy_im, 0)
-draw = ImageDraw.Draw(img)
-draw.text((0, 0), "{:.2f}".format(0), text_color, font=font)
-ims_snois.append(np.array(img))
-
 for i in r_spe:
-    # f = os.path.join(r"voc_only_logs\degraded\{}_snoise_{}.jpg".format(os.path.split(inp_fn)[-1][:-4], i))
-    # snoise(numpy_im, i).save(f)
     img = snoise(numpy_im, i)
     draw = ImageDraw.Draw(img)
     draw.text((0, 0), "{:.2f}".format(i), text_color, font=font)

@@ -115,7 +115,7 @@ r_col = np.concatenate((r_col, r_col2))
 
 # Contrast range
 r_con = np.linspace(0.05, 1, num=6, endpoint=False)
-r_con2 = np.geomspace(1, 5, num=5)
+r_con2 = np.geomspace(1, 20, num=5)
 r_con = np.concatenate(([0], r_con, r_con2))
 
 # Brightness range
@@ -123,37 +123,36 @@ r_br = np.geomspace(0.1, 1, num=6, endpoint=False)
 r_br2 = np.geomspace(1, 30, num=5)
 r_br = np.concatenate(([0], r_br, r_br2))
 
-# Brightness sqrt range
-r_br_sqrt = [np.sqrt(2) ** (i - 6) for i in range(0, 11)]
-r_br_sqrt = np.concatenate(([0], r_br_sqrt))
-
 # Sharpness range
-r_sh = [i*75 for i in range(0, 12)]
+r_sh = [i * 34 for i in range(0, 12)]
 
 # Gaussian Blur range
-r_gblur = [i for i in range(0, 12)]
+# r_gblur = [i for i in range(0, 12)]
+r_gblur = np.linspace(0.5, 2.5, num=4, endpoint=False)
+r_gblur2 = np.linspace(3, 9, num=7)
+r_gblur = np.concatenate(([0], r_gblur, r_gblur2))
 
 # Imresize range
-r_imr = np.geomspace(0.01, 1, num=12)
+r_imr = np.geomspace(0.04, 1, num=12)
 r_imr = r_imr[::-1]
 
 # Gaussian Noise range
-r_gau = np.geomspace(0.01, 5, num=11)
+r_gau = np.geomspace(0.01, 10.24, num=11)
 r_gau = np.concatenate(([0], r_gau))
 
 # Salt and Pepper range
-r_snp = np.geomspace(0.03, 1, num=11)
-r_snp = np.concatenate(([0], r_snp))
+r_snp = np.linspace(0.03, 0.5, num=6, endpoint=False)
+r_snp2 = np.linspace(0.5, 1, num=5)
+r_snp = np.concatenate(([0], r_snp, r_snp2))
 
 # Speckle Noise range
-r_spe = np.geomspace(0.03, 100, num=11)
+r_spe = np.geomspace(0.03, 30, num=11)
 r_spe = np.concatenate(([0], r_spe))
 
 # with open(os.path.join(inp_d, 'LookupTable.txt'), 'w') as f:
 #     f.write('Color (Saturation) Parameters\n' + str(r_col) + '\n\n')
 #     f.write('Contrast Parameters\n' + str(r_con) + '\n\n')
 #     f.write('Brightness Parameters\n' + str(r_br) + '\n\n')
-#     f.write('Brightness (using sqrt space) Parameters\n' + str(r_br_sqrt) + '\n\n')
 #     f.write('Sharpness Parameters\n' + str(r_sh) + '\n\n')
 #     f.write('Gaussian Blur Parameters\n' + str(r_gblur) + '\n\n')
 #     f.write('Image Resize Parameters\n' + str(r_imr) + '\n\n')
@@ -182,11 +181,6 @@ for fn in ims:
     # BRIGHTNESS CODE
     for e, i in enumerate(r_br):
         f = os.path.join(ofn, "{}_brightness_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
-        bright_adj(im, i).save(f)
-
-    # BRIGHTNESS CODE using "Square Root space"
-    for e, i in enumerate(r_br_sqrt):
-        f = os.path.join(ofn, "{}_brightness_sqrt_{}.jpg".format(os.path.split(fn)[-1][:-4], e))
         bright_adj(im, i).save(f)
 
     # SHARPNESS CODE
