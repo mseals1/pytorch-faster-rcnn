@@ -105,8 +105,7 @@ args = parser.parse_args()
 inp_d = args.inp_dir
 ims = []
 
-for dirs, _, files in os.walk(inp_d):
-    ims += glob.glob(os.path.join(dirs, "*.jpg"))
+ims += glob.glob(os.path.join(inp_d, "*.jpg"))
 
 # Color range
 r_col = np.linspace(0, 1, num=4, endpoint=False)
@@ -160,13 +159,11 @@ r_spe = np.concatenate(([0], r_spe))
 #     f.write('Salt and Pepper Noise Parameters\n' + str(r_snp) + '\n\n')
 #     f.write('Speckle Noise Parameters\n' + str(r_spe))
 
+ofn = os.path.join(inp_d, "JPEGImages")
+
 for fn in ims:
     im = Image.open(fn)
     numpy_im = np.array(im.convert('RGB'))
-
-    ofn = r"voc_only_logs\degraded\JPEGImages"
-    font = ImageFont.truetype(r"C:\Windows\Fonts\arial.ttf", 48)
-    text_color = (0, 255, 255)
 
     # COLOR CODE
     for e, i in enumerate(r_col):
