@@ -294,29 +294,29 @@ for i in range(3):
         vert_snois = np.vstack((vert_snois, horiz_snois))
 
 Image.fromarray(vert_color).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_color_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_color_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_contr).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_contrast_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_contrast_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_brigh).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_brightness_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_brightness_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_sharp).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_sharpness_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_sharpness_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_gblur).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gblur_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gblur_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_imres).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_resize_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_resize_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_gnois).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gnoise_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_gnoise_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_snpno).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snpnoise_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snpnoise_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))
 Image.fromarray(vert_snois).save(
-    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snoise_tiled.jpg"
+    r"C:\Users\Matthew\Desktop\masters\pytorch-faster-rcnn\voc_only_logs\degraded\{}_snoise_strip.jpg"
     .format(os.path.split(inp_fn)[-1][:-4]))

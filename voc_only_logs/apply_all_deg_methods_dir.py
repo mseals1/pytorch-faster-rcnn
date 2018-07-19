@@ -148,18 +148,21 @@ r_snp = np.concatenate(([0], r_snp, r_snp2))
 r_spe = np.geomspace(0.03, 30, num=11)
 r_spe = np.concatenate(([0], r_spe))
 
-# with open(os.path.join(inp_d, 'LookupTable.txt'), 'w') as f:
-#     f.write('Color (Saturation) Parameters\n' + str(r_col) + '\n\n')
-#     f.write('Contrast Parameters\n' + str(r_con) + '\n\n')
-#     f.write('Brightness Parameters\n' + str(r_br) + '\n\n')
-#     f.write('Sharpness Parameters\n' + str(r_sh) + '\n\n')
-#     f.write('Gaussian Blur Parameters\n' + str(r_gblur) + '\n\n')
-#     f.write('Image Resize Parameters\n' + str(r_imr) + '\n\n')
-#     f.write('Gaussian Noise Parameters\n' + str(r_gau) + '\n\n')
-#     f.write('Salt and Pepper Noise Parameters\n' + str(r_snp) + '\n\n')
-#     f.write('Speckle Noise Parameters\n' + str(r_spe))
+with open(os.path.join(inp_d, 'LookupTable.txt'), 'w') as f:
+    f.write('Color (Saturation) Parameters\n' + str(r_col) + '\n\n')
+    f.write('Contrast Parameters\n' + str(r_con) + '\n\n')
+    f.write('Brightness Parameters\n' + str(r_br) + '\n\n')
+    f.write('Sharpness Parameters\n' + str(r_sh) + '\n\n')
+    f.write('Gaussian Blur Parameters\n' + str(r_gblur) + '\n\n')
+    f.write('Image Resize Parameters\n' + str(r_imr) + '\n\n')
+    f.write('Gaussian Noise Parameters\n' + str(r_gau) + '\n\n')
+    f.write('Salt and Pepper Noise Parameters\n' + str(r_snp) + '\n\n')
+    f.write('Speckle Noise Parameters\n' + str(r_spe))
 
 ofn = os.path.join(inp_d, "JPEGImages")
+
+if not os.path.exists(ofn):
+    os.makedirs(ofn)
 
 for fn in ims:
     im = Image.open(fn)
