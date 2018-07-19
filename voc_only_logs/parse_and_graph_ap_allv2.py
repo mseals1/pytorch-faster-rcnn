@@ -5,7 +5,7 @@
 
 # ERROR BARS on a bar graph
 # one graph for each method (9 methods)
-# making the graphs have the original scale (was linear scale no matter the values)
+# making the graphs have the original scale (was linear spacing no matter the values)
 
 import argparse
 import pandas as pd
@@ -109,8 +109,8 @@ for dirs, subdirs, files in os.walk(inp_d):
 
         plt.errorbar(methods[m], yvals, yerr=yerr, fmt='-o', capsize=4, color='k',
                      ecolor='r', markerfacecolor='k')
-        plt.xlabel(xlbls[m], fontsize=18)
-        plt.ylabel('mAP score', fontsize=18)
+        plt.xlabel(xlbls[m], fontsize=18, weight='bold')
+        plt.ylabel('mAP score', fontsize=18, weight='bold')
         if m == 'color':
             plt.title('Effect of the ' + 'Saturation' + ' on Model Performance', fontsize=28)
         elif m == 'gblur':

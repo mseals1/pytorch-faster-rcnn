@@ -106,9 +106,9 @@ for dirs, subdirs, files in os.walk(inp_d):
         yvals = np.squeeze(np.array(yvals))
         yvals = yvals.mean(axis=1)
 
-        plt.errorbar(xs, yvals, yerr=yerr, fmt='-o', capsize=4, color='k')  # , ecolor='r', markerfacecolor='k')
-        plt.xlabel(xlbls[m], fontsize=18)
-        plt.ylabel('mAP score', fontsize=18)
+        plt.errorbar(xs, yvals, yerr=yerr, fmt='-o', capsize=4, color='k', ecolor='r', markerfacecolor='k')
+        plt.xlabel(xlbls[m], fontsize=18, weight='bold')
+        plt.ylabel('mAP score', fontsize=18, weight='bold')
         if m == 'color':
             plt.title('Effect of the ' + 'Saturation' + ' on Model Performance', fontsize=28)
         elif m == 'gblur':

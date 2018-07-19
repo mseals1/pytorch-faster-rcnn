@@ -143,16 +143,26 @@ for e, m in enumerate(methods.keys()):
             plt.title('Effect of the ' + 'Gaussian Blur' + ' on Model Performance', fontsize=28)
         elif m == 'gnoise':
             plt.title('Effect of the ' + 'Gaussian Noise' + ' on Model Performance', fontsize=28)
+            plt.xscale('log')
         elif m == 'snoise':
             plt.title('Effect of the ' + 'Speckle Noise' + ' on Model Performance', fontsize=28)
+            plt.xscale('log')
         elif m == 'snpnoise':
             plt.title('Effect of the ' + 'Salt and Pepper Noise' + ' on Model Performance', fontsize=28)
         elif m == 'resize':
             plt.title('Effect of the ' + 'Image Size' + ' on Model Performance', fontsize=28)
+        elif m == 'brightness':
+            plt.title('Effect of the ' + 'Brightness' + ' on Model Performance', fontsize=28)
+            plt.xscale('log')
+        elif m == 'contrast':
+            plt.title('Effect of the ' + 'Contrast' + ' on Model Performance', fontsize=28)
+            plt.xscale('log')
         else:
             plt.title('Effect of the ' + m.capitalize() + ' on Model Performance', fontsize=28)
-        plt.axis(([0, 13, 0, 1]))
-        plt.xticks(all_xs, methods[m], fontsize=14)
+        # plt.axis(([0, 13, 0, 1]))
+        plt.ylim([0, 1])
+        # plt.xticks(all_xs, methods[m], fontsize=14)
+        plt.xticks(fontsize=14)
         plt.yticks(fontsize=14)
         plt.legend(all_ylabels, fontsize=15, frameon=False)
 

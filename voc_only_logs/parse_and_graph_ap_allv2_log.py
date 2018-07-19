@@ -7,8 +7,6 @@
 # one graph for each method (9 methods)
 # making the graphs have the original scale (was linear scale no matter the values)
 
-# FIXED RANGES
-
 import argparse
 import pandas as pd
 import os
@@ -45,6 +43,7 @@ r_sh = [i * 34 for i in range(0, 12)]
 r_sh = np.array(r_sh).round(decimals=0).astype(int)
 
 # Gaussian Blur range
+# r_gblur = [i for i in range(0, 12)]
 r_gblur = np.linspace(0.5, 2.5, num=4, endpoint=False)
 r_gblur2 = np.linspace(3, 9, num=7)
 r_gblur = np.concatenate(([0], r_gblur, r_gblur2)).round(decimals=2)
@@ -55,15 +54,16 @@ r_imr = r_imr[::-1]
 r_imr = (np.array(r_imr)*100).round(decimals=0).astype(int)
 
 # Gaussian Noise range
-r_gau = np.geomspace(0.01, 2.56, num=11)
+r_gau = np.geomspace(0.01, 10.24, num=11)
 r_gau = np.concatenate(([0], r_gau)).round(decimals=2)
 
 # Salt and Pepper range
-r_snp = np.linspace(0, 0.5, num=12)
-r_snp = (r_snp*100).round(decimals=0).astype(int)
+r_snp = np.linspace(0.03, 0.5, num=6, endpoint=False)
+r_snp2 = np.linspace(0.5, 1, num=5)
+r_snp = (np.concatenate(([0], r_snp, r_snp2))*100).round(decimals=0).astype(int)
 
 # Speckle Noise range
-r_spe = np.geomspace(0.03, 15, num=11)
+r_spe = np.geomspace(0.03, 30, num=11)
 r_spe = np.concatenate(([0], r_spe)).round(decimals=2)
 
 all_xs = []
