@@ -46,7 +46,6 @@ r_sh = [i * 34 for i in range(0, 12)]
 r_sh = np.array(r_sh).round(decimals=0).astype(int)
 
 # Gaussian Blur range
-# r_gblur = [i for i in range(0, 12)]
 r_gblur = np.linspace(0.5, 2.5, num=4, endpoint=False)
 r_gblur2 = np.linspace(3, 9, num=7)
 r_gblur = np.concatenate(([0], r_gblur, r_gblur2)).round(decimals=2)
